@@ -109,7 +109,8 @@ All custom JS lives in `assets/js/main.js` (jQuery, loaded in footer):
 - Mobile off-canvas menu (`#trigger`, `#slide-div`) with inert/aria handling
 - Submenu toggles (`.nav-toggle`): mega panels on desktop, accordions on mobile, Escape and click-away to close
 - Tabs (`.ttng-tabs`) with arrow/Home/End keys; people slider arrows (`.people-slider--slider`)
-- Sticky header (`body.header-is-stuck`), stat count-up, scroll reveal on cards
+- Sticky header (`body.header-is-stuck`), stat count-up
+- Scroll reveal: `ttng_reveal( selector, variant, stagger )` adds `.reveal` plus an optional variant (`from-left`, `from-right`, `scale`, `fade`; styles in additions.css). Add new elements there. Skips the hero and anything on screen at load; carousel items only fade, and those starting off-screen are skipped. Page Header animates on load in `page_header.css`
 - Fade slider `.ttng-slider` (home banner) — autoplay, dots, pause button, pauses on hover/focus, starts paused for reduced-motion users
 - Smooth anchor scrolling offset by the fixed header
 - Simple accordion (`.accordion-header` / `.accordion-content`)

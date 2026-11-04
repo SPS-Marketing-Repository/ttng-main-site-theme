@@ -6,7 +6,8 @@
  * 650×400 square-cornered image, 1px dividers between consecutive rows.
 **/
 
-.module--split-content { padding: 97px 0; }
+/* overflow-x: columns slide in from the sides without a horizontal scrollbar */
+.module--split-content { padding: 97px 0; overflow-x: clip; }
 
 .module--split-content .section-title { margin-bottom: 0; }
 

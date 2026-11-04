@@ -156,6 +156,19 @@ Two consecutive white (or light-grey) sections drop the second one's top padding
 | Hover | Cards on hover | `--shadow-hover: 0 16px 40px rgba(15,25,61,.16)` |
 | Overlay | Dropdowns, scrolled header | `0 16px 32px rgba(15,25,61,.18)` / `0 8px 24px rgba(15,25,61,.3)` |
 
+### Motion
+
+Content animates once as it scrolls into view, using `ttng_reveal()` in `main.js`. Keep it calm: one soft movement per element, nothing that loops or repeats on scroll.
+
+| Variant | Movement | Used on |
+|---|---|---|
+| Default | Fade up 30px, .7s | Headings, text, panels. Cards and row items are staggered by .12s |
+| `from-left` / `from-right` | Slide 40px, .9s (fade up when stacked, ≤992px) | Split Content text and media |
+| `scale` | Fade in from 96%, .9s | Images |
+| `fade` | Fade only, .7s | Carousel items, full-bleed images |
+
+Page Headers animate on load, with a 9s settle on a full-size background image. Hover: cards lift 4px, images inside them zoom to 105%, button icons nudge 3px. All of it is off for reduced-motion users.
+
 ---
 
 ## 7. Do's and Don'ts

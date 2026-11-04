@@ -130,8 +130,9 @@
       window.requestAnimationFrame(ttng_step);
     }
 
-    // Cards fade in and up as they scroll into view, staggered along each
-    // row. Content stays visible without JS or for reduced-motion users.
+    // Content animates in once as it scrolls into view. It stays visible without
+    // JS or for reduced-motion users, because the classes are only added here.
+    // Variants are in additions.css; page headers animate on load in page_header.css.
     if (canObserve && !reduceMotionPref) {
       const revealObserver = new IntersectionObserver(function(entries, observer) {
         entries.forEach(function(entry) {
@@ -142,14 +143,48 @@
         });
       }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
-      $('.intro-card, .grid-card, .news-card, .icon-item, .brochure-card, .person-card, .faq-item').each(function() {
-        // Position within its row: the card's column among its siblings
-        const $col = $(this).parent().is('[class*="col"], li') ? $(this).parent() : $(this);
-        const delay = ($col.index() % 4) * 0.12;
-        this.style.setProperty('--reveal-delay', delay + 's');
-        this.classList.add('reveal');
-        revealObserver.observe(this);
-      });
+      const ttng_reveal = function(selector, variant, stagger) {
+        $(selector)
+          // The hero animates itself, and the split text column moves as one piece.
+          .not('.module--home-banner *, .module--page-header *, .split-content__text *')
+          .each(function() {
+            const box = this.getBoundingClientRect();
+            const track = this.closest('.timeline--story, .news-carousel__track, .people-slider--slider .people-slider__track');
+            // Already on screen: leave it visible, so it can't flash or delay the first paint.
+            // Mostly off-screen in a carousel: leave it visible, or sliding to it shows a blank card.
+            if (box.top < window.innerHeight || (track && box.left + box.width / 2 >= track.getBoundingClientRect().right)) {
+              return;
+            }
+            // Fade only in a carousel: vertical movement in a scrolling track can flash a scrollbar.
+            const itemVariant = track ? 'fade' : variant;
+            if (stagger) {
+              // Position within its row: the item's column among its siblings
+              const $col = $(this).parent().is('[class*="col"], li') ? $(this).parent() : $(this);
+              this.style.setProperty('--reveal-delay', ($col.index() % 4) * 0.12 + 's');
+            }
+            this.classList.add('reveal');
+            if (itemVariant) {
+              this.classList.add('reveal--' + itemVariant);
+            }
+            revealObserver.observe(this);
+          });
+      };
+
+      // Cards and row items: fade up, one after another along the row
+      ttng_reveal('.intro-card, .grid-card, .news-card, .icon-item, .brochure-card, .person-card, .faq-item, .logo-strip__item, .feature-box, .boxed-list__column, .contact-card, .testimonials__benefit, .timeline__item', '', true);
+
+      // Headings, text blocks and whole panels: a single fade up
+      ttng_reveal('.section-header, .logo-strip__title, .section-ctas--below, .fw-block:not(.fw-block--image), .fw-block--image-panel, .full-width-content__inner > .section-label, .full-width-content__inner > .section-ctas, .quote-panel, .testimonial-slider, .testimonials__note, .feature-boxes__footer, .download__intro .section-ctas, .module--cta-band .contact-details', '', false);
+
+      // Split Content: text and media come in from their own side
+      ttng_reveal('.split-content--media-right .split-content__text, .split-content--media-left .split-content__media', 'from-left', true);
+      ttng_reveal('.split-content--media-right .split-content__media, .split-content--media-left .split-content__text', 'from-right', true);
+
+      // Images: fade in while growing slightly into place
+      ttng_reveal('.split-content__image img, .ttng-tabs__media img, .fw-block--image img, .download__media img, .quote-panel__media img', 'scale', false);
+
+      // Full-bleed split image: a simple fade, as it's positioned against the section edge
+      ttng_reveal('.split-content__bleed', 'fade', false);
     }
 
     // FAQ accordion: animates the native <details> height and fade. Without JS,

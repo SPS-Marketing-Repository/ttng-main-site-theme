@@ -22,16 +22,56 @@
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 1;
   background: var(--navy);
   opacity: .25;
   pointer-events: none;
+}
+
+/* Slow settle on load: a copy of the background image, above the module's own
+   so the image never waits on the animation, and below the navy wash. */
+.module--page-header { isolation: isolate; }
+
+.module--page-header.has-image-zoom::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: inherit;
+  pointer-events: none;
+  animation: ttng-page-header-zoom 9s cubic-bezier(.2, .65, .3, 1) both;
+}
+
+@keyframes ttng-page-header-zoom {
+  from { transform: scale(1.08); }
+  to   { transform: scale(1); }
+}
+
+/* Text and image fade up on load (it's at the top of the page, so no scroll trigger) */
+.module--page-header .page-header__breadcrumbs,
+.module--page-header .section-header,
+.module--page-header .section-ctas,
+.page-header__media {
+  animation: ttng-reveal .7s cubic-bezier(.2, .65, .3, 1) backwards;
+}
+
+.module--page-header .section-ctas,
+.page-header__media { animation-delay: .15s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .module--page-header.has-image-zoom::after { display: none; }
+
+  .module--page-header .page-header__breadcrumbs,
+  .module--page-header .section-header,
+  .module--page-header .section-ctas,
+  .page-header__media { animation: none; }
 }
 
 /* Gradient-bg watermark doesn't apply here */
 .module--page-header.section-bg--gradient::before { background-image: none; }
 .module--page-header.has-image.section-bg--gradient::before { background: var(--navy); opacity: .25; }
 
-.module--page-header .container { position: relative; z-index: 1; width: 100%; }
+.module--page-header .container { position: relative; z-index: 2; width: 100%; }
 
 .module--page-header .section-title {
   margin: 0;

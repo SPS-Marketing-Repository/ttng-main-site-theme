@@ -35,6 +35,7 @@ if ( ! $header_image && has_post_thumbnail( get_queried_object_id() ) ) {
 }
 
 $header_style = '';
+$header_zoom  = false;
 
 if ( $header_image ) {
 	$size     = get_sub_field( 'header_background_size' );
@@ -44,6 +45,9 @@ if ( $header_image ) {
 	$size     = in_array( $size, [ 'cover', 'contain', 'auto' ], true ) ? $size : 'cover';
 	$position = in_array( $position, [ 'left top', 'center top', 'right top', 'left center', 'center center', 'right center', 'left bottom', 'center bottom', 'right bottom' ], true ) ? $position : 'center center';
 
+	// The slow zoom only suits a full-bleed image: a contained one would show twice.
+	$header_zoom = 'cover' === $size;
+
 	$header_style = sprintf(
 		' style="--page-header-image: url(%1$s); --page-header-size: %2$s; --page-header-position: %3$s"',
 		esc_url( $header_image ),
@@ -52,7 +56,7 @@ if ( $header_image ) {
 	);
 }
 ?>
-<section<?php echo ttng_module_attrs( 'page-header', 'gradient', trim( ( $header_image ? 'has-image' : '' ) . ( $logo ? ' has-media' : '' ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in helper. ?><?php echo $header_style; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped above. ?>>
+<section<?php echo ttng_module_attrs( 'page-header', 'gradient', trim( ( $header_image ? 'has-image' : '' ) . ( $header_zoom ? ' has-image-zoom' : '' ) . ( $logo ? ' has-media' : '' ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in helper. ?><?php echo $header_style; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped above. ?>>
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="<?php echo $logo ? 'col-lg-6 page-header__text' : 'col-lg-10 col-xl-8'; ?>">

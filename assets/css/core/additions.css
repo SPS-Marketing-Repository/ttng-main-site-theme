@@ -577,9 +577,10 @@ h4 { font-size: var(--fs-h4); font-weight: var(--fw-semi); }
 }
 
 /* ==========================================================================
-   Scroll reveal (assets/js/main.js) — cards fade in and up, staggered.
+   Scroll reveal (assets/js/main.js) — content animates in once, on scroll.
    Uses an animation (not a transition) so it doesn't fight the cards' own
    hover transitions; the class is only added by JS, so no-JS stays visible.
+   Add new elements to the ttng_reveal() calls in main.js.
    ========================================================================== */
 .reveal { opacity: 0; }
 
@@ -588,13 +589,58 @@ h4 { font-size: var(--fs-h4); font-weight: var(--fw-semi); }
   animation: ttng-reveal .7s cubic-bezier(.2, .65, .3, 1) var(--reveal-delay, 0s) backwards;
 }
 
+.reveal--fade.is-visible { animation-name: ttng-reveal-fade; }
+.reveal--scale.is-visible { animation-name: ttng-reveal-scale; animation-duration: .9s; }
+
+/* Side-by-side on desktop only. Stacked on smaller screens, these fade up. */
+@media (min-width: 993px) {
+  .reveal--from-left.is-visible { animation-name: ttng-reveal-left; animation-duration: .9s; }
+  .reveal--from-right.is-visible { animation-name: ttng-reveal-right; animation-duration: .9s; }
+}
+
 @keyframes ttng-reveal {
   from { opacity: 0; transform: translateY(30px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes ttng-reveal-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes ttng-reveal-scale {
+  from { opacity: 0; transform: scale(.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes ttng-reveal-left {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes ttng-reveal-right {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; }
   .reveal.is-visible { animation: none; }
+}
+
+/* Content that hasn't been scrolled to still has to print */
+@media print {
+  .reveal { opacity: 1; }
+  .reveal.is-visible { animation: none; }
+}
+
+/* Button icons nudge along on hover */
+.btn .icon { transition: transform .2s ease; }
+.btn:hover .icon,
+.btn:focus-visible .icon { transform: translateX(3px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn:hover .icon,
+  .btn:focus-visible .icon { transform: none; }
 }
 
