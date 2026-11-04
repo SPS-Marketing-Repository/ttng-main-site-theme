@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.6.1] - 2026-11-04
+
+### Changed
+- Icon Grid: a part-filled last row is now centred.
+
+### Fixed
+- SVGs with only a `viewBox` rendered about 1px tall, as seen in Logo Strip, because they were output with `width="1" height="1"`. They now get real dimensions from the `viewBox` (`ttng_svg_image_dimensions()` in `inc/media.php`).
+
 ## [2.6.0] - 2026-11-04
 
 First public release. Sites now update from wp-admin. Sync the field groups after updating (Custom Fields → Field Groups → Sync available).

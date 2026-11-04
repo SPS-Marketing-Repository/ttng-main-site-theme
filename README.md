@@ -1,6 +1,6 @@
 # The Travel Network Group — WordPress Theme
 
-**Version:** 2.6.0  
+**Version:** 2.6.1  
 **Agency:** [SPS Marketing](https://spsmarketing.co.uk/)  
 **Text Domain:** `ttng-main-site-theme`
 
