@@ -5,7 +5,9 @@ name: Release theme
 on:
   push:
     tags:
-      - 'v[0-9]+.[0-9]+.[0-9]+'
+      - 'v*'
+  # To re-run a release from an existing tag: gh workflow run release.yml --ref vx.y.z
+  workflow_dispatch:
 
 permissions:
   contents: write
