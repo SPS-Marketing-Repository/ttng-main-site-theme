@@ -201,13 +201,14 @@ Built-in `post` type is relabelled to **Insights** via `inc/post-labels.php`. Me
 - Content import tool: `wp-content/mu-plugins/ttng-content-import.php` (Tools → TTNG Import). Dev only — delete before launch.
 - Contact Form 7 6.2 throws a PHP fatal when a logged-out request hits `GET /wp-json/contact-form-7/v1/contact-forms` (plugin bug: a static closure uses `$this`, `includes/rest-api.php:33`). Not theme code; update the plugin when a fix ships.
 - Brand gradient button (`#3153CC → #009ADF`) with white 15px text is ~3:1 at the light end — below WCAG AA 4.5:1. Matches the live site; confirm with client or darken the end stop.
+- Pushing a tag did not start the release workflow during the 2.6.0 release (three attempts, cause not found; manual runs work and no ruleset applies). Start it with `gh workflow run release.yml --ref vx.y.z` if no run appears.
 - Page builder module CSS is enqueued mid-page, so it prints in the footer (late styles) — possible flash of unstyled content / CLS. Consider pre-scanning `page_builder` rows on `wp_enqueue_scripts`.
 
 ---
 
 ## Releases
 
-Sites update from wp-admin through GitHub Releases (`inc/updater.php`). Full steps are in README.md under "Releasing an Update". In short: bump `Version` in `style.css` and the README, move `[Unreleased]` in `CHANGELOG.md` under the new version, merge to `main`, push a `vx.y.z` tag. `.github/workflows/release.yml` then builds `ttng-main-site-theme.zip` and publishes the release.
+Sites update from wp-admin through GitHub Releases (`inc/updater.php`). Full steps are in README.md under "Releasing an Update". In short: bump `Version` in `style.css` and the README, move `[Unreleased]` in `CHANGELOG.md` under the new version, merge to `main`, push a `vx.y.z` tag, then confirm a run started (see Known Issues). `.github/workflows/release.yml` then builds `ttng-main-site-theme.zip` and publishes the release.
 
 - Never upload a GitHub source zip to a site: only the built asset has the right folder name.
 - An update replaces the whole theme folder, so field group changes made in the ACF admin on a live site are lost at the next update. Make them locally and release them.

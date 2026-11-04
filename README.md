@@ -150,7 +150,7 @@ git tag vx.y.z
 git push origin main vx.y.z
 ```
 
-The **Release theme** workflow then checks the tag matches `style.css`, lints the PHP, validates the ACF JSON, builds `ttng-main-site-theme.zip` and publishes the release. Check it passed under the repository's **Actions** tab. A failed run publishes nothing, so no site is offered that version. Fix the problem and release it under the next version number.
+The **Release theme** workflow then checks the tag matches `style.css`, lints the PHP, validates the ACF JSON, builds `ttng-main-site-theme.zip` and publishes the release. Check it passed under the repository's **Actions** tab. If no run appears within a couple of minutes, start it yourself: `gh workflow run release.yml --ref vx.y.z`, or **Actions → Release theme → Run workflow** and choose the tag. If the tag's own run then starts as well, it fails harmlessly because the release already exists. A failed run publishes nothing, so no site is offered that version. Fix the problem and release it under the next version number.
 
 Don't delete the zip from a release, and don't upload a GitHub source zip to a site: it unpacks to a different folder name and installs as a second theme.
 
