@@ -1,0 +1,152 @@
+/**
+ * #.#   People Module
+ *
+ * Styles for template-parts/modules/people_slider.php
+**/
+
+.people-slider {
+  position: relative;
+  margin-top: var(--stack-space);
+}
+
+.people-slider__track {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.people-slider__track:hover > li:not(:hover) { opacity: 1; }
+
+.people-slider--grid .people-slider__track {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.people-slider--slider .people-slider__track {
+  display: flex;
+  gap: 24px;
+  padding: 6px 4px 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+}
+
+.people-slider--slider .people-slider__track:focus-visible { outline: 2px solid var(--blue-dark); outline-offset: 3px; }
+
+.people-slider--slider .people-slider__slide {
+  flex: 0 0 calc((100% - 72px) / 4);   /* 4 per view, as staging */
+  scroll-snap-align: start;
+}
+
+/* Staging "Our People Profile Slider": photo on top (25px top corners),
+   navy body below with white name, light-blue text and a button. */
+.person-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.person-card__photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 302px;
+  overflow: hidden;
+  color: var(--blue-light);
+  border-radius: 25px 25px 0 0;
+  background: var(--grey-light);
+}
+
+.person-card__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.person-card__photo .icon { width: 45%; height: 45%; }
+
+.person-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 40px 28px 50px 30px;
+  border-radius: 0 0 25px 25px;
+  background: var(--navy);
+}
+
+/* Explicit colours: navy body, whatever the section background */
+.person-card .person-card__name {
+  margin: 0;
+  font-size: clamp(1.25rem, 1.1rem + .4vw, 1.4375rem);
+  font-weight: var(--medium);
+  line-height: 1.2;
+  color: var(--white);
+}
+
+.person-card .person-card__role {
+  margin-top: 6px;
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semi);
+  color: var(--blue);
+}
+
+.person-card .person-card__text {
+  margin-top: 16px;
+  font-size: 1rem;
+  line-height: 23px;
+  color: var(--blue-light);
+}
+
+.person-card__cta {
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+/* Solid blue button on the navy body (staging) */
+.person-card .btn--outline {
+  color: var(--white);
+  border-color: var(--blue);
+  background: var(--blue);
+}
+
+.person-card .btn--outline:hover { background: var(--blue-dark); border-color: var(--blue-dark); }
+
+.people-slider__arrow {
+  position: absolute;
+  top: 35%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  color: var(--white);
+  background: var(--navy);
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.people-slider__arrow[hidden] { display: none; }
+.people-slider__arrow:hover { background: var(--blue-dark); }
+.people-slider__arrow:disabled { opacity: .35; cursor: default; }
+.people-slider__arrow--prev { left: -18px; }
+.people-slider__arrow--prev .icon { transform: rotate(180deg); }
+.people-slider__arrow--next { right: -18px; }
+
+@media (max-width: 1280px) {
+  .people-slider--slider .people-slider__slide { flex-basis: calc((100% - 48px) / 3); }
+  .people-slider__arrow--prev { left: -6px; }
+  .people-slider__arrow--next { right: -6px; }
+}
+
+@media (max-width: 992px) {
+  .people-slider--slider .people-slider__slide { flex-basis: calc((100% - 24px) / 2); }
+}
+
+@media (max-width: 600px) {
+  .people-slider--slider .people-slider__slide { flex-basis: 84%; }
+}

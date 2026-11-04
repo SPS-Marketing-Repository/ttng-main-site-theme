@@ -1,0 +1,108 @@
+/**
+ * #.#   Full Width Content Module
+ *
+ * Styles for template-parts/modules/full_width_content.php
+**/
+
+.full-width-content__inner > .fw-block + .fw-block { margin-top: 24px; }
+
+/* Headings after other blocks get extra breathing room */
+.full-width-content__inner > .fw-block + .fw-block--heading { margin-top: 44px; }
+
+.fw-block--heading + .fw-block { margin-top: 16px; }
+
+.full-width-content__inner .section-label + .fw-block { margin-top: 0; }
+
+.fw-block--content { font-size: var(--fs-body); }
+
+.fw-block--image { margin: 0; }
+
+.fw-block--image img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-card);
+}
+
+.fw-block--image figcaption {
+  margin-top: 10px;
+  font-size: var(--fs-small);
+  color: var(--grey-text);
+}
+
+.is-dark .fw-block--image figcaption { color: var(--blue-light); }
+
+.fw-block--video {
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.full-width-content__inner .section-ctas { margin-top: 32px; }
+
+@media (max-width: 1536px) {
+
+}
+
+@media (max-width: 1366px) {
+
+}
+
+@media (max-width: 1280px) {
+
+}
+
+@media (max-width: 992px) {
+
+}
+
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 600px) {
+
+}
+
+/* =============================
+  # Staging match — "Four Membership Propositions" / Vision sections
+============================= */
+
+.full-width-content__inner .fw-block--heading {
+  font-weight: var(--fw-regular);
+  line-height: 1.1;
+}
+
+.full-width-content__inner .section-label + .fw-block--heading { margin-top: 0; }
+
+.full-width-content__inner .fw-block--content,
+.full-width-content__inner .fw-block--content p {
+  font-weight: var(--medium);
+  line-height: 23px;
+}
+
+.full-width-content__inner.text-center .fw-block--image img { margin-left: auto; margin-right: auto; }
+
+.full-width-content__inner .fw-block--image img[src$=".svg"] { width: 600px; max-width: 100%; height: auto; }
+
+.full-width-content__inner.text-center .section-ctas { justify-content: center; }
+
+.full-width-content__inner .section-ctas { gap: 20px; }
+
+/* Image on a rounded navy panel (staging Vision logo) */
+.full-width-content__inner .fw-block--image-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 507px;
+  padding: 60px 40px;
+  border-radius: 30px;
+  background: var(--navy-dark);
+}
+
+.full-width-content__inner .fw-block--image-panel img { width: 600px; max-width: 100%; height: auto; }
+
+/* On navy sections the logo panel is white (About "Institute of Customer Service") */
+.is-dark .full-width-content__inner .fw-block--image-panel { background: var(--white); }
+
+@media (max-width: 768px) {
+  .full-width-content__inner .fw-block--image-panel { min-height: 260px; border-radius: 20px; }
+}

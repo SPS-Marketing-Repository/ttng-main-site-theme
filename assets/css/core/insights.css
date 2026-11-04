@@ -1,0 +1,199 @@
+/**
+ * #.# Insights
+ *
+ * Single post, listing pages, category links, pagination, share links and
+ * the HTML sitemap. Cards come from modules/latest_news.css.
+ * Loaded by inc/insights.php.
+ */
+
+/* =============================
+  # Listing
+============================= */
+
+.insights-listing__header { padding: clamp(50px, 2rem + 4vw, 90px) 0; }
+
+.category-links {
+  padding: 18px 0;
+  background: var(--grey-light);
+}
+
+.category-links__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.category-links__list:hover > li:not(:hover) { opacity: 1; }
+
+.category-links__list a {
+  display: inline-block;
+  padding: 9px 20px;
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semi);
+  color: var(--navy);
+  background: var(--white);
+  border-radius: var(--radius-pill);
+  transition: var(--transition);
+}
+
+.category-links__list a:hover,
+.category-links__list a:focus-visible,
+.category-links__list a[aria-current="page"] {
+  color: var(--white);
+  background: var(--navy);
+}
+
+.insights-listing__row { margin-top: 0; }
+h2 + .latest-news__row { margin-top: var(--stack-space); }
+
+.insights-listing__search { max-width: 560px; margin: 0 auto var(--stack-space); }
+.insights-listing__search .search-form { display: flex; gap: 10px; }
+.insights-listing__search label { flex: 1; }
+
+.insights-listing__search .search-field {
+  width: 100%;
+  padding: 14px 18px;
+  font-family: var(--content);
+  border: 1px solid #C9CFDF;
+  border-radius: 12px;
+}
+
+.insights-listing__search .search-submit {
+  padding: 0 26px;
+  font-family: var(--content);
+  font-weight: var(--fw-semi);
+  color: var(--white);
+  background: var(--navy);
+  border: 0;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* =============================
+  # Pagination
+============================= */
+
+.pagination { margin-top: var(--stack-space); }
+
+.pagination .nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.pagination .page-numbers {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 14px;
+  font-weight: var(--fw-semi);
+  color: var(--navy);
+  background: var(--grey-light);
+  border-radius: 12px;
+}
+
+.pagination a.page-numbers:hover,
+.pagination a.page-numbers:focus-visible,
+.pagination .page-numbers.current {
+  color: var(--white);
+  background: var(--navy);
+}
+
+.pagination .page-numbers.dots { background: transparent; }
+
+/* =============================
+  # Single
+============================= */
+
+.insight__header { padding: clamp(44px, 2rem + 3vw, 80px) 0; }
+
+.insight__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 22px;
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semi);
+  color: var(--white);
+}
+
+.insight__back .icon { transform: rotate(180deg); }
+.insight__back:hover,
+.insight__back:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+
+.insight__title { font-size: var(--fs-h1); }
+
+.insight__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+  margin-top: 16px;
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semi);
+}
+
+.insight__image { margin-bottom: 36px; }
+
+.insight__image img {
+  width: 100%;
+  border-radius: var(--radius-card);
+}
+
+.share-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 18px;
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--grey);
+}
+
+.share-links__label { font-weight: var(--fw-semi); color: var(--navy); }
+
+.share-links__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.share-links__list:hover > li:not(:hover) { opacity: 1; }
+
+.share-links__list a {
+  font-weight: var(--fw-semi);
+  color: var(--blue-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.insight__pager { margin-top: 28px; }
+
+.insight__pager a {
+  display: block;
+  padding: 16px 22px;
+  font-weight: var(--fw-semi);
+  color: var(--navy);
+  background: var(--grey-light);
+  border-radius: 12px;
+}
+
+.insight__pager a:hover,
+.insight__pager a:focus-visible { color: var(--blue-dark); }
+
+.insight__pager small {
+  display: block;
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--grey-text);
+}

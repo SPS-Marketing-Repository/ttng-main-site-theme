@@ -1,0 +1,26 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Dependencies (if a project adds a build step later)
+node_modules/
+vendor/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Local env / secrets
+.env
+.env.*
+
+# Built release zip (made by .github/workflows/release.yml)
+ttng-main-site-theme.zip
+
+# Claude Code session state
+.claude/settings.local.json
+.claude/CONTEXT.md
+.claude/sessions/

@@ -1,0 +1,53 @@
+{
+    "key": "group_ttng_tracking",
+    "title": "Tracking",
+    "fields": [
+        {
+            "key": "field_ttng_gtm_container_id",
+            "label": "Google Tag Manager container ID",
+            "name": "gtm_container_id",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "GA4 and the cookie banner are configured inside GTM. Leave blank on dev/staging.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "GTM-XXXXXXX",
+            "default_value": "",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "theme-general-settings"
+            }
+        ]
+    ],
+    "menu_order": 99,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "",
+    "show_in_rest": false,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "acfe": {
+        "autosync": [
+            "json"
+        ]
+    },
+    "modified": 1793781511
+}

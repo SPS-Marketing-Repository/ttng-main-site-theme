@@ -1,0 +1,123 @@
+/**
+ * #.#   Split Content Module (Text + Media) — staging alternating rows
+ *
+ * Styles for template-parts/modules/split_content.php
+ * Navy (#0F193D) by default, white label/title, light-blue copy,
+ * 650×400 square-cornered image, 1px dividers between consecutive rows.
+**/
+
+.module--split-content { padding: 97px 0; }
+
+.module--split-content .section-title { margin-bottom: 0; }
+
+.module--split-content.is-dark .section-content,
+.module--split-content.is-dark .section-content p,
+.module--split-content.is-dark .section-content li {
+  font-weight: var(--fw-regular);
+  color: var(--blue-light);
+}
+
+.module--split-content .section-content ul { padding-left: 1.4em; }
+.module--split-content .section-content li::marker { color: var(--blue); }
+
+.module--split-content .section-header + .section-ctas { margin-top: 30px; }
+
+.split-content--media-right .split-content__text { padding: 0 50px 0 77px; }
+.split-content--media-left .split-content__text { padding: 0 77px 0 50px; }
+
+.split-content__image { overflow: hidden; }
+
+.split-content__image img {
+  display: block;
+  width: 100%;
+  max-width: 650px;
+  height: auto;
+  aspect-ratio: 650 / 400;
+  margin-left: auto;
+  object-fit: cover;
+}
+
+.split-content--media-left .split-content__image img { margin-left: 0; margin-right: auto; }
+
+.split-content__video { overflow: hidden; border-radius: 20px; }
+
+/* Divider between consecutive split rows (staging 1px white 50%) */
+.module--split-content + .module--split-content { padding-top: 0; }
+
+.module--split-content + .module--split-content > .container::before {
+  content: "";
+  display: block;
+  margin-bottom: 97px;
+  border-top: 1px solid rgba(255, 255, 255, .5);
+}
+
+.module--split-content:not(.is-dark) + .module--split-content:not(.is-dark) > .container::before { border-top-color: var(--grey); }
+
+/* Full-bleed image: half the section, edge to edge, full height */
+.split-content--bleed { padding: 80px 0; overflow: hidden; }
+
+.split-content__bleed {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+}
+
+.split-content--bleed.split-content--media-left .split-content__bleed { right: auto; left: 0; }
+
+.split-content__bleed img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.split-content--bleed .split-content__text { padding: 0 60px 0 117px; }
+.split-content--bleed.split-content--media-left .split-content__text { margin-left: 50%; padding: 0 60px; }
+
+.split-content--bleed + .module--split-content > .container::before,
+.module--split-content + .split-content--bleed > .container::before { display: none; }
+
+.module--split-content + .split-content--bleed { padding-top: 80px; }
+
+/* Optional minimum height, content centred. Desktop only: below this the bleed
+   image joins the normal flow and stacked content is already tall enough. */
+@media (min-width: 993px) {
+  .split-content--min-400,
+  .split-content--min-500,
+  .split-content--min-600,
+  .split-content--min-700 { display: flex; align-items: center; }
+
+  .split-content--min-400 { min-height: 400px; }
+  .split-content--min-500 { min-height: 500px; }
+  .split-content--min-600 { min-height: 600px; }
+  .split-content--min-700 { min-height: 700px; }
+}
+
+@media (max-width: 1280px) {
+  .split-content--media-right .split-content__text { padding: 0 24px 0 0; }
+  .split-content--media-left .split-content__text { padding: 0 0 0 24px; }
+  .split-content--bleed .split-content__text { padding: 0 40px 0 0; }
+}
+
+@media (max-width: 992px) {
+  .module--split-content { padding: 60px 0; }
+  .module--split-content + .module--split-content > .container::before { margin-bottom: 60px; }
+
+  .split-content--media-right .split-content__text,
+  .split-content--media-left .split-content__text,
+  .split-content--bleed .split-content__text,
+  .split-content--bleed.split-content--media-left .split-content__text { margin-left: 0; padding: 0 calc(var(--bs-gutter-x, 1.5rem) * .5); }
+
+  .split-content__media { margin-top: 40px; }
+  .split-content__image img { max-width: 100%; }
+
+  .split-content--bleed { padding-top: 0; }
+  .split-content__bleed { position: relative; width: 100%; height: 280px; margin-bottom: 50px; }
+}
+
+/* Google map (contact page "Visit Us") */
+.split-content__map {
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  aspect-ratio: 650 / 400;
+  background: var(--grey-light);
+}
+
+.split-content__map iframe { display: block; width: 100%; height: 100%; border: 0; }

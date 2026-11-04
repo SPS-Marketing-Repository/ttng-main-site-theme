@@ -1,0 +1,97 @@
+/**
+ * #.#   Page Header Module — staging inner-page hero
+ *
+ * Styles for template-parts/modules/page_header.php
+ * Uses the module's background image, else the page's featured image, as a
+ * full-width background with a 25% navy wash; falls back to the navy brand
+ * underlay when there's no image. Size and position come from the template.
+**/
+
+.module--page-header {
+  display: flex;
+  align-items: center;
+  min-height: 431px;
+  overflow: hidden;
+  padding: 60px 0;
+  background: var(--navy) url("../../images/staging/bg-underlay.png") center / cover no-repeat;
+}
+
+.module--page-header.has-image { background: var(--navy) var(--page-header-image) var(--page-header-position, center) / var(--page-header-size, cover) no-repeat; }
+
+.module--page-header.has-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--navy);
+  opacity: .25;
+  pointer-events: none;
+}
+
+/* Gradient-bg watermark doesn't apply here */
+.module--page-header.section-bg--gradient::before { background-image: none; }
+.module--page-header.has-image.section-bg--gradient::before { background: var(--navy); opacity: .25; }
+
+.module--page-header .container { position: relative; z-index: 1; width: 100%; }
+
+.module--page-header .section-title {
+  margin: 0;
+  font-size: clamp(1.875rem, 1.5rem + 1vw, 2.3125rem);  /* 30 → 37px */
+  font-weight: var(--fw-regular);
+  line-height: 1;
+  color: var(--white);
+}
+
+.module--page-header .section-content {
+  max-width: 487px;
+  margin-top: 10px;
+  font-weight: var(--medium);
+  line-height: 23px;
+  color: var(--white);
+}
+
+.module--page-header .section-label { margin-bottom: 14px; }
+
+/* Image panel (staging TTA page): white rounded box to the right of the text */
+.module--page-header.has-media { min-height: 496px; }
+.module--page-header.has-media:not(.has-image) { background: linear-gradient(43deg, #172761 0%, #0F193E 100%); }
+
+/*.page-header__text { padding-left: 69px; }*/
+
+.page-header__media-col { display: flex; justify-content: center; }
+
+.page-header__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 558px;
+  aspect-ratio: 558 / 396;
+  padding: 40px 60px;
+  border-radius: 20px;
+  background: var(--white);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.page-header__image {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  object-fit: contain;
+}
+
+.page-header__media--link:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0, 0, 0, .3); }
+.page-header__media--link:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
+
+@media (max-width: 1280px) {
+  .page-header__text { padding-left: 0; }
+}
+
+@media (max-width: 992px) {
+  .page-header__media-col { order: -1; margin-bottom: 30px; }
+  .page-header__media { max-width: 440px; padding: 30px 40px; }
+}
+
+@media (max-width: 768px) {
+  .module--page-header { min-height: 300px; }
+}

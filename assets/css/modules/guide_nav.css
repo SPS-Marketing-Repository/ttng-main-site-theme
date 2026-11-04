@@ -1,0 +1,99 @@
+/**
+ * #.#   Guide Navigation Module
+ *
+ * Styles for template-parts/modules/guide_nav.php
+**/
+
+.module--guide-nav { padding: clamp(40px, 2rem + 2vw, 70px) 0; }
+
+.guide-nav__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.guide-nav__list:hover > li:not(:hover) { opacity: 1; }
+
+.guide-nav__link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 100%;
+  padding: 12px 18px;
+  font-weight: var(--fw-semi);
+  color: var(--navy);
+  background: var(--white);
+  border: 2px solid transparent;
+  border-radius: 12px;
+  transition: var(--transition);
+}
+
+.guide-nav__link:hover,
+.guide-nav__link:focus-visible,
+.guide-nav__link[aria-current="page"] { border-color: var(--navy); }
+
+.guide-nav__number {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  font-size: var(--fs-small);
+  color: var(--navy);
+  background: var(--blue-light);
+  border-radius: 50%;
+}
+
+.guide-nav__link[aria-current="page"] .guide-nav__number {
+  color: var(--white);
+  background: var(--navy);
+}
+
+.guide-nav__pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.guide-nav__pager-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 22px;
+  font-weight: var(--fw-semi);
+  color: var(--navy);
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition);
+}
+
+.guide-nav__pager-link:hover,
+.guide-nav__pager-link:focus-visible { box-shadow: var(--shadow-hover); }
+
+.guide-nav__pager-link small {
+  display: block;
+  font-size: 12px;
+  font-weight: var(--fw-semi);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--grey-text);
+}
+
+.guide-nav__pager-link--prev .icon { transform: rotate(180deg); }
+.guide-nav__pager-link--next { margin-left: auto; text-align: right; }
+.guide-nav__pager-link .icon { flex-shrink: 0; color: var(--blue-dark); }
+
+/* Plain cards keep their navy text on dark sections */
+.is-dark .guide-nav__link,
+.is-dark .guide-nav__pager-link { color: var(--navy); }
+
+@media (max-width: 600px) {
+  .guide-nav__pager { flex-direction: column; }
+  .guide-nav__pager-link--next { margin-left: 0; justify-content: space-between; }
+}

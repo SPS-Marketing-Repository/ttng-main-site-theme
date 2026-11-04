@@ -1,0 +1,84 @@
+/**
+ * #.#   Contact Cards Module
+ *
+ * Styles for template-parts/modules/contact_cards.php
+ * Staging Contact Us panels: 20px radius, navy panel with the brand shape
+ * watermark, light panel underneath.
+**/
+
+.contact-cards__list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.section-header + .contact-cards__list { margin-top: var(--stack-space); }
+
+.contact-card {
+  position: relative;
+  overflow: hidden;
+  padding: 45px 40px 40px;
+  border-radius: 20px;
+}
+
+.contact-card--navy {
+  color: var(--white);
+  background: var(--navy-dark);
+}
+
+.contact-card--navy::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../../images/brand-shape.svg") no-repeat right -80px center / auto 160%;
+  opacity: .08;
+  pointer-events: none;
+}
+
+.contact-card--light { background: var(--grey-light); }
+
+.contact-card > * { position: relative; }
+
+.contact-card .contact-card__title {
+  margin: 0 0 18px;
+  font-size: clamp(1.75rem, 1.4rem + 1vw, 2.375rem);
+  font-weight: var(--fw-regular);
+  color: var(--navy);
+}
+
+.contact-card--navy .contact-card__title { color: var(--white); }
+
+.contact-card .contact-card__text {
+  margin: 0 0 22px;
+  font-weight: var(--fw-semi);
+  color: var(--text);
+}
+
+.contact-card--navy .contact-card__text { color: var(--white); }
+
+.contact-card__details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-card__details li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: .9375rem;
+  font-weight: var(--fw-semi);
+}
+
+.contact-card__details .icon { flex-shrink: 0; color: var(--blue); }
+
+.contact-card__details a { color: var(--navy); text-decoration: none; }
+.contact-card--navy .contact-card__details a { color: var(--white); }
+.contact-card__details a:hover { color: var(--blue); }
+
+@media (max-width: 600px) {
+  .contact-card { padding: 32px 24px; }
+}

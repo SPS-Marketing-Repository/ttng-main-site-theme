@@ -1,0 +1,116 @@
+/**
+ * #.#   Boxed List Module — staging "Why Choose Us" panel
+ *
+ * Styles for template-parts/modules/boxed_list.php
+ * Each column colour sets its own background, title, text and link colours,
+ * so any column works on any section background.
+**/
+
+.boxed-list__panel {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: var(--stack-space) auto 0;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.boxed-list--cols-1 .boxed-list__panel { grid-template-columns: 1fr; max-width: 760px; }
+.boxed-list--cols-2 .boxed-list__panel { max-width: 1223px; }
+.boxed-list--cols-3 .boxed-list__panel { grid-template-columns: repeat(3, 1fr); }
+.boxed-list--cols-4 .boxed-list__panel { grid-template-columns: repeat(4, 1fr); }
+
+/* Column colours */
+.boxed-list__column {
+  --boxed-list-bg: var(--navy-dark);
+  --boxed-list-title: var(--white);
+  --boxed-list-text: var(--blue-light);
+  --boxed-list-link: var(--white);
+  padding: 45px 35px 35px;
+  background: var(--boxed-list-bg);
+}
+
+.boxed-list__column--navy      { --boxed-list-bg: var(--navy); }
+.boxed-list__column--navy-deep { --boxed-list-bg: #132257; }
+.boxed-list__column--dark      { --boxed-list-bg: var(--navy-dark); }
+.boxed-list__column--black     { --boxed-list-bg: #000; }
+
+.boxed-list__column--grey,
+.boxed-list__column--white {
+  --boxed-list-title: var(--navy);
+  --boxed-list-text: var(--text);
+  --boxed-list-link: var(--blue-dark);
+}
+
+.boxed-list__column--grey  { --boxed-list-bg: var(--grey-light); }
+.boxed-list__column--white { --boxed-list-bg: var(--white); }
+
+/* Parent class on the text rules: .is-dark sets colours on h3, h4 and li */
+.boxed-list__column .boxed-list__title {
+  margin: 0 0 40px;
+  font-size: clamp(1.25rem, 1.1rem + .4vw, 1.4375rem);  /* 20 → 23px */
+  font-weight: var(--medium);
+  line-height: 1.2;
+  text-align: center;
+  color: var(--boxed-list-title);
+}
+
+.boxed-list__item + .boxed-list__item { margin-top: 26px; }
+
+.boxed-list__column .boxed-list__item-title {
+  margin: 0 0 10px;
+  font-size: 1.125rem;
+  font-weight: var(--medium);
+  line-height: 1.2;
+  color: var(--boxed-list-title);
+}
+
+.boxed-list__points {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.boxed-list__points:hover > li:not(:hover) { opacity: 1; }
+
+.boxed-list__column .boxed-list__point {
+  position: relative;
+  margin: 0;
+  padding-left: 33px;
+  font-size: 1rem;
+  font-weight: var(--fw-regular);
+  line-height: 23px;
+  color: var(--boxed-list-text);
+}
+
+.boxed-list__point + .boxed-list__point { margin-top: 8px; }
+
+/* Blue tick (same icon as Feature Boxes) */
+.boxed-list__point::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23009ADF' d='M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm118-366.3c10.7 7.8 13.1 22.8 5.3 33.5l-135.9 187c-4.1 5.7-10.5 9.3-17.5 9.8s-13.8-2-18.8-7l-72-72c-9.4-9.3-9.4-24.5 0-33.9s24.6-9.4 33.9 0l52.1 52.1 119.4-164.2c7.8-10.7 22.8-13.1 33.5-5.3z'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+.boxed-list__point a {
+  color: var(--boxed-list-link);
+  text-decoration: underline;
+}
+
+@media (max-width: 1280px) {
+  .boxed-list--cols-4 .boxed-list__panel { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 992px) {
+  .boxed-list--cols-2 .boxed-list__panel,
+  .boxed-list--cols-3 .boxed-list__panel,
+  .boxed-list--cols-4 .boxed-list__panel { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .boxed-list__column { padding: 35px 25px 30px; }
+  .boxed-list__column .boxed-list__title { margin-bottom: 30px; }
+}

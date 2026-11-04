@@ -1,0 +1,218 @@
+/**
+ * #.#   Home Banner Module — matches the staging hero
+ *
+ * Styles for template-parts/modules/home_banner.php
+ * Slider behaviour: assets/js/main.js (.ttng-slider)
+ * The transparent header sits over this section (header.css .home .site-header).
+**/
+
+.module--home-banner {
+  position: relative;
+  overflow: hidden;
+  padding: calc(var(--header-height) + 26px) 0 135px;
+  background: var(--navy-dark);
+}
+
+/* Rounded-bottom navy panel with the brand underlay — sits 40px above the
+   section's bottom edge, like staging */
+.module--home-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 40px;
+  border-radius: 0 0 50px 50px;
+  background:
+    linear-gradient(180deg, rgba(15, 25, 61, .6) 0%, rgba(15, 25, 61, 0) 100%),
+    url("../../images/staging/bg-underlay.png") center top / 100% 100% no-repeat,
+    var(--navy);
+  pointer-events: none;
+}
+
+.module--home-banner .container { position: relative; z-index: 1; }
+
+.home-banner__content { padding-left: 63px; padding-right: 40px; }
+
+/* H1: "The UK'S BIGGEST independent" / "travel network" */
+.home-banner__title {
+  margin: 0;
+  font-weight: var(--fw-regular);
+  color: var(--white);
+}
+
+.home-banner__lead {
+  display: block;
+  max-width: 420px;
+  font-size: clamp(1.875rem, 1.4rem + 1.3vw, 2.625rem);  /* 30 → 42px */
+  font-weight: var(--fw-regular);
+  line-height: 1.05;
+}
+
+.home-banner__lead .text-gradient { font-weight: var(--fw-bold); }
+
+.home-banner__main {
+  display: block;
+  margin-top: 8px;
+  font-size: clamp(2.75rem, 1.8rem + 2.8vw, 4.5rem);    /* 44 → 72px */
+  font-weight: var(--fw-semi);
+  line-height: 1.2;
+}
+
+.home-banner__text {
+  max-width: 554px;
+  margin-top: 12px;
+  font-size: 1rem;
+  font-weight: var(--fw-regular);
+  line-height: 23px;
+}
+
+.home-banner__content .section-ctas { margin-top: 20px; }
+.home-banner__content .btn { padding: 18px 32px 17px; font-size: .9375rem; }
+
+/* =============================
+  # Slider
+============================= */
+
+.home-banner__slider {
+  position: relative;
+  overflow: hidden;
+  height: 463px;
+  border-radius: 30px;
+  background: var(--navy);
+}
+
+.ttng-slider__viewport {
+  height: 100%;
+  overflow: hidden;
+}
+
+.ttng-slider__track {
+  display: flex;
+  height: 100%;
+  transition: transform .8s cubic-bezier(.65, 0, .35, 1);
+}
+
+.ttng-slider__slide {
+  flex: 0 0 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.ttng-slider__slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+}
+
+/* Ken Burns: the visible slide slowly zooms */
+.ttng-slider__slide.is-active img {
+  animation: ttng-kenburns var(--slide-duration, 6s) linear both;
+}
+
+.ttng-slider.is-paused .ttng-slider__slide.is-active img { animation-play-state: paused; }
+
+@keyframes ttng-kenburns {
+  from { transform: scale(1); }
+  to   { transform: scale(1.12); }
+}
+
+/* Pill pager: pause + bars */
+.ttng-slider__controls {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 38px;
+  padding: 0 22px 0 14px;
+  border-radius: var(--radius-pill);
+  background: var(--blue-dark);
+  transform: translateX(-50%);
+}
+
+.ttng-slider__dots { display: flex; align-items: center; gap: 5px; }
+
+.ttng-slider__dot {
+  width: 20px;
+  height: 18px;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.ttng-slider__dot::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 3px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .2);
+  transition: background-color .3s ease;
+}
+
+.ttng-slider__dot.is-active::before,
+.ttng-slider__dot:hover::before { background: var(--white); }
+
+.ttng-slider__dot:focus-visible,
+.ttng-slider__pause:focus-visible { outline: 2px solid var(--white); outline-offset: 2px; }
+
+.ttng-slider__pause {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+/* Pause = two bars; paused = play triangle */
+.ttng-slider__pause-icon {
+  display: block;
+  width: 8px;
+  height: 10px;
+  border-left: 3px solid var(--white);
+  border-right: 3px solid var(--white);
+}
+
+.is-paused .ttng-slider__pause-icon {
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 8px solid var(--white);
+  border-right: 0;
+}
+
+/* =============================
+  # Media Queries
+============================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .ttng-slider__track { transition: none; }
+  .ttng-slider__slide.is-active img { animation: none; }
+}
+
+@media (max-width: 1280px) {
+  .home-banner__content { padding-left: 0; }
+}
+
+@media (max-width: 992px) {
+  .module--home-banner { padding-bottom: 100px; }
+  .home-banner__content { padding-right: 0; }
+  .home-banner__media { margin-top: 40px; }
+  .home-banner__slider { height: 380px; }
+}
+
+@media (max-width: 600px) {
+  .module--home-banner::before { border-radius: 0 0 30px 30px; }
+  .home-banner__slider { height: 280px; border-radius: 20px; }
+}

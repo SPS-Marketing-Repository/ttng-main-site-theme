@@ -1,0 +1,30 @@
+/**
+ * #.#   CTA Band Module
+ *
+ * Styles for template-parts/modules/cta_band.php
+**/
+
+.module--cta-band { overflow: hidden; }
+
+.cta-band__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Navy tint keeps white text readable over any photo */
+.cta-band--has-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 25, 61, .78);
+}
+
+.module--cta-band > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.module--cta-band .section-ctas--below { margin-top: 28px; }

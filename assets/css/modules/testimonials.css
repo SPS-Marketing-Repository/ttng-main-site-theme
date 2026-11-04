@@ -1,0 +1,167 @@
+/**
+ * #.#   Testimonials Module — staging "What our Members say"
+ *
+ * Styles for template-parts/modules/testimonials.php
+ * One testimonial at a time: round photo, quote, italic name/business, dots.
+ * Slider behaviour: assets/js/main.js (.testimonial-slider)
+**/
+
+.module--testimonials {
+  overflow: hidden;
+  background: var(--gradient-testimonials);
+}
+
+.module--testimonials::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../../images/brand-shape.svg") no-repeat right -110px top -50px / auto 1092px;
+  opacity: .05;
+  pointer-events: none;
+}
+
+.module--testimonials .container { position: relative; z-index: 1; }
+
+.module--testimonials,
+.module--testimonials .section-title { color: var(--white); }
+.module--testimonials .section-label { color: var(--white); }
+
+.testimonial-slider {
+  max-width: 791px;
+  margin: 35px auto 0;
+}
+
+.testimonial-slider__track { display: grid; }
+
+/* Slides stack in one grid cell and cross-fade */
+.testimonial-card {
+  grid-area: 1 / 1;
+  margin: 0;
+  text-align: center;
+  opacity: 1;
+  transition: opacity .6s ease, visibility .6s ease;
+}
+
+.testimonial-slider.is-enhanced .testimonial-card:not(.is-active) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.testimonial-card__photo {
+  display: block;
+  width: 269px;
+  height: 269px;
+  max-width: 70vw;
+  max-height: 70vw;
+  margin: 0 auto 30px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--white);
+}
+
+.testimonial-card__photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.testimonial-card__quote { margin: 0; }
+
+.testimonial-card .testimonial-card__quote p {
+  margin: 0;
+  font-size: clamp(1.125rem, 1rem + .4vw, 1.3125rem);  /* 18 → 21px */
+  font-weight: var(--fw-regular);
+  line-height: 30px;
+  color: var(--blue-light);
+}
+
+.testimonial-card__author { margin-top: 25px; }
+
+.testimonial-card__name,
+.testimonial-card__role {
+  display: block;
+  font-size: clamp(1.125rem, 1rem + .4vw, 1.3125rem);
+  font-style: italic;
+  font-weight: var(--medium);
+}
+
+.testimonial-card__name { line-height: 1.5; color: var(--white); }
+.testimonial-card__role { line-height: 23px; color: var(--blue-light); }
+
+.testimonial-slider__dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.testimonial-slider__dot {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .5);
+  cursor: pointer;
+  transition: background-color .3s ease;
+}
+
+.testimonial-slider__dot.is-active { background: var(--blue); }
+.testimonial-slider__dot:focus-visible { outline: 2px solid var(--white); outline-offset: 3px; }
+
+/* Boxed tick list under the slider (optional) */
+.testimonials__benefits {
+  max-width: 639px;
+  margin: 30px auto 0;
+  padding: 35px 35px 25px;
+  border-radius: 15px;
+  background: var(--navy);
+  list-style: none;
+}
+
+.testimonials__benefits:hover > li:not(:hover) { opacity: 1; }
+
+/* Parent class: .is-dark sets the colour on li */
+.testimonials__benefits .testimonials__benefit {
+  position: relative;
+  margin: 0;
+  padding-left: 35px;
+  font-size: 1rem;
+  font-weight: var(--fw-regular);
+  line-height: 23px;
+  color: var(--blue-light);
+}
+
+.testimonials__benefit + .testimonials__benefit { margin-top: 15px; }
+
+/* Blue tick (same icon as Feature Boxes) */
+.testimonials__benefit::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23009ADF' d='M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm118-366.3c10.7 7.8 13.1 22.8 5.3 33.5l-135.9 187c-4.1 5.7-10.5 9.3-17.5 9.8s-13.8-2-18.8-7l-72-72c-9.4-9.3-9.4-24.5 0-33.9s24.6-9.4 33.9 0l52.1 52.1 119.4-164.2c7.8-10.7 22.8-13.1 33.5-5.3z'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+.testimonials__benefit a { color: var(--white); text-decoration: underline; }
+
+/* Line of text under the list, e.g. "Call 01483 545783 to discover more benefits" */
+.testimonials__note {
+  max-width: 639px;
+  margin: 25px auto 0;
+}
+
+.testimonials__note p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: var(--medium);
+  line-height: 23px;
+}
+
+.testimonials__note + .section-ctas { margin-top: 20px; }
+
+@media (max-width: 768px) {
+  .testimonials__benefits { padding: 30px 25px 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-card { transition: none; }
+}

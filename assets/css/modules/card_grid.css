@@ -1,0 +1,97 @@
+/**
+ * #.#   Card Grid Module — staging "Which Membership Suits Your Business Best?"
+ *
+ * Styles for template-parts/modules/card_grid.php
+ * Logo style: white top with the brand logo, navy body, solid blue button.
+ * Image style: same navy card with a full-bleed image on top.
+**/
+
+.card-grid__row {
+  row-gap: 25px;
+  margin-top: var(--stack-space);
+}
+
+.module--card-grid .row.card-grid__row { --bs-gutter-x: 25px; }
+
+.grid-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  background: var(--navy);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.grid-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0, 0, 0, .25); }
+
+.grid-card__media {
+  overflow: hidden;
+  background: var(--white);
+}
+
+.grid-card--logo .grid-card__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 206px;
+  padding: 30px 50px;
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
+}
+
+.grid-card--logo .grid-card__media img {
+  display: block;
+  width: 100%;
+  max-width: 227px;
+  height: auto;
+  max-height: 140px;
+  object-fit: contain;
+}
+
+.grid-card--image .grid-card__media { aspect-ratio: 3 / 2; }
+
+.grid-card--image .grid-card__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+
+.grid-card--image:hover .grid-card__media img { transform: scale(1.05); }
+
+.grid-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 40px 28px 70px 30px;
+  background: var(--navy);
+}
+
+.grid-card .grid-card__title {
+  margin: 0 0 20px;
+  font-size: clamp(1.25rem, 1.1rem + .4vw, 1.4375rem);  /* 20 → 23px */
+  font-weight: var(--medium);
+  line-height: 1;
+  color: var(--white);
+}
+
+.grid-card .grid-card__text {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: var(--fw-regular);
+  line-height: 23px;
+  color: var(--blue-light);
+}
+
+.grid-card__cta { margin-top: 22px; }
+
+.grid-card__cta .btn { padding: 0 32px; height: 45px; }
+
+/* Light sections: same navy cards (staging never uses white cards) */
+.section-bg--light .grid-card,
+.section-bg--white .grid-card { box-shadow: 0 0 10px rgba(0, 0, 0, .1); }
+
+@media (max-width: 992px) {
+  .grid-card__body { padding: 32px 24px 40px; }
+}

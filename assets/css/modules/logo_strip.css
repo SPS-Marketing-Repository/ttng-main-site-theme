@@ -1,0 +1,45 @@
+/**
+ * #.#   Logo Strip Module
+ *
+ * Styles for template-parts/modules/logo_strip.php
+**/
+
+.module--logo-strip { padding: clamp(40px, 2rem + 2vw, 70px) 0; }
+
+.logo-strip__title {
+  margin-bottom: 28px;
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-semi);
+}
+
+.logo-strip__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 28px 48px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.logo-strip__list:hover > li:not(:hover) { opacity: 1; }
+
+.logo-strip__item img {
+  width: auto;
+  max-width: 170px;
+  max-height: 70px;
+  object-fit: contain;
+}
+
+/* White plate so dark logos stay visible on navy and gradient sections */
+.is-dark .logo-strip__item {
+  padding: 14px 20px;
+  border-radius: 12px;
+  background: var(--white);
+}
+
+@media (max-width: 600px) {
+  .logo-strip__list { gap: 20px 28px; }
+  .logo-strip__item img { max-width: 120px; max-height: 54px; }
+}

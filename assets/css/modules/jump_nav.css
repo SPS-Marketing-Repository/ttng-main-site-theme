@@ -1,0 +1,56 @@
+/**
+ * #.#   Jump Links Module
+ *
+ * Styles for template-parts/modules/jump_nav.php
+**/
+
+.module--jump-nav { padding: clamp(36px, 1.5rem + 2vw, 60px) 0; }
+
+.jump-nav__title {
+  margin-bottom: 24px;
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-semi);
+}
+
+.jump-nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.jump-nav__list:hover > li:not(:hover) { opacity: 1; }
+
+.jump-nav__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  font-size: .9375rem;
+  font-weight: var(--fw-semi);
+  color: var(--navy);
+  background: var(--white);
+  border: 1px solid var(--grey);
+  border-radius: var(--radius-pill);
+  transition: var(--transition);
+}
+
+.jump-nav__link .icon { flex-shrink: 0; color: var(--blue-dark); transition: var(--transition); }
+
+.jump-nav__link:hover,
+.jump-nav__link:focus-visible {
+  color: var(--white);
+  background: var(--navy);
+  border-color: var(--navy);
+}
+
+.jump-nav__link:hover .icon,
+.jump-nav__link:focus-visible .icon { color: var(--white); }
+
+@media (max-width: 600px) {
+  .jump-nav__list { flex-direction: column; }
+  .jump-nav__link { justify-content: space-between; width: 100%; }
+}

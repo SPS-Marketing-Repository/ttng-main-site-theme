@@ -1,0 +1,600 @@
+/**
+ * #.#  Client Custom Styles — The Travel Network Group
+ *
+ * ALL brand values live here: colours, gradients, fonts, type scale,
+ * spacing, radii, buttons, section backgrounds and form styling.
+ * base.css is the neutral reset + fallback tokens; this file loads after it
+ * and overrides those tokens. Header / footer / module CSS should only ever
+ * reference the custom properties defined below — never hard-coded values.
+ *
+ * Source: Elementor global kit on the previous site.
+*/
+
+/* =============================
+  # Fonts
+============================= */
+
+/* Montserrat is loaded from Google Fonts in inc/assets.php (400/500/600/700).
+   To self-host later, add @font-face rules here and remove that enqueue. */
+
+/* =============================
+  # Theme Tokens
+============================= */
+
+:root {
+  /* --- Brand colours --- */
+  --navy:        #1B2D70;  /* primary */
+  --navy-dark:   #0F193D;  /* secondary — top bar, sub footer, darkest text */
+  --navy-mid:    #2944A3;
+  --navy-hover:  #22378A;  /* hover/open state for navy panels (FAQ bars) */
+  --blue:        #009ADF;  /* accent — large text, icons, highlights only (3:1 on white) */
+  --blue-dark:   #3153CC;  /* accessible blue for small text/links on white (6.2:1) */
+  --blue-light:  #B1BCE7;  /* small accent text on navy backgrounds */
+  --grey-light:  #F3F5F8;  /* light section background */
+  --grey:        #E7E8EB;  /* borders / dividers */
+  --grey-text:   #5A6380;  /* muted text on white (5.9:1) */
+  --text:        #333333;  /* body copy */
+  --white:       #FFFFFF;
+
+  /* --- Gradients (from the live site) --- */
+  --gradient-btn:     linear-gradient(127deg, #3153CC 0%, #009ADF 100%);
+  --gradient-section: linear-gradient(0deg, #1B2D70 56%, #3354CC 150%);
+  --gradient-testimonials: linear-gradient(0deg, #162255 64%, #3354CC 200%);
+  --navy-button: #0E3178;  /* solid navy buttons (staging "Find out more") */
+  --footer-bg:   #090F24;
+  --gradient-hero:    linear-gradient(165deg, #17265E 42%, #3153CC 100%);
+  --gradient-pod-1:   linear-gradient(165deg, #17265E 42%, #3153CC 100%);
+  --gradient-pod-2:   linear-gradient(0deg, #1B2D70 0%, #3354CC 100%);
+  --gradient-pod-3:   linear-gradient(165deg, #2944A3 42%, #0D9FE1 100%);
+
+  /* --- Base.css token overrides --- */
+  --black:    var(--text);       /* base.css uses --black for body text */
+  --offwhite: var(--white);
+  --orange:   var(--blue-dark);  /* base.css uses --orange for focus rings, selection, scrollbar */
+
+  /* --- Fonts --- */
+  --content: "Montserrat", Arial, Helvetica, sans-serif;
+  --header:  "Montserrat", Arial, Helvetica, sans-serif;
+
+  /* --- Weights (base.css defines --medium / --fw-semi / --fw-bold) --- */
+  --fw-regular: 400;
+
+  /* --- Type scale (fluid, desktop sizes match the live site) --- */
+  --fs-h1:    clamp(2.125rem, 1.5rem + 2.2vw, 3.25rem);    /* 34 → 52px */
+  --fs-h2:    clamp(1.75rem, 1.35rem + 1.5vw, 2.625rem);   /* 28 → 42px */
+  --fs-h3:    clamp(1.25rem, 1.1rem + .5vw, 1.5rem);       /* 20 → 24px */
+  --fs-h4:    1.125rem;                                     /* 18px */
+  --fs-lead:  clamp(1.0625rem, 1rem + .3vw, 1.25rem);      /* 17 → 20px */
+  --fs-body:  1rem;                                         /* 16px */
+  --fs-small: .875rem;                                      /* 14px */
+  --fs-label: .875rem;                                      /* 14px */
+  --fs-stat:  clamp(2.5rem, 2rem + 1.6vw, 3.1875rem);      /* 40 → 51px */
+  --lh-body:  1.45;                                         /* 23px @ 16px */
+  --lh-heading: 1.2;
+
+  /* --- Spacing --- */
+  --section-space: clamp(50px, 2rem + 3vw, 70px);   /* staging: 70px */
+  --stack-space:   35px;  /* gap between section header and its grid */
+
+  /* --- Shape --- */
+  --radius:       8px;
+  --radius-card:  25px;
+  --radius-pod:   25px 25px 25px 0;  /* signature "pod" corner from the live site */
+  --radius-pill:  100px;
+  --shadow-card:  0 10px 30px rgba(15, 25, 61, .08);
+  --shadow-hover: 0 16px 40px rgba(15, 25, 61, .16);
+}
+
+/* =============================
+  # Site Defaults
+============================= */
+
+html,
+body {
+  font-family: var(--content);
+  font-size: var(--fs-body);
+  font-weight: var(--medium);
+  line-height: var(--lh-body);
+  color: var(--text);
+}
+
+body { background-color: var(--white); }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--header);
+  line-height: var(--lh-heading);
+  color: var(--navy);
+}
+
+h1 { font-size: var(--fs-h1); font-weight: var(--fw-semi); }
+h2 { font-size: clamp(1.75rem, 1.3rem + 1.4vw, 2.375rem); font-weight: var(--fw-regular); }
+h3 { font-size: var(--fs-h3); font-weight: var(--fw-semi); }
+h4 { font-size: var(--fs-h4); font-weight: var(--fw-semi); }
+
+/* Anchored sections clear the fixed header (see header.css for --header-total) */
+[id] { scroll-margin-top: calc(var(--header-total, 90px) + 20px); }
+
+::selection { background-color: var(--blue-dark); color: var(--white); }
+
+/* =============================
+  # Content Blocks (WYSIWYG output)
+============================= */
+
+.content-block > * + *,
+.section-content > * + * { margin-top: 1em; }
+
+.content-block ul,
+.content-block ol,
+.section-content ul,
+.section-content ol { padding-left: 1.25em; }
+
+.content-block li + li,
+.section-content li + li { margin-top: .4em; }
+
+/* Stop base.css's list hover-dim affecting written content */
+.content-block ul:hover > li:not(:hover),
+.section-content ul:hover > li:not(:hover) { opacity: 1; }
+
+/* Staging: links in copy are brand blue, underlined on hover */
+.content-block a:not(.btn),
+.section-content a:not(.btn) {
+  color: var(--blue);
+  text-decoration: none;
+  text-underline-offset: 3px;
+}
+.content-block a:not(.btn):hover,
+.content-block a:not(.btn):focus-visible,
+.section-content a:not(.btn):hover,
+.section-content a:not(.btn):focus-visible { color: var(--blue-dark); text-decoration: underline; }
+
+/* =============================
+  # Section Header (label / title / content)
+============================= */
+
+/* "THE TRAVEL NETWORK GROUP" — navy with the last words in blue (ttng_format_label()) */
+.section-label {
+  margin-bottom: 20px;
+  font-size: .9375rem;   /* 15px */
+  font-weight: var(--fw-semi);
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.section-label__accent { color: var(--blue); }
+
+/* .content-block prefix beats base.css's responsive .content-block h2 sizes */
+.content-block .section-title,
+.section-title {
+  font-size: clamp(1.75rem, 1.3rem + 1.4vw, 2.375rem);  /* 28 → 38px */
+  font-weight: var(--fw-regular);
+  line-height: 1.1;
+}
+.content-block h1.section-title { font-size: var(--fs-h1); }
+
+.section-header .section-label + .section-title { margin-top: 0; }
+
+.section-content { font-size: var(--fs-body); font-weight: var(--medium); line-height: 23px; }
+
+.section-header .section-title + .section-content { margin-top: 20px; }
+
+.section-header + .section-ctas { margin-top: 32px; }
+
+/* =============================
+  # Section Backgrounds (ttng_module_attrs())
+============================= */
+
+.module { position: relative; padding: var(--section-space) 0; }
+
+.section-bg--white    { background: var(--white); }
+.section-bg--light    { background: var(--grey-light); }
+.section-bg--navy     { background: var(--navy-dark); }
+.section-bg--navy-primary { background: var(--navy); }
+.section-bg--gradient { background: var(--gradient-section); }
+
+/* Two light sections in a row read as one block — halve the gap */
+.section-bg--white + .section-bg--white,
+.section-bg--light + .section-bg--light { padding-top: 0; }
+
+/* Dark sections: flip text colours */
+.is-dark,
+.is-dark h1, .is-dark h2, .is-dark h3, .is-dark h4,
+.is-dark p, .is-dark li { color: var(--white); }
+
+.is-dark .section-label { color: var(--white); }
+.is-dark .section-label__accent { color: var(--blue); }
+
+.is-dark .content-block a:not(.btn),
+.is-dark .section-content a:not(.btn) { color: var(--blue); }
+.is-dark .content-block a:not(.btn):hover,
+.is-dark .section-content a:not(.btn):hover { color: var(--white); }
+
+/* Brand shape watermark on gradient sections (5%, purely decorative) */
+.section-bg--gradient { overflow: hidden; }
+
+.section-bg--gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../../images/brand-shape.svg") no-repeat right -110px top -50px / auto 1092px;
+  opacity: .05;
+  pointer-events: none;
+}
+
+.section-bg--gradient > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* =============================
+  # Contact details (snippets/contact-details.php)
+============================= */
+
+.contact-details {
+  margin: 36px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-details li + li { margin-top: 16px; }
+
+.contact-details:hover > li:not(:hover) { opacity: 1; }
+
+.contact-details a {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 1.125rem;
+  font-weight: var(--fw-semi);
+  color: inherit;
+  word-break: break-word;
+}
+
+.contact-details__icon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  color: var(--white);
+  background: var(--blue-dark);
+}
+
+.is-dark .contact-details__icon { background: rgba(255, 255, 255, .14); }
+
+.contact-details a:hover span:last-child,
+.contact-details a:focus-visible span:last-child { text-decoration: underline; text-underline-offset: 3px; }
+
+.contact-details--inline {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px 32px;
+  margin-top: 30px;
+}
+
+.contact-details--inline li + li { margin-top: 0; }
+
+/* =============================
+  # Buttons
+============================= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 32px 15px;
+  font-family: var(--content);
+  font-size: .875rem;               /* 14px */
+  font-weight: var(--medium);
+  line-height: 1;
+  letter-spacing: 0;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  cursor: pointer;
+  user-select: none;
+  transition: var(--transition);
+}
+
+.btn:hover { transform: translateY(-2px); }
+
+/* Primary: solid brand blue (staging "Find out more" / "Get Started") */
+.btn--primary {
+  color: var(--white);
+  background-color: var(--blue);
+}
+.btn--primary:hover,
+.btn--primary:focus-visible {
+  color: var(--white);
+  background-color: var(--blue-dark);
+}
+
+/* Gradient: hero and form buttons. Background-size trick slides the gradient on hover. */
+.btn--gradient,
+.module--home-banner .btn--primary {
+  color: var(--white);
+  background-color: transparent;
+  background-image: linear-gradient(127deg, #3153CC 0%, #009ADF 50%, #3153CC 100%);
+  background-size: 200% 100%;
+  background-position: 0 0;
+}
+.btn--gradient:hover,
+.btn--gradient:focus-visible,
+.module--home-banner .btn--primary:hover,
+.module--home-banner .btn--primary:focus-visible {
+  background-position: 100% 0;
+  box-shadow: 0 8px 20px rgba(49, 83, 204, .35);
+}
+
+/* "Outline" renders as the staging solid navy button on light backgrounds */
+.btn--outline {
+  color: var(--white);
+  background-color: var(--navy-button);
+}
+.btn--outline:hover,
+.btn--outline:focus-visible {
+  color: var(--white);
+  background-color: var(--navy);
+}
+
+.btn--outline-light,
+.is-dark .btn--outline {
+  color: var(--white);
+  border-color: var(--white);
+}
+.btn--outline-light:hover,
+.btn--outline-light:focus-visible,
+.is-dark .btn--outline:hover,
+.is-dark .btn--outline:focus-visible {
+  color: var(--navy);
+  background-color: var(--white);
+}
+
+.btn--small { padding: 16px 32px 15px; font-size: .875rem; }
+
+/* Text with the brand gradient (ttng_format_highlight()) */
+.text-gradient {
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  color: var(--blue);
+  background: linear-gradient(132deg, #3153CC 0%, #0D9FE1 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.is-dark .btn:focus-visible { outline-color: var(--white); }
+
+.section-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.section-ctas--below { margin-top: var(--stack-space); }
+
+/* =============================
+  # Utilities
+  (bootstrap-custom.min.css is grid-only, so the few utilities the
+  modules need are defined here)
+============================= */
+
+.text-center { text-align: center; }
+.text-start  { text-align: left; }
+.justify-content-center { justify-content: center; }
+.align-items-center     { align-items: center; }
+
+@media (min-width: 992px) {
+  .order-lg-1 { order: 1; }
+  .order-lg-2 { order: 2; }
+}
+
+/* Makes a card's whole area clickable from one link (needs position:relative parent) */
+.stretched-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* =============================
+  # Forms (Contact Form 7 + generic)
+============================= */
+
+.wpcf7 label,
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semi);
+  color: var(--navy);
+}
+
+.wpcf7 input[type="text"],
+.wpcf7 input[type="email"],
+.wpcf7 input[type="tel"],
+.wpcf7 input[type="url"],
+.wpcf7 input[type="number"],
+.wpcf7 input[type="date"],
+.wpcf7 select,
+.wpcf7 textarea,
+.form-control {
+  display: block;
+  width: 100%;
+  margin: 0 0 16px;
+  padding: 14px 18px;
+  font-family: var(--content);
+  font-size: .9375rem;
+  font-weight: var(--medium);
+  line-height: 1.4;
+  color: var(--text);
+  background-color: var(--white);
+  border: 1px solid #C9CFDF;
+  border-radius: 12px;
+  appearance: none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.wpcf7 select {
+  padding-right: 44px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%231B2D70' stroke-width='2'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+}
+
+.wpcf7 textarea { min-height: 140px; resize: vertical; }
+
+.wpcf7 input:focus,
+.wpcf7 select:focus,
+.wpcf7 textarea:focus,
+.form-control:focus {
+  border-color: var(--blue-dark);
+  box-shadow: 0 0 0 3px rgba(49, 83, 204, .2);
+  outline: none;
+}
+
+.wpcf7 .wpcf7-list-item { margin: 0 0 8px; }
+.wpcf7 .wpcf7-acceptance label,
+.wpcf7 .wpcf7-checkbox label {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-weight: var(--medium);
+  color: var(--text);
+}
+
+/* Submit matches .btn--primary */
+.wpcf7 input[type="submit"],
+.wpcf7 button[type="submit"] {
+  display: inline-flex;
+  margin-top: 8px;
+  padding: 17px 36px;
+  font-family: var(--content);
+  font-size: .9375rem;
+  font-weight: var(--medium);
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color: var(--white);
+  border: 0;
+  border-radius: var(--radius-pill);
+  background-image: linear-gradient(127deg, #3153CC 0%, #009ADF 50%, #3153CC 100%);
+  background-size: 200% 100%;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.wpcf7 input[type="submit"]:hover,
+.wpcf7 button[type="submit"]:hover { background-position: 100% 0; }
+
+/* base.css nudges the tip up into the field — reset for this design */
+.wpcf7-not-valid-tip {
+  position: static;
+  margin: -10px 0 12px;
+  font-size: 13px;
+  color: #C62828;
+}
+
+.wpcf7 form .wpcf7-response-output {
+  margin: 16px 0 0;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: var(--fs-small);
+}
+
+/* =============================
+  # Media Queries
+============================= */
+
+@media (max-width: 768px) {
+  .section-ctas .btn { flex: 1 1 auto; }
+}
+
+@media (max-width: 600px) {
+  :root { --stack-space: 36px; }
+
+  .btn { padding: 15px 26px; }
+}
+
+/* ==========================================================================
+   Breadcrumbs (inc/breadcrumbs.php) — page header, listings, single Insight
+   ========================================================================== */
+.breadcrumbs {
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.breadcrumbs__list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.breadcrumbs__item {
+  display: flex;
+  align-items: center;
+}
+.breadcrumbs__item + .breadcrumbs__item::before {
+  content: "\203A";
+  content: "\203A" / "";
+  margin: 0 8px;
+  opacity: 0.7;
+}
+.breadcrumbs a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.breadcrumbs a:hover,
+.breadcrumbs a:focus-visible {
+  text-decoration: none;
+}
+.breadcrumbs [aria-current="page"] {
+  font-weight: 600;
+}
+.is-dark .breadcrumbs {
+  color: #fff;
+}
+
+/* ==========================================================================
+   Form honeypot (inc/forms.php) — visually hidden, never shown to visitors
+   ========================================================================== */
+.ttng-hp {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   Scroll reveal (assets/js/main.js) — cards fade in and up, staggered.
+   Uses an animation (not a transition) so it doesn't fight the cards' own
+   hover transitions; the class is only added by JS, so no-JS stays visible.
+   ========================================================================== */
+.reveal { opacity: 0; }
+
+.reveal.is-visible {
+  opacity: 1;
+  animation: ttng-reveal .7s cubic-bezier(.2, .65, .3, 1) var(--reveal-delay, 0s) backwards;
+}
+
+@keyframes ttng-reveal {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; }
+  .reveal.is-visible { animation: none; }
+}
+

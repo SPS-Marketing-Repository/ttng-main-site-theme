@@ -1,0 +1,141 @@
+/*
+Theme Name: The Travel Network Group
+Description: Used to style the TinyMCE editor.
+*/
+p,dl,td,th,ul,ol,blockquote{font-size:16px}
+pre{font-family:"Courier 10 Pitch",Courier,monospace}
+code,code var{font-family:Monaco,Consolas,"Andale Mono","DejaVu Sans Mono",monospace}
+body,input,textarea{font-size:12px;line-height:18px}
+hr{background-color:#e7e7e7;border:0;clear:both;height:1px;margin-bottom:18px}
+p{margin-bottom:18px}
+ul{list-style:square;margin:0 0 18px 1.5em}
+ol{list-style:decimal;margin:0 0 18px 1.5em}
+ol ol{list-style:upper-alpha}
+ol ol ol{list-style:lower-roman}
+ol ol ol ol{list-style:lower-alpha}
+ul ul,ol ol,ul ol,ol ul{margin-bottom:0}
+dl{margin:0 0 24px}
+dt{font-weight:700}
+dd{margin-bottom:18px}
+strong{color:#000;font-weight:700}
+cite,em,i{border:none;font-style:italic}
+big{font-size:131.25%}
+ins{background:#ffc;border:none;color:#333}
+del{text-decoration:line-through;color:#555}
+blockquote{font-style:italic;padding:0 3em}
+blockquote cite,blockquote em,blockquote i{font-style:normal}
+pre{background:#f7f7f7;color:#222;line-height:18px;margin-bottom:18px;padding:1.5em}
+abbr,acronym{border-bottom:1px dotted #666;cursor:help}
+ins{text-decoration:none}
+sup,sub{font-size:10px;height:0;line-height:1;position:relative;vertical-align:baseline}
+sup{bottom:1ex}
+sub{top:.5ex}
+p,ul,ol,dd,pre,hr{margin-bottom:24px}
+ul ul,ol ol,ul ol,ol ul{margin-bottom:0}
+pre,kbd,tt,var{font-size:15px;line-height:21px}
+code{font-size:13px}
+strong,b,dt,th{color:#000}
+h1,h2,h3,h4,h5,h6{color:#000;font-weight:400;line-height:1.5em;margin:0 0 20px}
+h1{font-size:2.4em}
+h2{font-size:1.8em}
+h3{font-size:1.4em}
+h4{font-size:1.2em}
+h5{font-size:1em}
+h6{font-size:.9em}
+table{border:1px solid #e7e7e7!important;border-collapse:collapse;border-spacing:0;margin:0 -1px 24px 0;text-align:left;width:100%}
+tr th,thead th{border:none!important;color:#888;font-size:12px;font-weight:700;line-height:18px;padding:9px 24px}
+tr td{border:none!important;border-top:1px solid #e7e7e7!important;padding:6px 24px}
+img{margin:0}
+img.size-auto,img.size-large,img.size-full,img.size-medium{max-width:100%;height:auto}
+.alignleft,img.alignleft{display:inline;float:left;margin-right:24px;margin-top:4px}
+.alignright,img.alignright{display:inline;float:right;margin-left:24px;margin-top:4px}
+.aligncenter,img.aligncenter{clear:both;display:block;margin-left:auto;margin-right:auto}
+img.alignleft,img.alignright,img.aligncenter{margin-bottom:12px}
+.wp-caption{background:#f1f1f1;border:none;-khtml-border-radius:0;-moz-border-radius:0;-webkit-border-radius:0;border-radius:0;color:#888;font-size:12px;line-height:18px;margin-bottom:20px;max-width:632px!important;padding:4px;text-align:center}
+.wp-caption img{margin:5px}
+.wp-caption p.wp-caption-text{margin:0 0 4px}
+.wp-smiley{margin:0}
+body#tinymce.wp-editor {font-family: Arial, Helvetica, sans-serif; margin: 10px;}
+body#tinymce.wp-editor a:link{color:#06c}
+body#tinymce.wp-editor a:visited{color:#743399}
+body#tinymce.wp-editor a:active,a:hover{color:#ff4b33}
+
+/* CUSTOM STYLES PER CLIENT */
+.lead {
+    font-size: 1.25em;
+    font-weight: 300;
+    line-height: 1.6;
+}
+.btn {
+    display: inline-block;
+    padding: 0.375rem 0.75rem;
+    font-weight: 400;
+    text-align: center;
+    border: 1px solid transparent;
+    border-radius: 0.375rem;
+    text-decoration: none;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+.btn-outline-secondary {
+    color: #6c757d;
+    border-color: #6c757d;
+}
+.alert {
+    padding: 1rem;
+    border-radius: 0.375rem;
+    margin-top: 1rem;
+}
+.alert-info {
+    background-color: #e9f7fd;
+    color: #055160;
+}
+.alert-warning {
+    background-color: #fff3cd;
+    color: #664d03;
+}
+.blockquote {
+    padding: 0.5rem 1rem;
+    margin: 1rem 0;
+    border-left: 0.25rem solid #dee2e6;
+    font-style: italic;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+}
+[class^="col-"] {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+.col-6 { flex: 0 0 50%; max-width: 50%; }
+.col-4 { flex: 0 0 33.333%; max-width: 33.333%; }
+.col-12 { flex: 0 0 100%; max-width: 100%; }
+
+/* Margin classes */
+.mt-3 { margin-top: 1rem; }
+.mb-3 { margin-bottom: 1rem; }
+.my-3 { margin-top: 1rem; margin-bottom: 1rem; }
+
+/* Padding classes */
+.p-3 { padding: 1rem; }
+.px-3 { padding-left: 1rem; padding-right: 1rem; }
+.py-3 { padding-top: 1rem; padding-bottom: 1rem; }
+
+/* Containers */
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.container-fluid {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}

@@ -1,0 +1,365 @@
+/**
+ * #.#   Timeline / Steps Module
+ *
+ * Styles for template-parts/modules/timeline.php
+**/
+
+.timeline {
+  margin: var(--stack-space) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline:hover > li:not(:hover) { opacity: 1; }
+
+.timeline__title {
+  margin-bottom: 8px;
+  font-size: 1.25rem;
+}
+
+/* Explicit colours: both styles sit on white cards, even in .is-dark sections */
+.timeline .timeline__title { color: var(--navy); }
+.timeline .timeline__text { color: var(--text); font-size: .9375rem; }
+
+.timeline__body {
+  padding: 24px 26px;
+  border-radius: var(--radius-pod);
+  background: var(--white);
+  box-shadow: var(--shadow-card);
+}
+
+.section-bg--white .timeline__body { background: var(--grey-light); box-shadow: none; }
+
+.timeline__marker {
+  display: inline-block;
+  font-weight: var(--fw-bold);
+  color: var(--white);
+  background: var(--blue-dark);
+}
+
+/* --- Vertical timeline --- */
+.timeline--timeline { position: relative; }
+
+.timeline--timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  margin-left: -1.5px;
+  background: var(--blue-light);
+}
+
+.timeline--timeline .timeline__item {
+  position: relative;
+  width: 50%;
+  padding: 0 44px 32px 0;
+}
+
+.timeline--timeline .timeline__item:nth-child(even) {
+  margin-left: 50%;
+  padding: 0 0 32px 44px;
+}
+
+.timeline--timeline .timeline__marker {
+  position: absolute;
+  top: 18px;
+  right: 0;
+  z-index: 1;
+  padding: 5px 14px;
+  font-size: var(--fs-small);
+  border-radius: var(--radius-pill);
+  transform: translateX(50%);
+  white-space: nowrap;
+}
+
+.timeline--timeline .timeline__item:nth-child(even) .timeline__marker {
+  right: auto;
+  left: 0;
+  transform: translateX(-50%);
+}
+
+.timeline--timeline .timeline__body { padding-top: 34px; }
+
+/* --- Steps: staging "Process Timeline" --- */
+/* Row of cards (alternating white / navy) with a blue "STAGE N" tab, a tick,
+   a pointed bottom, and a blue line with a dot under each card. */
+.timeline--steps {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: var(--stack-space) 0 0;
+  padding: 0 0 60px;
+  list-style: none;
+}
+
+.timeline--steps::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 22px;
+  height: 2px;
+  background: var(--blue);
+}
+
+.timeline--steps:hover > li:not(:hover) { opacity: 1; }
+
+.timeline--steps .timeline__item {
+  position: relative;
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: center;
+  max-width: 245px;
+  padding-top: 32px;
+}
+
+.timeline--steps .timeline__item::after {
+  content: "";
+  position: absolute;
+  bottom: -44px;
+  left: 50%;
+  z-index: 1;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--blue);
+  transform: translateX(-50%);
+}
+
+.timeline--steps .timeline__marker {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 140px;
+  padding: 0 10px;
+  font-size: .875rem;
+  font-weight: var(--fw-semi);
+  line-height: 32px;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--white);
+  border-radius: 15px 15px 0 0;
+  background: var(--blue);
+  transform: translateX(-50%);
+}
+
+.timeline--steps .timeline__body {
+  flex: 1;
+  width: 100%;
+  min-height: 344px;
+  padding: 28px 20px 60px;
+  text-align: center;
+  color: var(--navy);
+  border-radius: 15px 15px 0 0;
+  background: var(--white);
+  box-shadow: none;
+  clip-path: polygon(0 0, 100% 0, 100% 86%, 50% 100%, 0 86%);
+}
+
+/* Tick at the top of each card */
+.timeline--steps .timeline__body::before {
+  content: "";
+  display: block;
+  width: 22px;
+  height: 22px;
+  margin: 0 auto 14px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23009ADF' d='M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm118-366.3c10.7 7.8 13.1 22.8 5.3 33.5l-135.9 187c-4.1 5.7-10.5 9.3-17.5 9.8s-13.8-2-18.8-7l-72-72c-9.4-9.3-9.4-24.5 0-33.9s24.6-9.4 33.9 0l52.1 52.1 119.4-164.2c7.8-10.7 22.8-13.1 33.5-5.3z'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+.timeline--steps .timeline__title {
+  margin: 0 0 12px;
+  font-size: clamp(1.25rem, 1.1rem + .4vw, 1.4375rem);
+  font-weight: var(--medium);
+  line-height: 1.2;
+  color: var(--navy);
+}
+
+.timeline--steps .timeline__text { margin: 0; font-size: 1rem; line-height: 23px; color: var(--navy); }
+
+.timeline--steps .timeline__item:nth-child(even) .timeline__body { background: var(--navy); }
+.timeline--steps .timeline__item:nth-child(even) .timeline__title { color: var(--white); }
+.timeline--steps .timeline__item:nth-child(even) .timeline__text { color: var(--blue-light); }
+
+/* White sections: navy / blue cards instead of white on white */
+.section-bg--white .timeline--steps .timeline__body,
+.section-bg--light .timeline--steps .timeline__body { background: var(--grey-light); }
+
+/* --- Story: staging "From Humble Beginnings" --- */
+/* Blue year tab, white logo strip, navy card (alternating navy / blue-navy)
+   with a pointed bottom, and a line with a dot under each card. Five per view;
+   more scroll sideways (main.js arrows). */
+.timeline-carousel { position: relative; margin-top: var(--stack-space); }
+
+.timeline--story {
+  position: relative;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0 0 50px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  list-style: none;
+}
+
+.timeline--story::-webkit-scrollbar { display: none; }
+.timeline--story:focus-visible { outline: 2px solid var(--blue-dark); outline-offset: 3px; }
+.timeline--story:hover > li:not(:hover) { opacity: 1; }
+
+.timeline--story .timeline__item {
+  position: relative;
+  display: flex;
+  flex: 0 0 calc((100% - 100px) / 5);
+  flex-direction: column;
+  padding-top: 32px;
+  scroll-snap-align: start;
+}
+
+/* Line + dot under each card */
+.timeline--story .timeline__item::before {
+  content: "";
+  position: absolute;
+  left: -13px;
+  right: -12px;
+  bottom: -41px;
+  height: 2px;
+  background: var(--blue);
+}
+
+.timeline--story .timeline__item::after {
+  content: "";
+  position: absolute;
+  bottom: -49px;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #2742A3;
+  transform: translateX(-50%);
+}
+
+.timeline--story .timeline__marker {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 170px;
+  max-width: 80%;
+  font-size: .875rem;
+  font-weight: var(--fw-semi);
+  line-height: 32px;
+  text-align: center;
+  color: var(--white);
+  border-radius: 15px 15px 0 0;
+  background: var(--blue);
+  transform: translateX(-50%);
+}
+
+.timeline--story .timeline__body {
+  flex: 1;
+  min-height: 440px;
+  padding: 0 15px 70px;
+  text-align: center;
+  border-radius: 15px 15px 0 0;
+  background: var(--navy);
+  box-shadow: none;
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 50% 100%, 0 88%);
+}
+
+.timeline--story .timeline__item:nth-child(even) .timeline__body { background: var(--navy-mid); }
+
+.timeline__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 117px;
+  margin: 0 -15px 23px;
+  border-radius: 15px 15px 0 0;
+  background: var(--white);
+}
+
+.timeline__logo img { width: 135px; max-height: 80px; object-fit: contain; }
+
+.timeline--story .timeline__title { margin: 0 0 10px; font-size: 1.125rem; color: var(--white); }
+.timeline--story .timeline__text { margin: 0; font-size: 1rem; line-height: 23px; color: var(--blue-light); }
+.timeline--story .timeline__item:nth-child(even) .timeline__text { font-weight: var(--fw-bold); color: var(--white); }
+
+.timeline-carousel__arrow {
+  position: absolute;
+  top: 45%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  color: #666;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.timeline-carousel__arrow[hidden] { display: none; }
+.timeline-carousel__arrow:hover { color: var(--blue); }
+.timeline-carousel__arrow:disabled { opacity: .3; cursor: default; }
+.timeline-carousel__arrow--prev { left: -50px; }
+.timeline-carousel__arrow--prev .icon { transform: rotate(180deg); }
+.timeline-carousel__arrow--next { right: -50px; }
+
+@media (max-width: 1440px) {
+  .timeline-carousel__arrow--prev { left: -36px; }
+  .timeline-carousel__arrow--next { right: -36px; }
+}
+
+@media (max-width: 1280px) {
+  .timeline--story .timeline__item { flex-basis: calc((100% - 75px) / 4); }
+}
+
+@media (max-width: 992px) {
+  .timeline--story .timeline__item { flex-basis: calc((100% - 25px) / 2); }
+  .timeline-carousel__arrow--prev { left: -14px; }
+  .timeline-carousel__arrow--next { right: -14px; }
+}
+
+@media (max-width: 600px) {
+  .timeline--story .timeline__item { flex-basis: 80%; }
+  .timeline--story .timeline__body { min-height: 380px; }
+}
+
+@media (max-width: 1280px) {
+  .timeline--steps { flex-wrap: wrap; padding-bottom: 0; }
+  .timeline--steps::after,
+  .timeline--steps .timeline__item::after { display: none; }
+  .timeline--steps .timeline__item { flex: 0 1 calc(33.333% - 20px); max-width: none; }
+}
+
+@media (max-width: 768px) {
+  .timeline--steps .timeline__item { flex-basis: 100%; }
+  .timeline--steps .timeline__body { min-height: 0; }
+}
+
+@media (max-width: 768px) {
+  /* Timeline: line moves to the left, every item on the right of it */
+  .timeline--timeline::before { left: 10px; }
+
+  .timeline--timeline .timeline__item,
+  .timeline--timeline .timeline__item:nth-child(even) {
+    width: auto;
+    margin-left: 0;
+    padding: 0 0 26px 30px;
+  }
+
+  .timeline--timeline .timeline__marker,
+  .timeline--timeline .timeline__item:nth-child(even) .timeline__marker {
+    position: static;
+    margin-bottom: 8px;
+    transform: none;
+  }
+
+  .timeline--timeline .timeline__body { padding-top: 22px; }
+}

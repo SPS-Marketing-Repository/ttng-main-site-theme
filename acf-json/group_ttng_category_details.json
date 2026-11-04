@@ -1,0 +1,53 @@
+{
+    "key": "group_ttng_category_details",
+    "title": "Category Details",
+    "fields": [
+        {
+            "key": "field_dfb5eb78c3a41",
+            "label": "Intro Paragraph",
+            "name": "category_intro",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Shown at the top of the category page.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "category"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "acfe": {
+        "autosync": [
+            "json"
+        ]
+    },
+    "modified": 1793774950
+}

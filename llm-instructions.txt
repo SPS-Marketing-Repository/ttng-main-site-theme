@@ -1,0 +1,37 @@
+# LLM Instructions File
+# Purpose: Provide context, rules, and style guidelines for AI systems assisting with this site/project.
+
+[PROJECT CONTEXT]
+- Client: The Travel Network Group (TTNG) — the UK's biggest independent travel network (1100+ members, four membership brands: Travel Trust Association, Worldchoice, Independent Travel Experts, Managed Services)
+- Agency: SPS Marketing (https://spsmarketing.co.uk/)
+- Brand colours: #1B2D70 (navy, primary), #0F193D (dark navy), #009ADF (accent blue), #3153CC (accessible blue)
+- Font: Montserrat
+- Platform: WordPress custom theme (ttng-main-site-theme), ACF Pro Flexible Content page builder, jQuery
+
+[WRITING STYLE]
+- Tone: Clear, direct, practical. Friendly but not wordy.
+- Audience: Independent travel business owners and prospective members.
+- UK spelling in all visible copy.
+- Avoid: Overly casual language, jargon without explanation, or filler words.
+
+[CONTENT RULES]
+- Always optimise for scalability and compliance.
+- Flag: security issues, deprecated code, cookie/privacy concerns.
+- Assume ACF is in use when writing/reviewing WordPress PHP.
+- Prefer DRY, modular solutions over one-off fixes.
+
+[TECHNICAL PREFERENCES]
+- PHP: Follow WP coding standards, sanitise input and escape output. Prefix functions ttng_.
+- JS: jQuery, all custom code in assets/js/main.js. No inline JS.
+- CSS: Brand tokens only from assets/css/core/additions.css. One stylesheet per module.
+- Embeds: always ttng_kses_iframe().
+- See CLAUDE.md and DESIGN.md in the theme root for architecture and design tokens.
+
+[CHECKLIST REMINDERS]
+- Before launch: Check 404s, forms, meta/SEO basics, cookie banners, accessibility.
+- Maintenance: Backups before updates, version control all code, check plugin/theme compatibility.
+- Performance: Audit images, caching, CDN if needed.
+
+[LLM BEHAVIOUR]
+- Be concise, propose scalable solutions, flag pitfalls.
+- If uncertain, ask for clarification before generating assumptions.

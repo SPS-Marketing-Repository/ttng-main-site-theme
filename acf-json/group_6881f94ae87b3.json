@@ -1,0 +1,58 @@
+{
+    "key": "group_6881f94ae87b3",
+    "title": "Humans.txt",
+    "fields": [
+        {
+            "key": "field_6881f94b08039",
+            "label": "humans.txt Content",
+            "name": "humans_txt_content",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "A humans.txt file credits the people who built a website. It’s a simple way to share names, roles, or tools used — adding a personal, human touch alongside the technical side of a site.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "site-text-files"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content",
+        "discussion",
+        "comments"
+    ],
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "acfe": {
+        "autosync": [
+            "json"
+        ]
+    },
+    "modified": 1793774944
+}

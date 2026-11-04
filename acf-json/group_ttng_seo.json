@@ -1,0 +1,128 @@
+{
+    "key": "group_ttng_seo",
+    "title": "SEO",
+    "fields": [
+        {
+            "key": "field_ttng_seo_title",
+            "label": "SEO title",
+            "name": "seo_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Optional. Replaces the page title in search results and the browser tab. Aim for under 60 characters.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "maxlength": 70,
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_ttng_seo_description",
+            "label": "Meta description",
+            "name": "seo_description",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Shown under the title in search results and when shared. Aim for 120–155 characters.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "rows": 3,
+            "maxlength": 200,
+            "new_lines": "",
+            "default_value": "",
+            "placeholder": "",
+            "acfe_textarea_code": 0
+        },
+        {
+            "key": "field_ttng_seo_image",
+            "label": "Share image",
+            "name": "seo_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Used when the page is shared on social media. 1200×630px. Falls back to the featured image, then the site logo.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": "",
+            "uploader": "",
+            "acfe_thumbnail": 0
+        },
+        {
+            "key": "field_ttng_seo_noindex",
+            "label": "Hide from search engines",
+            "name": "seo_noindex",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Adds noindex. Use for thank-you pages and similar.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "ui": 1,
+            "default_value": 0,
+            "message": "",
+            "ui_on_text": "",
+            "ui_off_text": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 90,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "",
+    "show_in_rest": false,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "acfe": {
+        "autosync": [
+            "json"
+        ]
+    },
+    "modified": 1793781511
+}

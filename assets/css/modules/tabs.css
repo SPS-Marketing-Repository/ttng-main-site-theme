@@ -1,0 +1,170 @@
+/**
+ * #.#   Tabs Module
+ *
+ * Styles for template-parts/modules/tabs.php
+**/
+
+.ttng-tabs { margin-top: var(--stack-space); }
+
+.ttng-tabs__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.ttng-tabs__list[hidden] { display: none; }
+
+.ttng-tabs__tab {
+  padding: 13px 26px;
+  font-family: var(--content);
+  font-size: .9375rem;
+  font-weight: var(--fw-semi);
+  color: var(--navy);
+  background: var(--grey-light);
+  border: 0;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.ttng-tabs__tab:hover { background: var(--grey); }
+
+/* Inactive tabs would vanish against a light section */
+.section-bg--light .ttng-tabs__tab { background: var(--white); }
+.section-bg--light .ttng-tabs__tab[aria-selected="true"] { background: var(--navy); }
+
+.ttng-tabs__tab[aria-selected="true"] {
+  color: var(--white);
+  background: var(--navy);
+}
+
+.is-dark .ttng-tabs__tab { background: var(--white); }
+.is-dark .ttng-tabs__tab[aria-selected="true"] { color: var(--navy); background: var(--blue-light); }
+
+.ttng-tabs__panel {
+  padding: 40px;
+  border-radius: var(--radius-card);
+  background: var(--white);
+  box-shadow: var(--shadow-card);
+}
+
+.ttng-tabs__panel + .ttng-tabs__panel { margin-top: 24px; }
+
+/* Text stays dark on the white panel inside dark sections */
+.is-dark .ttng-tabs__panel,
+.is-dark .ttng-tabs__panel p,
+.is-dark .ttng-tabs__panel li { color: var(--text); }
+.is-dark .ttng-tabs__panel h2,
+.is-dark .ttng-tabs__panel h3,
+.is-dark .ttng-tabs__panel h4 { color: var(--navy); }
+.is-dark .ttng-tabs__panel .content-block a:not(.btn) { color: var(--blue-dark); }
+
+.ttng-tabs__panel-title { margin-bottom: 14px; }
+
+.ttng-tabs__media img {
+  width: 100%;
+  border-radius: 16px;
+}
+
+/* main.js adds this once the tab bar is working */
+.ttng-tabs.is-enhanced .ttng-tabs__panel + .ttng-tabs__panel { margin-top: 0; }
+.ttng-tabs.is-enhanced .ttng-tabs__panel-title { display: none; }
+.ttng-tabs.is-enhanced .ttng-tabs__panel[hidden] { display: none; }
+
+/* =============================
+  # Side layout (staging Membership Types "Vision across our Propositions")
+============================= */
+
+.tabs--side .section-header,
+.tabs--side .section-header p { text-align: left; }
+
+.ttng-tabs--side.is-enhanced {
+  display: grid;
+  grid-template-columns: 360px minmax(0, 1fr);
+  gap: 0 30px;
+  align-items: start;
+}
+
+.ttng-tabs--side .ttng-tabs__list {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 10px;
+  margin: 0;
+}
+
+.ttng-tabs--side .ttng-tabs__panel { grid-column: 2; grid-row: 1; }
+
+.ttng-tabs--side .ttng-tabs__tab,
+.section-bg--light .ttng-tabs--side .ttng-tabs__tab,
+.is-dark .ttng-tabs--side .ttng-tabs__tab {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 61px;
+  padding: 20px 25px;
+  font-size: .875rem;
+  text-align: left;
+  text-transform: uppercase;
+  color: var(--white);
+  border-radius: 10px;
+  background: var(--navy);
+}
+
+.ttng-tabs--side .ttng-tabs__tab .icon { flex-shrink: 0; width: 14px; height: 14px; transition: var(--transition); }
+
+.ttng-tabs--side .ttng-tabs__tab--pink,
+.section-bg--light .ttng-tabs--side .ttng-tabs__tab--pink   { background: #D8366E; }
+.ttng-tabs--side .ttng-tabs__tab--teal,
+.section-bg--light .ttng-tabs--side .ttng-tabs__tab--teal   { background: #50B4A2; }
+.ttng-tabs--side .ttng-tabs__tab--black,
+.section-bg--light .ttng-tabs--side .ttng-tabs__tab--black  { background: #000; }
+.ttng-tabs--side .ttng-tabs__tab--blue,
+.section-bg--light .ttng-tabs--side .ttng-tabs__tab--blue   { background: var(--blue-dark); }
+
+.ttng-tabs--side .ttng-tabs__tab:hover { filter: brightness(1.12); }
+.ttng-tabs--side .ttng-tabs__tab[aria-selected="true"] .icon { transform: translateX(4px); }
+.ttng-tabs--side .ttng-tabs__tab:focus-visible { outline: 2px solid var(--blue-dark); outline-offset: 3px; }
+
+/* Content sits beside the tabs, no card */
+.ttng-tabs--side .ttng-tabs__panel {
+  padding: 10px;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.ttng-tabs--side .ttng-tabs__panel h2,
+.ttng-tabs--side .ttng-tabs__panel h3 { margin-bottom: 20px; font-size: 1.5625rem; font-weight: var(--medium); color: var(--navy); }
+.ttng-tabs--side .ttng-tabs__panel p,
+.ttng-tabs--side .ttng-tabs__panel li { font-weight: var(--medium); }
+.ttng-tabs--side .ttng-tabs__panel strong { color: var(--navy); }
+.ttng-tabs--side .ttng-tabs__panel li::marker { color: var(--blue); }
+
+.is-dark .ttng-tabs--side .ttng-tabs__panel,
+.is-dark .ttng-tabs--side .ttng-tabs__panel p,
+.is-dark .ttng-tabs--side .ttng-tabs__panel li { color: var(--white); }
+.is-dark .ttng-tabs--side .ttng-tabs__panel h2,
+.is-dark .ttng-tabs--side .ttng-tabs__panel h3,
+.is-dark .ttng-tabs--side .ttng-tabs__panel strong { color: var(--white); }
+
+@media (max-width: 1280px) {
+  .ttng-tabs--side.is-enhanced { grid-template-columns: 280px minmax(0, 1fr); }
+}
+
+@media (max-width: 992px) {
+  /* Tabs stack above the content */
+  .ttng-tabs--side.is-enhanced { display: block; }
+  .ttng-tabs--side .ttng-tabs__list { margin-bottom: 24px; }
+}
+
+@media (max-width: 992px) {
+  .ttng-tabs__media { margin-top: 24px; }
+}
+
+@media (max-width: 600px) {
+  .ttng-tabs__panel { padding: 26px 20px; }
+  .ttng-tabs__tab { flex: 1 1 100%; }
+}

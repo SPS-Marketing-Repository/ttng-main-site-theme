@@ -1,0 +1,56 @@
+/**
+ * #.#   Download Module — staging "Brochure Download" section
+ *
+ * Styles for template-parts/modules/download.php
+**/
+
+.download__intro {
+  max-width: 890px;
+  margin: 0 auto;
+}
+
+/* Two-tone accent bar above the label */
+.download__intro::before {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 3px;
+  margin: 0 auto 14px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, var(--navy-dark) 50%, var(--blue) 50%);
+}
+
+.is-dark .download__intro::before { background: linear-gradient(90deg, var(--white) 50%, var(--blue) 50%); }
+
+/* Arrow after the button text; currentColor follows the button style */
+.download__intro .btn::after {
+  content: "";
+  flex-shrink: 0;
+  width: 16px;
+  height: 12px;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 12' fill='none' stroke='%23000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 6h14M10 1l5 5-5 5'/%3E%3C/svg%3E") no-repeat center / contain;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 12' fill='none' stroke='%23000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 6h14M10 1l5 5-5 5'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+.download__media {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+/* Capped both ways so tall or wide uploads stay in proportion; never scaled up */
+.download__image {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: min(100%, 450px);
+  max-height: 450px;
+}
+
+@media (max-width: 600px) {
+  .download__image {
+    max-width: min(100%, 320px);
+    max-height: 320px;
+  }
+}

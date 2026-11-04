@@ -1,0 +1,69 @@
+# Builds the installable theme zip and publishes a GitHub Release when a version
+# tag (e.g. v2.6.1) is pushed. Sites pick the release up through inc/updater.php.
+name: Release theme
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the tag
+        uses: actions/checkout@v7
+
+      - name: Check the tag matches style.css
+        run: |
+          TAG_VERSION="${GITHUB_REF_NAME#v}"
+          THEME_VERSION="$(sed -n 's/^Version:[[:space:]]*//p' style.css | tr -d '\r')"
+          if [ "$TAG_VERSION" != "$THEME_VERSION" ]; then
+            echo "::error::Tag $GITHUB_REF_NAME does not match style.css Version $THEME_VERSION"
+            exit 1
+          fi
+          echo "VERSION=$THEME_VERSION" >> "$GITHUB_ENV"
+
+      - name: Lint PHP
+        run: git ls-files -z '*.php' | xargs -0 -n1 php -l > /dev/null
+
+      - name: Validate ACF JSON
+        run: |
+          for file in acf-json/*.json; do
+            python3 -m json.tool "$file" > /dev/null || { echo "::error::Invalid JSON in $file"; exit 1; }
+          done
+
+      - name: Write release notes from CHANGELOG.md
+        run: |
+          awk -v heading="## [$VERSION]" '
+            index($0, heading) == 1 { found = 1; next }
+            found && /^## \[/ { exit }
+            found && $0 != "---" { print }
+          ' CHANGELOG.md | tr -d '\r' > notes.md
+          if ! grep -q '[^[:space:]]' notes.md; then
+            echo "::error::CHANGELOG.md has no entry for $VERSION"
+            exit 1
+          fi
+          REQUIRES_WP="$(sed -n 's/^Requires at least:[[:space:]]*//p' style.css | tr -d '\r')"
+          REQUIRES_PHP="$(sed -n 's/^Requires PHP:[[:space:]]*//p' style.css | tr -d '\r')"
+          # inc/updater.php reads these two lines. Don't reword them.
+          printf '\nRequires WordPress: %s\nRequires PHP: %s\n' "$REQUIRES_WP" "$REQUIRES_PHP" >> notes.md
+
+      # The prefix gives the zip the theme's folder name. .gitattributes keeps dev files out.
+      - name: Build the theme zip
+        run: |
+          git archive --format=zip --prefix=ttng-main-site-theme/ -o ttng-main-site-theme.zip HEAD
+          unzip -l ttng-main-site-theme.zip | grep -q ' ttng-main-site-theme/style.css$'
+          unzip -l ttng-main-site-theme.zip | grep -q ' ttng-main-site-theme/inc/updater.php$'
+          if unzip -l ttng-main-site-theme.zip | grep -E ' ttng-main-site-theme/(CLAUDE\.md|\.github/|bin/)'; then
+            echo "::error::Dev files found in the zip"
+            exit 1
+          fi
+
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" ttng-main-site-theme.zip --verify-tag --title "$GITHUB_REF_NAME" --notes-file notes.md

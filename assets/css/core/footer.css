@@ -1,0 +1,229 @@
+/**
+ * #.# Footer — matches the staging footer
+ *
+ * Very dark navy (#090F24) with a faint brand shape on the right:
+ * logo, blue tagline, registered address, phone/email; menu columns with
+ * blue uppercase headings; "Follow us" circles; accreditation logo bottom right.
+ * White sub footer: © left, company registration centred, credit right.
+ *
+ * Markup: template-parts/footer/site-footer.php
+ */
+
+/* =============================
+  # Footer
+============================= */
+
+.site-footer {
+  position: relative;
+  overflow: hidden;
+  padding: 70px 0 40px;
+  background-color: var(--footer-bg);
+  color: var(--white);
+}
+
+.site-footer::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -110px;
+  width: 535px;
+  height: 1092px;
+  background: url("../../images/brand-shape.svg") no-repeat center / contain;
+  opacity: .05;
+  pointer-events: none;
+}
+
+.site-footer > .container { position: relative; z-index: 1; }
+
+.site-footer p,
+.site-footer address,
+.site-footer li,
+.site-footer a {
+  font-size: 1rem;
+  font-weight: var(--fw-regular);
+  line-height: 27px;
+  color: var(--white);
+}
+
+.site-footer a { transition: color .2s ease; }
+
+.site-footer a:hover,
+.site-footer a:focus-visible { color: var(--blue); }
+
+.site-footer ul:hover > li:not(:hover) { opacity: 1; }
+
+.footer-col { margin-bottom: 40px; }
+
+/* =============================
+  # About column
+============================= */
+
+.footer-logo { display: inline-block; margin-bottom: 40px; }
+.footer-logo img { display: block; width: 152px; max-width: 100%; height: auto; }
+.footer-logo__text { font-size: 22px; font-weight: var(--fw-bold); color: var(--white); }
+
+.site-footer .footer-tagline {
+  max-width: 305px;
+  margin: 0 0 34px;
+  font-size: 1.0625rem;   /* 17px */
+  font-weight: var(--medium);
+  line-height: 27px;
+  color: var(--blue);
+}
+
+.site-footer .footer-address__label {
+  margin: 0 0 10px;
+  text-transform: uppercase;
+}
+
+.footer-address { margin: 0 0 40px; font-style: normal; }
+
+.footer-contact { margin: 0; padding: 0; list-style: none; }
+.footer-contact li + li { margin-top: 7px; }
+
+.footer-contact a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: var(--medium);
+  line-height: 24px;
+  word-break: break-word;
+}
+
+.footer-contact .icon { flex-shrink: 0; width: 14px; height: 14px; color: var(--blue); }
+
+/* =============================
+  # Menu columns
+============================= */
+
+.footer-col__heading {
+  margin: 0 0 20px;
+  font-size: 1rem;
+  font-weight: var(--medium);
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.footer-menu-container ul { margin: 0; padding: 0; list-style: none; }
+.footer-menu-container ul li { margin-bottom: 10px; }
+
+.site-footer .footer-menu-container ul li a {
+  line-height: 23px;
+  color: #EEEEEE;
+}
+
+.site-footer .footer-menu-container ul li a:hover,
+.site-footer .footer-menu-container ul li a:focus-visible,
+.site-footer .footer-menu-container .current-menu-item > a { color: var(--blue); }
+
+/* =============================
+  # Follow us + accreditations
+============================= */
+
+.footer-col--social {
+  display: flex;
+  flex-direction: column;
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.social-links li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  color: var(--white);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .3);
+  transition: background-color .2s ease;
+}
+
+.social-links li a svg { width: 18px; height: 18px; }
+
+.social-links li a:hover,
+.social-links li a:focus-visible { color: var(--white); background: var(--blue); }
+
+.footer-accreditations {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 20px;
+  margin: auto 0 0;
+  padding: 60px 0 0;
+  list-style: none;
+}
+
+.footer-accreditations img { display: block; width: 250px; max-width: 100%; height: auto; opacity: .8; }
+
+/* =============================
+  # Sub footer (white)
+============================= */
+
+.sub-footer { padding: 17px 0; background-color: var(--white); }
+
+.sub-footer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Two rows: copyright | registration, then legal links | credit */
+.sub-footer__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px 30px;
+}
+
+.sub-footer__row > :last-child { margin-left: auto; text-align: right; }
+
+.sub-footer p, 
+.sub-footer a {
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: var(--medium);
+  line-height: 13px;
+  color: var(--text);
+}
+
+.sub-footer__menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sub-footer a { transition: color .2s ease; }
+
+.sub-footer a:hover,
+.sub-footer a:focus-visible { color: var(--blue-dark); text-decoration: underline; text-underline-offset: 3px; }
+
+/* =============================
+  # Responsive
+============================= */
+
+@media (max-width: 1280px) {
+  .footer-accreditations { justify-content: flex-start; }
+}
+
+@media (max-width: 992px) {
+  .site-footer { padding-top: 60px; }
+}
+
+@media (max-width: 768px) {
+  .sub-footer__row { flex-direction: column; text-align: center; }
+  .sub-footer__row > :last-child { margin-left: 0; text-align: center; }
+  .sub-footer__menu { justify-content: center; }
+}

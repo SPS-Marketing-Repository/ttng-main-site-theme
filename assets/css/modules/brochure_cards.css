@@ -1,0 +1,45 @@
+/**
+ * #.#   Brochure Cards Module
+ *
+ * Styles for template-parts/modules/brochure_cards.php
+**/
+
+.brochure-cards__list {
+  display: grid;
+  gap: 30px;
+  margin-top: var(--stack-space);
+}
+
+.brochure-card {
+  padding: 40px;
+  border-radius: var(--radius-pod);
+  background: var(--white);
+  box-shadow: var(--shadow-card);
+}
+
+.brochure-card__image { margin-bottom: 22px; }
+
+.brochure-card__image img {
+  width: auto;
+  max-height: 280px;
+  border-radius: 12px;
+}
+
+/* Explicit colours: white card, even inside .is-dark sections */
+.brochure-card .brochure-card__title { color: var(--navy); }
+.brochure-card .brochure-card__text { margin-top: 12px; color: var(--text); }
+
+.brochure-card__form iframe {
+  display: block;
+  width: 100%;
+  min-height: 640px;
+  border: 0;
+}
+
+@media (max-width: 992px) {
+  .brochure-card__form { margin-top: 28px; }
+}
+
+@media (max-width: 600px) {
+  .brochure-card { padding: 26px 20px; }
+}
