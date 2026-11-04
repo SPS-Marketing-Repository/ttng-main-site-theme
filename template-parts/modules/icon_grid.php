@@ -25,7 +25,7 @@ $col_class = '3' === get_sub_field( 'grid_columns' ) ? 'col-6 col-lg-4' : 'col-6
 		</div>
 
 		<?php if ( have_rows( 'icons' ) ) : ?>
-			<ul class="row icon-grid__row" role="list">
+			<ul class="row justify-content-center icon-grid__row" role="list">
 				<?php
 				while ( have_rows( 'icons' ) ) :
 					the_row();
