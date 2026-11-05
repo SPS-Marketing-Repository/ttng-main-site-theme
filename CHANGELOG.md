@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Icon picker on Icon Cards, Icon Grid, Feature Boxes and Intro Cards: choose from a set of 48 icons, with previews in the dropdown, or upload your own. Picked icons change colour to suit their background. Existing uploaded icons are unchanged. Sync the field groups after updating.
 - New Featured Story module (`featured_story`): one story in a card with an image, corner ribbon, date, title, text and button. Pick an Insights post, which fills everything in, or enter it all manually. Options for the background colour, watermark and ribbon text. Sync the field groups after updating.
 - New Become a Member / Contact Form module (`become_member`): title, content, phone and email from Site Settings and text links on the left, and a Contact Form 7 form in a card on the right, with an optional heading. With a background image: a dark blue or white layer at 80% and a white card. Without one: a solid white or dark blue background and a light grey card. Sync the field groups after updating.
 - New FAQs with Quick Links module (`faq_links`): a sidebar of label, quick links, text and a link beside the title, intro and ruled questions, which slide open and shut. On smaller screens the sidebar moves below the questions. Same first-open, one-at-a-time and schema options as FAQs. Sync the field groups after updating.

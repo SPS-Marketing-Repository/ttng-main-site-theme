@@ -4382,14 +4382,44 @@
                                     "search_placeholder": ""
                                 },
                                 {
-                                    "key": "field_a19acbfb35eb9",
+                                    "key": "field_2bd0cb88b7eb8",
                                     "label": "Icon",
+                                    "name": "icon_picker",
+                                    "aria-label": "",
+                                    "type": "select",
+                                    "instructions": "Pick from the icon set, or choose \"Upload my own\". Picked icons change colour to suit the background.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "50",
+                                        "class": "ttng-icon-picker",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "upload": "Upload my own"
+                                    },
+                                    "default_value": "upload",
+                                    "return_format": "value",
+                                    "multiple": 0,
+                                    "allow_null": 0,
+                                    "ui": 1,
+                                    "ajax": 0,
+                                    "placeholder": "",
+                                    "parent_repeater": "field_1f39c886118f2",
+                                    "create_options": 0,
+                                    "save_options": 0,
+                                    "allow_custom": 0,
+                                    "search_placeholder": ""
+                                },
+                                {
+                                    "key": "field_a19acbfb35eb9",
+                                    "label": "Upload icon",
                                     "name": "card_icon",
                                     "aria-label": "",
                                     "type": "image",
                                     "instructions": "Optional small icon (SVG or PNG).",
                                     "required": 0,
-                                    "conditional_logic": 0,
+                                    "conditional_logic": [[{"field": "field_2bd0cb88b7eb8", "operator": "==", "value": "upload"}]],
                                     "wrapper": {
                                         "width": "50",
                                         "class": "",
@@ -5250,14 +5280,44 @@
                             "acfe_repeater_stylised_button": 0,
                             "sub_fields": [
                                 {
-                                    "key": "field_cbc265f201938",
+                                    "key": "field_411441a8881f1",
                                     "label": "Icon",
+                                    "name": "icon_picker",
+                                    "aria-label": "",
+                                    "type": "select",
+                                    "instructions": "Pick from the icon set, or choose \"Upload my own\". Picked icons change colour to suit the background.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "30",
+                                        "class": "ttng-icon-picker",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "upload": "Upload my own"
+                                    },
+                                    "default_value": "upload",
+                                    "return_format": "value",
+                                    "multiple": 0,
+                                    "allow_null": 0,
+                                    "ui": 1,
+                                    "ajax": 0,
+                                    "placeholder": "",
+                                    "parent_repeater": "field_fda8001ea193d",
+                                    "create_options": 0,
+                                    "save_options": 0,
+                                    "allow_custom": 0,
+                                    "search_placeholder": ""
+                                },
+                                {
+                                    "key": "field_cbc265f201938",
+                                    "label": "Upload icon",
                                     "name": "icon_image",
                                     "aria-label": "",
                                     "type": "image",
                                     "instructions": "SVG or transparent PNG.",
                                     "required": 0,
-                                    "conditional_logic": 0,
+                                    "conditional_logic": [[{"field": "field_411441a8881f1", "operator": "==", "value": "upload"}]],
                                     "wrapper": {
                                         "width": "30",
                                         "class": "",
@@ -5596,14 +5656,44 @@
                             "acfe_repeater_stylised_button": 0,
                             "sub_fields": [
                                 {
-                                    "key": "field_238450494e404",
+                                    "key": "field_05d619263d24a",
                                     "label": "Icon",
+                                    "name": "icon_picker",
+                                    "aria-label": "",
+                                    "type": "select",
+                                    "instructions": "Pick from the icon set, or choose \"Upload my own\". Picked icons change colour to suit the background.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "30",
+                                        "class": "ttng-icon-picker",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "upload": "Upload my own"
+                                    },
+                                    "default_value": "upload",
+                                    "return_format": "value",
+                                    "multiple": 0,
+                                    "allow_null": 0,
+                                    "ui": 1,
+                                    "ajax": 0,
+                                    "placeholder": "",
+                                    "parent_repeater": "field_dfeb8368aeab6",
+                                    "create_options": 0,
+                                    "save_options": 0,
+                                    "allow_custom": 0,
+                                    "search_placeholder": ""
+                                },
+                                {
+                                    "key": "field_238450494e404",
+                                    "label": "Upload icon",
                                     "name": "card_icon",
                                     "aria-label": "",
                                     "type": "image",
                                     "instructions": "SVG or transparent PNG, in its final colour.",
                                     "required": 0,
-                                    "conditional_logic": 0,
+                                    "conditional_logic": [[{"field": "field_05d619263d24a", "operator": "==", "value": "upload"}]],
                                     "wrapper": {
                                         "width": "30",
                                         "class": "",
@@ -9515,14 +9605,44 @@
                             "acfe_repeater_stylised_button": 0,
                             "sub_fields": [
                                 {
-                                    "key": "field_4e49ac857074e",
+                                    "key": "field_33284a7b4d546",
                                     "label": "Icon",
+                                    "name": "icon_picker",
+                                    "aria-label": "",
+                                    "type": "select",
+                                    "instructions": "Pick from the icon set, or choose \"Upload my own\". Picked icons change colour to suit the background.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "30",
+                                        "class": "ttng-icon-picker",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "upload": "Upload my own"
+                                    },
+                                    "default_value": "upload",
+                                    "return_format": "value",
+                                    "multiple": 0,
+                                    "allow_null": 0,
+                                    "ui": 1,
+                                    "ajax": 0,
+                                    "placeholder": "",
+                                    "parent_repeater": "field_0f676e9a05884",
+                                    "create_options": 0,
+                                    "save_options": 0,
+                                    "allow_custom": 0,
+                                    "search_placeholder": ""
+                                },
+                                {
+                                    "key": "field_4e49ac857074e",
+                                    "label": "Upload icon",
                                     "name": "box_icon",
                                     "aria-label": "",
                                     "type": "image",
                                     "instructions": "Optional small icon beside the title.",
                                     "required": 0,
-                                    "conditional_logic": 0,
+                                    "conditional_logic": [[{"field": "field_33284a7b4d546", "operator": "==", "value": "upload"}]],
                                     "wrapper": {
                                         "width": "20",
                                         "class": "",
@@ -10562,5 +10682,5 @@
             "json"
         ]
     },
-    "modified": 1793896768
+    "modified": 1793897368
 }

@@ -29,7 +29,7 @@ $col_class = '3' === get_sub_field( 'grid_columns' ) ? 'col-6 col-lg-4' : 'col-6
 				<?php
 				while ( have_rows( 'icons' ) ) :
 					the_row();
-					$icon_image = get_sub_field( 'icon_image' );
+					$icon_image = ttng_get_field_icon( get_sub_field( 'icon_picker' ), get_sub_field( 'icon_image' ) );
 					$icon_title = get_sub_field( 'icon_title' );
 					$icon_text  = get_sub_field( 'icon_text' );
 					$icon_link  = get_sub_field( 'icon_link' );
@@ -44,7 +44,7 @@ $col_class = '3' === get_sub_field( 'grid_columns' ) ? 'col-6 col-lg-4' : 'col-6
 						<?php endif; ?>
 
 							<?php if ( $icon_image ) : ?>
-								<span class="icon-item__icon"><?php echo wp_get_attachment_image( $icon_image, 'thumbnail', false, [ 'alt' => '' ] ); ?></span>
+								<span class="icon-item__icon"><?php echo $icon_image; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- theme SVG or wp_get_attachment_image(). ?></span>
 							<?php endif; ?>
 
 							<?php if ( $icon_title ) : ?>

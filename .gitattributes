@@ -2,6 +2,7 @@
 /.github export-ignore
 /.gitattributes export-ignore
 /.gitignore export-ignore
+/assets/images/icons/library export-ignore
 /bin export-ignore
 /CLAUDE.md export-ignore
 /DESIGN.md export-ignore

@@ -1,0 +1,20 @@
+/**
+ * Icon picker previews on ACF edit screens (assets/js/admin-icons.js).
+ */
+
+.ttng-icon-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  vertical-align: middle;
+}
+
+.ttng-icon-option img {
+  display: block;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+}
+
+/* White on the highlighted row: the previews are black, as img tags can't inherit a colour */
+.select2-results__option--highlighted .ttng-icon-option img { filter: invert(1); }

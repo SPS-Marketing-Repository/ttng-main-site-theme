@@ -33,7 +33,7 @@ defined( 'ABSPATH' ) || exit;
 				while ( have_rows( 'cards' ) ) :
 					the_row();
 					$card_type  = get_sub_field( 'card_type' );
-					$card_icon  = get_sub_field( 'card_icon' );
+					$card_icon  = ttng_get_field_icon( get_sub_field( 'icon_picker' ), get_sub_field( 'card_icon' ) );
 					$card_stat  = get_sub_field( 'card_stat' );
 					$card_title = get_sub_field( 'card_title' );
 					$card_text  = get_sub_field( 'card_text' );
@@ -45,7 +45,7 @@ defined( 'ABSPATH' ) || exit;
 						<div class="intro-card intro-card--<?php echo esc_attr( 'stat' === $card_type ? 'stat' : 'content' ); ?><?php echo $has_link ? ' has-link' : ''; ?>">
 
 							<?php if ( $card_icon ) : ?>
-								<div class="intro-card__icon"><?php echo wp_get_attachment_image( $card_icon, 'thumbnail', false, [ 'alt' => '' ] ); ?></div>
+								<div class="intro-card__icon"><?php echo $card_icon; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- theme SVG or wp_get_attachment_image(). ?></div>
 							<?php endif; ?>
 
 							<?php if ( 'stat' === $card_type && $card_stat ) : ?>

@@ -7,7 +7,7 @@
  * Options: White (pale blue) or Blue (dark navy) background, brand shape
  * watermark on/off, and card design on/off. With the card design off, items
  * sit straight on the background and are centred. A linked item is clickable
- * across its whole area. Icons are uploaded per item, in their final colour.
+ * across its whole area. Each item picks an icon from the set or uploads its own.
  *
  * Related CSS: assets/css/modules/icon_cards.css
  * Related CSS (Theme CSS): assets/css/core/additions.css
@@ -41,7 +41,7 @@ $header_link = get_sub_field( 'header_link' );
 		<ul class="icon-cards__list" role="list">
 			<?php foreach ( $cards as $card ) : ?>
 				<?php
-				$icon  = $card['card_icon'] ?? 0;
+				$icon  = ttng_get_field_icon( $card['icon_picker'] ?? '', $card['card_icon'] ?? 0 );
 				$title = $card['card_title'] ?? '';
 				$text  = $card['card_text'] ?? '';
 				$link  = $card['card_link'] ?? [];
@@ -54,7 +54,7 @@ $header_link = get_sub_field( 'header_link' );
 				?>
 				<li class="icon-card<?php echo $has_link ? ' icon-card--link' : ''; ?>">
 					<?php if ( $icon ) : ?>
-						<span class="icon-card__icon"><?php echo wp_get_attachment_image( $icon, 'thumbnail', false, [ 'alt' => '' ] ); ?></span>
+						<span class="icon-card__icon"><?php echo $icon; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- theme SVG or wp_get_attachment_image(). ?></span>
 					<?php endif; ?>
 
 					<?php if ( $title ) : ?>

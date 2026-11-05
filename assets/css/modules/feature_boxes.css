@@ -68,6 +68,9 @@
 .feature-box__icon { flex-shrink: 0; width: 22px; }
 .feature-box__icon img { display: block; width: 22px; height: 22px; object-fit: contain; }
 
+/* Picked icons take the title's colour, so they suit each box colour */
+.feature-box__icon svg { display: block; width: 22px; height: 22px; }
+
 .feature-box .feature-box__content,
 .feature-box .feature-box__content p,
 .feature-box .feature-box__content li {
@@ -130,7 +133,8 @@
 }
 
 .feature-boxes--cards .feature-box__icon,
-.feature-boxes--cards .feature-box__icon img { width: 60px; height: 60px; }
+.feature-boxes--cards .feature-box__icon img,
+.feature-boxes--cards .feature-box__icon svg { width: 60px; height: 60px; }
 
 /* Icons are imported white; force white for blue-on-blue uploads too */
 .feature-boxes--cards .feature-box__icon img { filter: brightness(0) invert(1); }

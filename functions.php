@@ -19,6 +19,7 @@ $modules = [
     'editor',          // TinyMCE buttons and custom editor styles
     'tinymce-styles',  // Custom TinyMCE style formats (buttons dropdown)
     'helpers',         // Helper functions (excerpts, content limits)
+    'icons',           // Icon picker: the designer's icon set on icon fields
     'accessibility',   // ARIA roles, title attributes, admin bar styling
     'media',           // Image filters, SVG sanitization, email obfuscation
     'content',         // Content tweaks, external links new tab, JS tweaks

@@ -42,7 +42,7 @@ $style   = 'cards' === get_sub_field( 'box_style' ) ? 'cards' : 'boxes';
 		<ul class="feature-boxes__list" role="list">
 			<?php foreach ( $boxes as $box ) : ?>
 				<?php
-				$icon    = $box['box_icon'] ?? 0;
+				$icon    = ttng_get_field_icon( $box['icon_picker'] ?? '', $box['box_icon'] ?? 0 );
 				$title   = $box['box_title'] ?? '';
 				$content = $box['box_content'] ?? '';
 				if ( ! $title && ! $content && empty( $box['box_images'] ) ) {
@@ -61,7 +61,7 @@ $style   = 'cards' === get_sub_field( 'box_style' ) ? 'cards' : 'boxes';
 					<?php if ( $title || $icon ) : ?>
 						<h3 class="feature-box__title">
 							<?php if ( $icon ) : ?>
-								<span class="feature-box__icon"><?php echo wp_get_attachment_image( $icon, 'thumbnail', false, [ 'alt' => '' ] ); ?></span>
+								<span class="feature-box__icon"><?php echo $icon; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- theme SVG or wp_get_attachment_image(). ?></span>
 							<?php endif; ?>
 							<span><?php echo esc_html( $title ); ?></span>
 						</h3>

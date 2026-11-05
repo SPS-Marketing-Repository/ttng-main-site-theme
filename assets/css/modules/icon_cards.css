@@ -75,7 +75,8 @@
 
 .icon-cards--cols-4 .icon-card { flex-basis: calc((100% - 72px) / 4); }
 
-.icon-card__icon { display: block; margin-bottom: 24px; }
+.icon-card__icon { display: block; margin-bottom: 24px; color: var(--blue-icon); }
+.icon-card__icon svg { display: block; width: 40px; height: 40px; }
 .icon-card__icon img { display: block; width: 40px; height: 40px; object-fit: contain; object-position: left center; }
 
 .module--icon-cards .icon-card__title {
@@ -128,6 +129,7 @@
 
 .icon-cards--plain .icon-card__icon img { object-position: center; }
 
+.icon-cards--plain.is-dark .icon-card__icon,
 .icon-cards--plain.is-dark .icon-card__title,
 .icon-cards--plain.is-dark .icon-card__text { color: var(--white); }
 

@@ -42,7 +42,9 @@
   transition: background-color .3s ease, transform .3s ease;
 }
 
+.icon-item__icon { color: var(--white); }
 .icon-item__icon img { display: block; width: 35px; height: 35px; object-fit: contain; }
+.icon-item__icon svg { display: block; width: 35px; height: 35px; }
 
 .icon-item__title {
   max-width: 260px;  /* wide enough that long words like "Documentation" stay whole */
@@ -71,7 +73,7 @@
 
 /* Light backgrounds: navy circles, navy text */
 /* Staging light sections: 20% navy circle, navy icon (white SVG icons are tinted navy) */
-.module--icon-grid:not(.is-dark) .icon-item__icon { background: rgba(27, 45, 112, .2); }
+.module--icon-grid:not(.is-dark) .icon-item__icon { color: var(--navy); background: rgba(27, 45, 112, .2); }
 .module--icon-grid:not(.is-dark) .icon-item__icon img { filter: brightness(0) saturate(100%) invert(14%) sepia(52%) saturate(2700%) hue-rotate(218deg) brightness(92%); }
 .module--icon-grid:not(.is-dark) .section-content { font-weight: var(--medium); }
 .module--icon-grid:not(.is-dark) .icon-item__title { color: var(--navy); }
