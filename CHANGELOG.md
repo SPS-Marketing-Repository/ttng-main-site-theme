@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- New Icon Cards module (`icon_cards`): left-aligned header with an optional text link, then 3 or 4 columns of uploaded icon, title, text and link. Options for a White (pale blue) or Blue (dark navy) background, the brand shape watermark, and the card design; with cards off, items sit on the background and are centred. Sync the field groups after updating.
 - Scroll animation across the site, extending the existing card fade-up: section headings and text blocks fade up; logos, feature boxes, boxed list columns, contact cards and timeline items fade up in turn; Split Content text and media slide in from their own side on desktop; images fade in while growing slightly into place; quote panels, testimonials and calls to action fade up. Runs once per element. Content on screen at page load is never hidden, carousel cards that start off-screen stay visible, and reduced-motion users, no-JS visitors and print see everything straight away.
 - Page Header: text and image fade up on load, and a full-size background image settles with a slow zoom.
 - Button icons nudge along on hover.

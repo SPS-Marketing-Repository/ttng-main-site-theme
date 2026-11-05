@@ -271,6 +271,23 @@ def icon_grid():
     return s
 
 
+def icon_cards():
+    s = Svg('#F2F8FE')
+    s.label(24, 20)
+    s.heading(24, 30, 170, h=11)
+    s.rect(316, 34, 60, 4, NAVY, r=2)
+    for r in range(2):
+        for c in range(3):
+            x = 24 + c * 120
+            y = 56 + r * 90
+            s.rect(x, y, 112, 82, WHITE, r=8, stroke=LINE)
+            s.circle(x + 18, y + 16, 7, BLUE)
+            s.heading(x + 11, y + 30, 70, h=6)
+            s.lines(x + 11, y + 43, 90, n=2, gap=7, h=3)
+            s.rect(x + 11, y + 65, 34, 4, BLUE_DARK, r=2)
+    return s
+
+
 def testimonials():
     s = Svg(GREY)
     s.intro(16, 150)
@@ -406,7 +423,7 @@ def global_section():
 
 MODULES = [
     home_banner, page_header, full_width_content, split_content, jump_nav, tabs, timeline, comparison_table, boxed_list, faq,
-    guide_nav, intro_cards, card_grid, icon_grid, testimonials, quote, people_slider, logo_strip, latest_news,
+    guide_nav, intro_cards, card_grid, icon_grid, icon_cards, testimonials, quote, people_slider, logo_strip, latest_news,
     contact_form, cta_band, brochure_cards, download, global_section,
 ]
 

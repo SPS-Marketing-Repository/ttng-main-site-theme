@@ -1,0 +1,183 @@
+/**
+ * #.#   Icon Cards Module
+ *
+ * Styles for template-parts/modules/icon_cards.php
+ * Variants: --cards (white cards, left-aligned) / --plain (no cards, centred),
+ * --cols-3 / --cols-4, --watermark. Backgrounds: .section-bg--pale or --navy.
+**/
+
+/* =============================
+  # Header: text left, link right
+============================= */
+
+.icon-cards__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px 40px;
+}
+
+.module--icon-cards .section-header { max-width: 800px; }
+.module--icon-cards .section-title { text-wrap: balance; }
+
+/* Text links: the header link and each card's link */
+.icon-cards__header-link,
+.icon-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1rem;
+  font-weight: var(--fw-semi);
+  line-height: 1.3;
+}
+
+.icon-cards__header-link { flex-shrink: 0; color: var(--navy); }
+.is-dark .icon-cards__header-link { color: var(--blue); }
+
+.icon-cards__header-link .icon,
+.icon-card__link .icon { flex-shrink: 0; transition: transform .2s ease; }
+
+.icon-cards__header-link:hover .icon,
+.icon-cards__header-link:focus-visible .icon,
+.icon-card--link:hover .icon-card__link .icon,
+.icon-card__link:focus-visible .icon { transform: translate(2px, -2px); }
+
+.icon-cards__header-link:hover,
+.icon-cards__header-link:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+
+.icon-cards__header-link:focus-visible,
+.icon-card__link:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+
+/* =============================
+  # Grid (a part-filled last row is centred)
+============================= */
+
+.icon-cards__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin: var(--stack-space) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.icon-cards__list:hover > li:not(:hover) { opacity: 1; }
+
+.icon-card {
+  position: relative;
+  display: flex;
+  flex: 0 1 calc((100% - 48px) / 3);
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.icon-cards--cols-4 .icon-card { flex-basis: calc((100% - 72px) / 4); }
+
+.icon-card__icon { display: block; margin-bottom: 24px; }
+.icon-card__icon img { display: block; width: 40px; height: 40px; object-fit: contain; object-position: left center; }
+
+.module--icon-cards .icon-card__title {
+  margin: 0 0 15px;
+  font-size: var(--fs-h3);
+  color: var(--navy);
+}
+
+.module--icon-cards .icon-card__text {
+  margin: 0 0 20px;
+  font-weight: var(--fw-regular);
+  line-height: 23px;
+  color: var(--grey-text);
+}
+
+/* Small text on white, so the accessible blue rather than --blue */
+.icon-card__link { margin-top: auto; color: var(--blue-dark); }
+
+/* =============================
+  # Card design on
+============================= */
+
+.icon-cards--cards .icon-card {
+  padding: 28px;
+  border: 1px solid var(--grey);
+  border-radius: 15px;
+  background: var(--white);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.icon-cards--cards.is-dark .icon-card { border-color: transparent; }
+
+.icon-cards--cards .icon-card--link:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* =============================
+  # Card design off
+============================= */
+
+/* No card edge to separate them, so items sit further from the header */
+.icon-cards--plain .icon-cards__list { row-gap: 50px; margin-top: 60px; }
+
+.icon-cards--plain .icon-card {
+  align-items: center;
+  padding: 0 15px;
+  text-align: center;
+}
+
+.icon-cards--plain .icon-card__icon img { object-position: center; }
+
+.icon-cards--plain.is-dark .icon-card__title,
+.icon-cards--plain.is-dark .icon-card__text { color: var(--white); }
+
+.icon-cards--plain.is-dark .icon-card__link { color: var(--blue); }
+
+/* =============================
+  # Brand shape watermark
+  brand-shape.svg is white, so it's used as a mask to take a colour that also
+  shows on the pale background.
+============================= */
+
+.icon-cards--watermark { overflow: hidden; }
+
+.icon-cards--watermark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--blue-dark);
+  -webkit-mask: url("../../images/brand-shape.svg") no-repeat right -110px top -50px / auto 1092px;
+  mask: url("../../images/brand-shape.svg") no-repeat right -110px top -50px / auto 1092px;
+  opacity: .06;
+  pointer-events: none;
+}
+
+.icon-cards--watermark.is-dark::before { background: var(--blue); opacity: .14; }
+
+.icon-cards--watermark > .container { position: relative; z-index: 1; }
+
+/* =============================
+  # Media Queries
+============================= */
+
+@media (max-width: 1280px) {
+  /* Cards get too narrow at four across; 2 x 2 avoids a lone card in a 3 + 1 */
+  .icon-cards--cards.icon-cards--cols-4 .icon-card { flex-basis: calc((100% - 24px) / 2); }
+}
+
+@media (max-width: 992px) {
+  .icon-cards--cols-3 .icon-card,
+  .icon-cards--cols-4 .icon-card { flex-basis: calc((100% - 24px) / 2); }
+}
+
+@media (max-width: 768px) {
+  .icon-cards__head { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 600px) {
+  .icon-cards--cols-3 .icon-card,
+  .icon-cards--cols-4 .icon-card,
+  .icon-cards--cards.icon-cards--cols-4 .icon-card { flex-basis: 100%; }
+
+  .icon-cards--cards .icon-card { padding: 24px; }
+}

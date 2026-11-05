@@ -31,6 +31,7 @@
   --blue-dark:   #3153CC;  /* accessible blue for small text/links on white (6.2:1) */
   --blue-light:  #B1BCE7;  /* small accent text on navy backgrounds */
   --grey-light:  #F3F5F8;  /* light section background */
+  --blue-tint:   #F2F8FE;  /* pale blue section background (Icon Cards "White") */
   --grey:        #E7E8EB;  /* borders / dividers */
   --grey-text:   #5A6380;  /* muted text on white (5.9:1) */
   --text:        #333333;  /* body copy */
@@ -189,13 +190,15 @@ h4 { font-size: var(--fs-h4); font-weight: var(--fw-semi); }
 
 .section-bg--white    { background: var(--white); }
 .section-bg--light    { background: var(--grey-light); }
+.section-bg--pale     { background: var(--blue-tint); }
 .section-bg--navy     { background: var(--navy-dark); }
 .section-bg--navy-primary { background: var(--navy); }
 .section-bg--gradient { background: var(--gradient-section); }
 
 /* Two light sections in a row read as one block — halve the gap */
 .section-bg--white + .section-bg--white,
-.section-bg--light + .section-bg--light { padding-top: 0; }
+.section-bg--light + .section-bg--light,
+.section-bg--pale + .section-bg--pale { padding-top: 0; }
 
 /* Dark sections: flip text colours */
 .is-dark,

@@ -115,7 +115,7 @@ function ttng_kses_iframe( $embed ) {
  * @return string Escaped attribute string, ready to echo.
  */
 function ttng_module_attrs( $module, $default = 'white', $extra = '' ) {
-	$allowed    = array( 'white', 'light', 'navy', 'navy-primary', 'gradient' );
+	$allowed    = array( 'white', 'light', 'pale', 'navy', 'navy-primary', 'gradient' );
 	$background = get_sub_field( 'section_background' );
 
 	if ( ! in_array( $background, $allowed, true ) ) {
@@ -168,6 +168,36 @@ function ttng_the_button( $link, $style = 'primary', $extra = '' ) {
 		esc_attr( $target ),
 		'_blank' === $target ? ' rel="noopener noreferrer"' : '',
 		esc_html( $title )
+	);
+}
+
+/**
+ * Render an ACF link field as a text link with an up-right arrow.
+ *
+ * @param array  $link    ACF link array (url, title, target).
+ * @param string $class   Classes for the link.
+ * @param string $context Optional text the link applies to, added to its accessible
+ *                        name so that repeated text such as "Explore" stays distinct.
+ * @return void
+ */
+function ttng_the_arrow_link( $link, $class = '', $context = '' ) {
+	if ( empty( $link['url'] ) ) {
+		return;
+	}
+
+	$title  = ! empty( $link['title'] ) ? $link['title'] : __( 'Explore', 'ttng-main-site-theme' );
+	$target = ! empty( $link['target'] ) ? $link['target'] : '_self';
+	$label  = $context ? sprintf( '%1$s: %2$s', $title, $context ) : '';
+
+	printf(
+		'<a class="%1$s" href="%2$s" target="%3$s"%4$s%5$s><span>%6$s</span>%7$s</a>',
+		esc_attr( $class ),
+		esc_url( $link['url'] ),
+		esc_attr( $target ),
+		'_blank' === $target ? ' rel="noopener noreferrer"' : '',
+		$label ? ' aria-label="' . esc_attr( $label ) . '"' : '',
+		esc_html( $title ),
+		ttng_icon( 'arrow-up-right' ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG from the theme.
 	);
 }
 
@@ -249,6 +279,7 @@ function ttng_icon( $name ) {
 		'download' => '<svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>',
 		'quote'    => '<svg class="icon" width="40" height="32" viewBox="0 0 40 32" fill="currentColor" aria-hidden="true" focusable="false"><path d="M0 32V19.2C0 8.5 5.6 2.1 16.8 0l1.6 4.2C12.5 5.8 9.6 9.3 9.4 14.6H17V32H0zm23 0V19.2C23 8.5 28.6 2.1 39.8 0l1.6 4.2c-5.9 1.6-8.8 5.1-9 10.4H40V32H23z"/></svg>',
 		'arrow'    => '<svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>',
+		'arrow-up-right' => '<svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M6 18 18 6"/><path d="M8 6h10v10"/></svg>',
 		'check'    => '<svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true" focusable="false"><path d="m5 12 5 5 9-10"/></svg>',
 		'plus'     => '<svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true" focusable="false"><path d="M12 5v14"/><path d="M5 12h14"/></svg>',
 		'star'     => '<svg class="icon" width="15" height="15" viewBox="0 0 550 526" fill="currentColor" aria-hidden="true" focusable="false"><path d="M296.6 13.1C292.5 5.1 284.2 0 275.2 0s-17.3 5.1-21.4 13.1l-73.6 144.2-159.9 25.4c-8.9 1.4-16.3 7.7-19.1 16.3-2.8 8.6-.5 18 5.8 24.4l114.4 114.5-25.2 159.9c-1.4 8.9 2.3 17.9 9.6 23.2s16.9 6.1 25 2l144.4-73.4 144.3 73.4c8 4.1 17.7 3.3 25-2 7.3-5.3 11-14.2 9.6-23.2l-25.3-159.9 114.4-114.5c6.4-6.4 8.6-15.8 5.8-24.4-2.8-8.6-10.1-14.9-19.1-16.3l-159.8-25.4z"/></svg>',
