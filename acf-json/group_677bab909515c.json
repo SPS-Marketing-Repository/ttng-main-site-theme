@@ -1997,12 +1997,36 @@
                             ]
                         },
                         {
+                            "key": "field_b236ea8d56903",
+                            "label": "Header link",
+                            "name": "header_link",
+                            "aria-label": "",
+                            "type": "link",
+                            "instructions": "Side layout only: text link opposite the title, e.g. \"Learn more about Vision\".",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_e70a095f9809d",
+                                        "operator": "==",
+                                        "value": "side"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array"
+                        },
+                        {
                             "key": "field_e70a095f9809d",
                             "label": "Tab layout",
                             "name": "tabs_layout",
                             "aria-label": "",
                             "type": "select",
-                            "instructions": "Top = pill tabs above a white panel. Side = coloured tab buttons down the left, content on the right (staging Membership Types \"Vision across our Propositions\").",
+                            "instructions": "Top = pill tabs above a white panel. Side = coloured tabs down the left, joined to a white card.",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -2181,6 +2205,7 @@
                             },
                             "choices": {
                                 "white": "White",
+                                "pale": "Pale blue",
                                 "light": "Light grey",
                                 "navy-primary": "Navy (#1B2D70)",
                                 "navy": "Dark navy (#0F193D)",
@@ -2197,6 +2222,27 @@
                             "save_options": 0,
                             "allow_custom": 0,
                             "search_placeholder": ""
+                        },
+                        {
+                            "key": "field_6d776a9590ec3",
+                            "label": "Watermark",
+                            "name": "show_watermark",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Brand shape behind the section.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "style": ""
                         },
                         {
                             "key": "field_d691e27c3128a",
@@ -10110,5 +10156,5 @@
             "json"
         ]
     },
-    "modified": 1793895930
+    "modified": 1793896294
 }

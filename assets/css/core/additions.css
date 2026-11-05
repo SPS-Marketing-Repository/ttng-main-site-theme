@@ -364,6 +364,26 @@ h4 { font-size: var(--fs-h4); font-weight: var(--fw-semi); }
 
 .btn--small { padding: 16px 32px 15px; font-size: .875rem; }
 
+/* Text link with an up-right arrow (ttng_the_arrow_link()). Modules set the colour. */
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1rem;
+  font-weight: var(--fw-semi);
+  line-height: 1.3;
+}
+
+.link-arrow .icon { flex-shrink: 0; transition: transform .2s ease; }
+
+.link-arrow:hover,
+.link-arrow:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+
+.link-arrow:hover .icon,
+.link-arrow:focus-visible .icon { transform: translate(2px, -2px); }
+
+.link-arrow:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+
 /* Text with the brand gradient (ttng_format_highlight()) */
 .text-gradient {
   font-weight: var(--fw-bold);

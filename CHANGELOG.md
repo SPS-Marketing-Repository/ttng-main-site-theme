@@ -15,6 +15,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Page Header: text and image fade up on load, and a full-size background image settles with a slow zoom.
 - Button icons nudge along on hover.
 
+### Changed
+- Tabs, Side layout: redesigned, with coloured tabs joined to a white card and a notch on the active tab. Adds an optional text link opposite the title. Up and down arrow keys now move between its tabs. Removes the uppercase text and arrows from the tabs.
+- Tabs, both layouts: adds a watermark toggle, on by default including for existing sections, and a Pale blue background option. Sync the field groups after updating.
+
 ### Fixed
 - Icon Grid: long title words such as "Documentation" no longer break mid-word, at any width.
 

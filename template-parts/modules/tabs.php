@@ -5,8 +5,10 @@
  * Section header, then tabbed panels (rich text plus optional image).
  * Without JavaScript all panels stay visible, stacked. main.js adds the tab
  * bar behaviour, including arrow-key navigation.
- * Side layout: coloured tab buttons (tab_colour) down the left with an arrow,
- * content beside them, no panel card.
+ * Top layout: centred header, pill tabs above a white panel.
+ * Side layout: left-aligned header with an optional text link opposite, then
+ * coloured tabs (tab_colour) joined to a white card. The active tab has a notch.
+ * Both layouts: background colour and brand shape watermark on/off.
  *
  * Related CSS: assets/css/modules/tabs.css
  * Related JS: assets/js/main.js (.ttng-tabs)
@@ -22,27 +24,34 @@ if ( empty( $tabs ) ) {
 }
 
 // unique so two Tabs modules on one page never share ARIA ids.
-$uid    = wp_unique_id( 'ttng-tabs-' );
-$layout = 'side' === get_sub_field( 'tabs_layout' ) ? 'side' : 'top';
+$uid     = wp_unique_id( 'ttng-tabs-' );
+$layout  = 'side' === get_sub_field( 'tabs_layout' ) ? 'side' : 'top';
 $colours = [ 'navy', 'pink', 'teal', 'black', 'blue' ];
+$classes = 'tabs--' . $layout . ( get_sub_field( 'show_watermark' ) ? ' tabs--watermark' : '' );
 ?>
 
-<section<?php echo ttng_module_attrs( 'tabs', 'white', 'tabs--' . $layout ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in helper. ?>>
+<section<?php echo ttng_module_attrs( 'tabs', 'white', $classes ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in helper. ?>>
 	<div class="container">
 
-		<div class="row justify-content-center">
-			<div class="<?php echo 'side' === $layout ? 'col-12' : 'col-lg-9 col-xl-8 text-center'; ?>">
+		<?php if ( 'side' === $layout ) : ?>
+			<div class="tabs__head">
 				<?php get_template_part( 'template-parts/snippets/section-header' ); ?>
+				<?php ttng_the_arrow_link( get_sub_field( 'header_link' ), 'link-arrow tabs__header-link' ); ?>
 			</div>
-		</div>
+		<?php else : ?>
+			<div class="row justify-content-center">
+				<div class="col-lg-9 col-xl-8 text-center">
+					<?php get_template_part( 'template-parts/snippets/section-header' ); ?>
+				</div>
+			</div>
+		<?php endif; ?>
 
 		<div class="ttng-tabs ttng-tabs--<?php echo esc_attr( $layout ); ?>">
-			<div class="ttng-tabs__list" role="tablist" hidden>
+			<div class="ttng-tabs__list" role="tablist"<?php echo 'side' === $layout ? ' aria-orientation="vertical"' : ''; ?> hidden>
 				<?php foreach ( $tabs as $i => $item ) : ?>
 					<?php $colour = in_array( $item['tab_colour'] ?? '', $colours, true ) ? $item['tab_colour'] : 'navy'; ?>
 					<button type="button" class="ttng-tabs__tab<?php echo 'side' === $layout ? ' ttng-tabs__tab--' . esc_attr( $colour ) : ''; ?>" role="tab" id="<?php echo esc_attr( "{$uid}-tab-{$i}" ); ?>" aria-controls="<?php echo esc_attr( "{$uid}-panel-{$i}" ); ?>" aria-selected="<?php echo 0 === $i ? 'true' : 'false'; ?>"<?php echo 0 === $i ? '' : ' tabindex="-1"'; ?>>
 						<span class="ttng-tabs__tab-text"><?php echo esc_html( $item['tab_title'] ); ?></span>
-						<?php echo 'side' === $layout ? ttng_icon( 'arrow' ) : ''; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- fixed theme SVG. ?>
 					</button>
 				<?php endforeach; ?>
 			</div>

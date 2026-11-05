@@ -33,7 +33,7 @@ The dispatcher is `template-parts/modules/page-builder.php`, called through `ttn
 | `home_banner` | Left: label / **H1** / content / buttons. Right: fading image slider (gallery). Once per page. |
 | `page_header` | Inner page hero: optional logo, label, **H1** (falls back to page title), subheading, buttons, background image with size/position (falls back to featured image). Once per page. |
 | `jump_nav` | Links to `#section-id` anchors or other pages |
-| `tabs` | Intro + tabbed panels with optional image (`.ttng-tabs`, stacked without JS) |
+| `tabs` | Intro + tabbed panels with optional image (`.ttng-tabs`, stacked without JS). `tabs_layout`: top (pills) or side (coloured tabs joined to a white card, plus `header_link`). Watermark toggle (`show_watermark`) on both |
 | `timeline` | Intro + timeline or numbered steps (`timeline_style`) |
 | `comparison_table` | Up to 4 columns, rows of Included / Extra cost / not included |
 | `guide_nav` | Series list + prev/next from the `guide_pages` option |

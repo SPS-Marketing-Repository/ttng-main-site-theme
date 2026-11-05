@@ -32,8 +32,10 @@
 .ttng-tabs__tab:hover { background: var(--grey); }
 
 /* Inactive tabs would vanish against a light section */
-.section-bg--light .ttng-tabs__tab { background: var(--white); }
-.section-bg--light .ttng-tabs__tab[aria-selected="true"] { background: var(--navy); }
+.section-bg--light .ttng-tabs__tab,
+.section-bg--pale .ttng-tabs__tab { background: var(--white); }
+.section-bg--light .ttng-tabs__tab[aria-selected="true"],
+.section-bg--pale .ttng-tabs__tab[aria-selected="true"] { background: var(--navy); }
 
 .ttng-tabs__tab[aria-selected="true"] {
   color: var(--white);
@@ -74,23 +76,67 @@
 .ttng-tabs.is-enhanced .ttng-tabs__panel[hidden] { display: none; }
 
 /* =============================
-  # Side layout (staging Membership Types "Vision across our Propositions")
+  # Brand shape watermark
+  brand-shape.svg is white, so it's used as a mask to take a colour that also
+  shows on light backgrounds. The gradient background already has one
+  (additions.css), so the toggle only needs to be able to turn that off.
 ============================= */
+
+.tabs--watermark { overflow: hidden; }
+
+.tabs--watermark:not(.section-bg--gradient)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--blue-dark);
+  -webkit-mask: url("../../images/brand-shape.svg") no-repeat right -110px top -50px / auto 1092px;
+  mask: url("../../images/brand-shape.svg") no-repeat right -110px top -50px / auto 1092px;
+  opacity: .06;
+  pointer-events: none;
+}
+
+.tabs--watermark.is-dark:not(.section-bg--gradient)::before { background: var(--blue); opacity: .14; }
+
+.tabs--watermark > .container { position: relative; z-index: 1; }
+
+.module--tabs.section-bg--gradient:not(.tabs--watermark)::before { display: none; }
+
+/* =============================
+  # Side layout: header
+============================= */
+
+.tabs__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px 40px;
+}
+
+.tabs--side .section-header { max-width: 560px; }
 
 .tabs--side .section-header,
 .tabs--side .section-header p { text-align: left; }
 
+.tabs--side .section-title { text-wrap: balance; }
+
+.tabs__header-link { flex-shrink: 0; color: var(--navy); }
+.is-dark .tabs__header-link { color: var(--blue); }
+
+/* =============================
+  # Side layout: tabs joined to a card
+============================= */
+
 .ttng-tabs--side.is-enhanced {
   display: grid;
-  grid-template-columns: 360px minmax(0, 1fr);
-  gap: 0 30px;
-  align-items: start;
+  grid-template-columns: 340px minmax(0, 1fr);
+  align-items: stretch;  /* A short panel still reaches the bottom of the tabs */
 }
 
 .ttng-tabs--side .ttng-tabs__list {
   flex-direction: column;
   flex-wrap: nowrap;
-  gap: 10px;
+  align-self: start;
+  gap: 0;
   margin: 0;
 }
 
@@ -98,73 +144,136 @@
 
 .ttng-tabs--side .ttng-tabs__tab,
 .section-bg--light .ttng-tabs--side .ttng-tabs__tab,
-.is-dark .ttng-tabs--side .ttng-tabs__tab {
+.section-bg--pale .ttng-tabs--side .ttng-tabs__tab,
+.is-dark .ttng-tabs--side .ttng-tabs__tab,
+.is-dark .ttng-tabs--side .ttng-tabs__tab[aria-selected="true"] {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  min-height: 61px;
-  padding: 20px 25px;
-  font-size: .875rem;
+  min-height: 56px;
+  padding: 14px 40px 14px 44px;
+  font-size: 1rem;
+  font-weight: var(--fw-regular);
+  line-height: 1.3;
   text-align: left;
-  text-transform: uppercase;
   color: var(--white);
-  border-radius: 10px;
+  border-radius: 10px 0 0 10px;
   background: var(--navy);
 }
 
-.ttng-tabs--side .ttng-tabs__tab .icon { flex-shrink: 0; width: 14px; height: 14px; transition: var(--transition); }
-
 .ttng-tabs--side .ttng-tabs__tab--pink,
-.section-bg--light .ttng-tabs--side .ttng-tabs__tab--pink   { background: #D8366E; }
+.section-bg--light .ttng-tabs--side .ttng-tabs__tab--pink,
+.section-bg--pale .ttng-tabs--side .ttng-tabs__tab--pink,
+.is-dark .ttng-tabs--side .ttng-tabs__tab--pink,
+.is-dark .ttng-tabs--side .ttng-tabs__tab--pink[aria-selected="true"]   { background: #D8366E; }
+
 .ttng-tabs--side .ttng-tabs__tab--teal,
-.section-bg--light .ttng-tabs--side .ttng-tabs__tab--teal   { background: #50B4A2; }
+.section-bg--light .ttng-tabs--side .ttng-tabs__tab--teal,
+.section-bg--pale .ttng-tabs--side .ttng-tabs__tab--teal,
+.is-dark .ttng-tabs--side .ttng-tabs__tab--teal,
+.is-dark .ttng-tabs--side .ttng-tabs__tab--teal[aria-selected="true"]   { background: #50B4A2; }
+
 .ttng-tabs--side .ttng-tabs__tab--black,
-.section-bg--light .ttng-tabs--side .ttng-tabs__tab--black  { background: #000; }
+.section-bg--light .ttng-tabs--side .ttng-tabs__tab--black,
+.section-bg--pale .ttng-tabs--side .ttng-tabs__tab--black,
+.is-dark .ttng-tabs--side .ttng-tabs__tab--black,
+.is-dark .ttng-tabs--side .ttng-tabs__tab--black[aria-selected="true"]  { background: #000; }
+
 .ttng-tabs--side .ttng-tabs__tab--blue,
-.section-bg--light .ttng-tabs--side .ttng-tabs__tab--blue   { background: var(--blue-dark); }
+.section-bg--light .ttng-tabs--side .ttng-tabs__tab--blue,
+.section-bg--pale .ttng-tabs--side .ttng-tabs__tab--blue,
+.is-dark .ttng-tabs--side .ttng-tabs__tab--blue,
+.is-dark .ttng-tabs--side .ttng-tabs__tab--blue[aria-selected="true"]   { background: var(--blue-dark); }
 
 .ttng-tabs--side .ttng-tabs__tab:hover { filter: brightness(1.12); }
-.ttng-tabs--side .ttng-tabs__tab[aria-selected="true"] .icon { transform: translateX(4px); }
-.ttng-tabs--side .ttng-tabs__tab:focus-visible { outline: 2px solid var(--blue-dark); outline-offset: 3px; }
 
-/* Content sits beside the tabs, no card */
+/* Active tab: bolder, with a notch cut into its right edge */
+.ttng-tabs--side .ttng-tabs__tab[aria-selected="true"],
+.is-dark .ttng-tabs--side .ttng-tabs__tab[aria-selected="true"] { font-weight: var(--fw-semi); }
+
+.ttng-tabs--side .ttng-tabs__tab[aria-selected="true"] {
+  clip-path: polygon(0 0, 100% 0, calc(100% - 25px) 50%, 100% 100%, 0 100%);
+}
+
+/* Inside the tab, as the notch's clip-path would cut off an outer outline */
+.ttng-tabs--side .ttng-tabs__tab:focus-visible { outline: 2px solid var(--white); outline-offset: -5px; }
+
 .ttng-tabs--side .ttng-tabs__panel {
-  padding: 10px;
-  border-radius: 0;
-  background: none;
+  padding: 40px clamp(30px, 7vw, 106px);
+  border: 1px solid var(--grey);
+  border-radius: 0 15px 15px 15px;
+  background: var(--white);
   box-shadow: none;
 }
 
+.is-dark .ttng-tabs--side .ttng-tabs__panel { border-color: transparent; }
+
 .ttng-tabs--side .ttng-tabs__panel h2,
-.ttng-tabs--side .ttng-tabs__panel h3 { margin-bottom: 20px; font-size: 1.5625rem; font-weight: var(--medium); color: var(--navy); }
+.ttng-tabs--side .ttng-tabs__panel h3 {
+  margin-bottom: 12px;
+  font-size: 1.25rem;
+  font-weight: var(--fw-semi);
+  color: var(--navy);
+}
+
 .ttng-tabs--side .ttng-tabs__panel p,
-.ttng-tabs--side .ttng-tabs__panel li { font-weight: var(--medium); }
+.ttng-tabs--side .ttng-tabs__panel li {
+  font-weight: var(--fw-regular);
+  color: var(--grey-text);
+}
+
+.ttng-tabs--side .ttng-tabs__panel .content-block li + li { margin-top: 18px; }
 .ttng-tabs--side .ttng-tabs__panel strong { color: var(--navy); }
 .ttng-tabs--side .ttng-tabs__panel li::marker { color: var(--blue); }
 
-.is-dark .ttng-tabs--side .ttng-tabs__panel,
-.is-dark .ttng-tabs--side .ttng-tabs__panel p,
-.is-dark .ttng-tabs--side .ttng-tabs__panel li { color: var(--white); }
-.is-dark .ttng-tabs--side .ttng-tabs__panel h2,
-.is-dark .ttng-tabs--side .ttng-tabs__panel h3,
-.is-dark .ttng-tabs--side .ttng-tabs__panel strong { color: var(--white); }
-
 @media (max-width: 1280px) {
   .ttng-tabs--side.is-enhanced { grid-template-columns: 280px minmax(0, 1fr); }
-}
-
-@media (max-width: 992px) {
-  /* Tabs stack above the content */
-  .ttng-tabs--side.is-enhanced { display: block; }
-  .ttng-tabs--side .ttng-tabs__list { margin-bottom: 24px; }
+  .ttng-tabs--side .ttng-tabs__tab,
+  .section-bg--light .ttng-tabs--side .ttng-tabs__tab,
+  .section-bg--pale .ttng-tabs--side .ttng-tabs__tab,
+  .is-dark .ttng-tabs--side .ttng-tabs__tab,
+  .is-dark .ttng-tabs--side .ttng-tabs__tab[aria-selected="true"] { padding-left: 28px; }
 }
 
 @media (max-width: 992px) {
   .ttng-tabs__media { margin-top: 24px; }
+
+  /* Tabs stack above the card, so there's nothing for the notch to join.
+     The active tab is marked with a small white bar inside it instead. */
+  .ttng-tabs--side.is-enhanced { display: block; }
+  .ttng-tabs--side .ttng-tabs__list { margin-bottom: 16px; }
+
+  .ttng-tabs--side .ttng-tabs__tab,
+  .section-bg--light .ttng-tabs--side .ttng-tabs__tab,
+  .section-bg--pale .ttng-tabs--side .ttng-tabs__tab,
+  .is-dark .ttng-tabs--side .ttng-tabs__tab,
+  .is-dark .ttng-tabs--side .ttng-tabs__tab[aria-selected="true"] { border-radius: 10px; }
+
+  .ttng-tabs--side .ttng-tabs__tab { position: relative; }
+
+  .ttng-tabs--side .ttng-tabs__tab[aria-selected="true"] { clip-path: none; }
+
+  .ttng-tabs--side .ttng-tabs__tab[aria-selected="true"]::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    width: 4px;
+    height: 20px;
+    margin-top: -10px;
+    border-radius: 2px;
+    background: var(--white);
+  }
+
+  .ttng-tabs--side .ttng-tabs__panel { border-radius: 15px; }
+}
+
+@media (max-width: 768px) {
+  .tabs__head { flex-direction: column; align-items: flex-start; }
 }
 
 @media (max-width: 600px) {
   .ttng-tabs__panel { padding: 26px 20px; }
+  .ttng-tabs--side .ttng-tabs__panel { padding: 26px 20px; }
   .ttng-tabs__tab { flex: 1 1 100%; }
+  .ttng-tabs--side .ttng-tabs__tab { flex: 0 0 auto; }
 }
