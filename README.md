@@ -12,7 +12,7 @@ Bespoke WordPress theme for **The Travel Network Group (TTNG)** — the UK's big
 
 It replaces the previous Elementor build with:
 
-- An ACF Flexible Content page builder (26 modules) with ACF Extended's visual picker and copy/paste
+- An ACF Flexible Content page builder (30 modules) with ACF Extended's visual picker and copy/paste
 - Testimonial, Team Member and Reusable Section custom post types
 - A top bar and header with a compact sticky state, a plugin-free mega menu and a fully options-driven footer
 - A single source of truth for brand tokens (`assets/css/core/additions.css`)
@@ -45,7 +45,9 @@ See the full release history in [CHANGELOG.md](CHANGELOG.md) and the design syst
 | `/assets/css/modules/` | One stylesheet per page builder module, loaded only when used |
 | `/assets/images/` | Theme graphics (`brand-shape.svg` watermark), `icons/` and `staging/` background images |
 | `/assets/images/modules/` | Module thumbnails for the Add Module picker, drawn by `bin/module-thumbnails.py` |
-| `/assets/js/main.js` | All custom jQuery (menus, sliders, tabs, sticky header, FAQ animation, count-up, scroll reveal) |
+| `/assets/images/icon-library/` | The icon picker's set of 48 icons, built by `bin/build-icon-library.py` |
+| `/assets/js/main.js` | All front-end jQuery (menus, sliders, tabs, sticky header, FAQ animation, count-up, scroll reveal) |
+| `/assets/js/admin-icons.js` | Icon previews in the icon picker dropdown (wp-admin only) |
 | `/page-templates/` | HTML Sitemap page template |
 | `/inc/` | Theme setup, assets, ACF config, post types, helpers, security, media, SEO, redirects, forms, tracking, updater |
 | `/template-parts/header/`, `/footer/` | Site header and footer |
@@ -75,18 +77,26 @@ See the full release history in [CHANGELOG.md](CHANGELOG.md) and the design syst
 | Intro + 3 Cards | Intro text with up to three stat or content "pods" (e.g. 1100+ Members) |
 | Card Grid | 2/3/4-column cards with image or logo, text and a button |
 | Icon Grid | Services or features as icon + title + text, optionally linked |
+| Icon Cards | Left-aligned header and text link, then 3 or 4 columns of icon, title, text and link, as cards or plain |
 | Feature Boxes | Rounded boxes or cards with icon, title, content, logos and a button, in custom rows with per-box width and colour |
 | Boxed List | Rounded panel of up to 4 coloured columns, each with subheadings and ticked points |
 | Split Content | Text alongside an image, video or Google map, either side, with an optional minimum height |
 | Full Width Content | Free-form stack of headings, text, images, video and buttons |
 | FAQs | Question/answer accordion, with optional FAQ structured data |
+| FAQs with Quick Links | Sidebar of quick links beside a title, intro and ruled questions that slide open and shut |
 | Testimonials | Slider of chosen testimonials, or the latest five, with an optional tick list and line of text below |
 | Quote | A single highlighted quote (e.g. from the CEO) beside a photo |
 | Latest News | Latest posts, optionally filtered by category |
+| Featured Story | One story in a card with image, ribbon, date, text and button: pick a post or enter it manually |
 | Contact Form | Intro, general or recruitment phone/email, and a Contact Form 7 shortcode or iframe embed |
+| Become a Member / Contact Form | Text, phone/email and links beside a Contact Form 7 form, with an optional background image under a white or dark blue layer |
 | Contact Cards | Full-width navy or light panels with a title, text, phone and email |
 
-Every module except Reusable Section has a **Settings** tab for background (white / light grey / navy / dark navy / blue gradient) and an optional anchor ID.
+Every module except Reusable Section has a **Settings** tab with an optional anchor ID and a background. All of them offer White and Dark navy (Icon Cards labels these White and Blue, and its White is pale blue). Most also offer Light grey, Navy and Blue gradient, and Testimonials, Page Header and Contact Form keep their own default look.
+
+Modules with a brand shape watermark have a **Watermark** switch, on by default.
+
+Icon Cards, Icon Grid, Feature Boxes and Intro Cards can use the **icon picker**: choose from the set of 48, which change colour to suit the background, or upload your own.
 
 Copy a module with the copy icon on its bar, then use the arrow beside **Add Module** on any page to paste it. The private **Module Library** page shows the new modules with example content.
 

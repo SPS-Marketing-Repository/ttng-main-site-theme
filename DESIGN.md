@@ -30,6 +30,9 @@
 | `--blue` | `#009ADF` | Accent — icons, stat numbers, large text only (3:1 on white) |
 | `--blue-dark` | `#3153CC` | Accessible blue for small text, links, labels, focus rings (6.2:1 on white) |
 | `--blue-light` | `#B1BCE7` | Small accent text on navy (labels, hover) |
+| `--blue-icon` | `#007FBC` | Picked icons on light backgrounds (graphics only) |
+| `--blue-tint` | `#F2F8FE` | Pale blue section background |
+| `--pink` | `#D6346C` | Featured Story ribbon |
 | `--grey-light` | `#F3F5F8` | Light section background |
 | `--grey` | `#E7E8EB` | Borders, dividers |
 | `--grey-text` | `#5A6380` | Muted text — dates, captions, roles |
@@ -44,8 +47,8 @@
 | `--gradient-btn` | `127deg, #3153CC → #009ADF` | Gradient buttons (hero, form submit, brochure pill) |
 | `--gradient-section` | `0deg, #1B2D70 → #3354CC` | "Blue gradient" section background |
 | `--gradient-testimonials` | `0deg, #162255 → #3354CC` | Testimonials |
-| `--gradient-hero` | `165deg, #17265E 42% → #3153CC` | Home banner |
-| `--gradient-pod-1/2/3` | navy → blue variants | Intro card pods (cycle 1, 2, 3) |
+| `--gradient-hero` | `165deg, #17265E 42% → #3153CC` | Not in use: the Home Banner is a navy panel with the brand underlay |
+| `--gradient-pod-1/2/3` | navy → blue variants | Not in use: Intro Cards set their pod gradients in `intro_cards.css` |
 
 ---
 
@@ -91,20 +94,40 @@ text-transform: uppercase;
 
 Hover lifts the button 2px. Inside `.is-dark` sections, `.btn--outline` automatically renders as outline-light. Home Banner primary buttons use the gradient.
 
+Text links with an arrow use `ttng_the_arrow_link()`: 16px / 600, with the arrow moving up and to the right on hover. Each module sets the colour: `--navy` or `--blue-dark` on light backgrounds, `--blue` on dark ones.
+
+### Section backgrounds & watermark
+
+Every module offers White and Dark navy, set with `section_background` in its Settings tab. Most also offer Light grey, Navy and Blue gradient, and a few have their own default look:
+
+| Module | Default look | Notes |
+|---|---|---|
+| Home Banner | Dark navy with a rounded navy panel | On White the panel goes and the header turns navy, so the menu stays readable |
+| Page Header | Navy with the brand underlay | White and Dark navy apply only without a photo. A photo always has a 25% navy wash and white text |
+| Testimonials | `--gradient-testimonials` | |
+| Contact Form | Dark photo | |
+| Icon Cards | Pale blue, labelled White | The other option, labelled Blue, is Dark navy |
+
+The watermark is the brand shape (`brand-shape.svg`) at 3–5% opacity, or the brand underlay on the Home Banner and Page Header. It is white, so on light backgrounds it's used as a CSS `mask` filled with a colour. The Watermark switch adds `.no-watermark` when off. Contact Form, Become a Member and FAQs with Quick Links have no watermark.
+
 ### Cards
 
 | Card | Background | Radius | Shadow | Hover |
 |---|---|---|---|---|
 | Intro pod | Navy gradients | `25px 25px 25px 0` (`--radius-pod`) | none | lift 4px (if linked) |
-| Grid card | White | 25px | `--shadow-card` | `--shadow-hover`, image zoom |
-| News card | White | 25px | `--shadow-card` | `--shadow-hover`, image zoom |
-| Testimonial | One-at-a-time slider on `--gradient-testimonials` | — | none | — |
+| Grid card | `--navy` body, image on top | 25px | soft on white, none on light grey | lift 4px, deeper shadow, image zoom |
+| News card | `--navy` body, image on top | 25px | soft | lift 4px, deeper shadow, image zoom |
+| Icon card | White with a `--grey` border, or no card on the plain option | 15px | none | lift, `--shadow-hover` (if linked) |
+| Featured story | White, image one side, optional `--pink` corner ribbon | 15px | none | — |
+| Testimonial | One-at-a-time slider, no card | — | none | — |
 | People | Navy body, 302px photo | 25px (photo top, body bottom) | none | — |
 | Feature box | Navy, blue, dark navy or light grey per box | 15px | none | — |
 | Contact card | Navy with brand-shape watermark, or light | 20px | none | — |
-| Contact form panel | White | `--radius-pod` | deep navy shadow | — |
+| Contact form panel | White stacked rows: label inside each row, gradient submit bar along the bottom | 25px | a drop shadow on White only | — |
+| Member form card | White over an image, `--grey-light` without one | 15px | `--shadow-card` over an image, otherwise none | — |
 | Quote panel | `--navy` + brand-shape watermark (5%) | 25px | none | — |
 | FAQ bar | `--navy` (`--navy-hover` when hovered/open), answers on white | 15px | none | background darkens, plus → minus |
+| FAQ with Quick Links row | No fill, ruled with `--grey` (translucent white on dark) | — | none | question colour changes, plus → minus |
 
 On light-grey sections the card shadows are dropped.
 
@@ -115,11 +138,13 @@ On light-grey sections the card shadows are dropped.
 - Labels above fields, 14px / 600, navy
 - Submit uses the button gradient
 - Errors: inline red message below the field
+- The Contact Form module has its own stacked style, listed under Cards. Form messages sit in a white box with dark text
+- Become a Member: two fields side by side use `<div class="ttng-form-row">` in the CF7 form code
 
 ### Navigation
 
 - Top bar: white, 55px tall (46px ≤768px): star tagline, email and phone with dividers, gradient "Request a Brochure" pill
-- Header: 165px tall (110px ≤1280px, 96px ≤768px), white logo and uppercase links. Transparent over the hero on the home page, navy underlay on inner pages
+- Header: 165px tall (110px ≤1280px, 96px ≤768px), white logo and uppercase links. Transparent over the hero on the home page (navy over a White Home Banner), navy underlay on inner pages
 - Sticky state (`body.header-is-stuck`): the header scrolls away, then slides back pinned to the top as a 90px dark navy bar with a smaller logo
 - Mega panels (`inc/mega-menu.php`): overview, child links, and an image + navy card preview that swaps on hover/focus
 - Hamburger + off-canvas menu at **≤1280px**
@@ -179,6 +204,8 @@ Page Headers animate on load, with a 9s settle on a full-size background image. 
 - Use the pod radius (`--radius-pod`) for feature panels and imagery.
 - Keep one primary button per group; pair it with an outline button.
 - Use inline SVG icons (`ttng_icon()` / `social-links.php` pattern).
+- For content icons, use the `icon_picker` field and `ttng_get_field_icon()`. Picked icons use `currentColor`, so set their colour with `color`.
+- Check any new module on both White and Dark navy, including the watermark switch where it has one.
 
 ### Don't
 - Don't put small white text on `--blue` (#009ADF) — it fails contrast.

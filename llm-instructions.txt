@@ -6,7 +6,7 @@
 - Agency: SPS Marketing (https://spsmarketing.co.uk/)
 - Brand colours: #1B2D70 (navy, primary), #0F193D (dark navy), #009ADF (accent blue), #3153CC (accessible blue)
 - Font: Montserrat
-- Platform: WordPress custom theme (ttng-main-site-theme), ACF Pro Flexible Content page builder, jQuery
+- Platform: WordPress custom theme (ttng-main-site-theme), ACF Pro + ACF Extended Flexible Content page builder, jQuery
 
 [WRITING STYLE]
 - Tone: Clear, direct, practical. Friendly but not wordy.
@@ -22,7 +22,7 @@
 
 [TECHNICAL PREFERENCES]
 - PHP: Follow WP coding standards, sanitise input and escape output. Prefix functions ttng_.
-- JS: jQuery, all custom code in assets/js/main.js. No inline JS.
+- JS: jQuery, all front-end code in assets/js/main.js. No inline JS.
 - CSS: Brand tokens only from assets/css/core/additions.css. One stylesheet per module.
 - Embeds: always ttng_kses_iframe().
 - See CLAUDE.md and DESIGN.md in the theme root for architecture and design tokens.
