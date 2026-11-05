@@ -57,6 +57,7 @@ The dispatcher is `template-parts/modules/page-builder.php`, called through `ttn
 | `quote` | Single quote in a navy panel (big faded quote mark, brand-shape watermark) beside a photo, left or right |
 | `latest_news` | Latest posts, optional category filter + count |
 | `contact_form` | Text + general or recruitment phone/email (from Site Settings) + CF7 shortcode or iframe embed |
+| `become_member` | Background image under a white or dark blue layer at 80% (`section_background`). Left: text, Site Settings phone/email, text links. Right: CF7 shortcode in a white card; two-column form rows use `<div class="ttng-form-row">` in the CF7 form code |
 | `contact_cards` | Full-width navy or light panels with title, text, phone and email |
 
 **ACF Extended** is configured on the `page_builder` field: pop-up picker (`acfe_flexible_modal`, 4 columns, categories from each layout's `acfe_flexible_category`), `acfe_flexible_layouts_thumbnails`, and copy/paste via `acfe_flexible_add_actions: ["copy"]`. Thumbnails are served by `ttng_acfe_module_thumbnail()` in `inc/acf.php`, not stored in the field group, because media IDs differ between sites.
@@ -130,7 +131,7 @@ There is **no Slick or Bootstrap JS** in this theme.
 | File | Contents |
 |------|---------|
 | `group_64525a8b8885f.json` | Theme Settings (tabs: Logos, Contact, Header, Footer, Guide, Social) |
-| `group_677bab909515c.json` | Page Builder (28 layouts — pages + reusable sections) |
+| `group_677bab909515c.json` | Page Builder (29 layouts — pages + reusable sections) |
 | `group_6881f94ae87b3.json` | Humans.txt |
 | `group_ttng_testimonial_details.json` | Testimonial: `testimonial_quote`, `testimonial_role` |
 | `group_ttng_team_member.json` | Team member: `team_role`, `team_link`, `team_text` |

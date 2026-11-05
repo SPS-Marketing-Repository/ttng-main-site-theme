@@ -7475,6 +7475,338 @@
                     "acfe_flexible_settings_size": false,
                     "acfe_flexible_modal_edit_size": false
                 },
+                "layout_b817b72f3d6f7": {
+                    "key": "layout_b817b72f3d6f7",
+                    "name": "become_member",
+                    "label": "Become a Member",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_a696257a8698c",
+                            "label": "Content",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "top",
+                            "endpoint": 0,
+                            "selected": 0
+                        },
+                        {
+                            "key": "field_4d30daec6af44",
+                            "label": "Label",
+                            "name": "section_label",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Small text above the title. Optional.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_1ef3cd78a4749",
+                            "label": "Title",
+                            "name": "section_title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_69420af928c89",
+                            "label": "Content",
+                            "name": "section_content",
+                            "aria-label": "",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "basic",
+                            "media_upload": 0,
+                            "delay": 0
+                        },
+                        {
+                            "key": "field_f1e00c59bb03f",
+                            "label": "Show phone & email",
+                            "name": "show_contact_details",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Pulls the phone numbers and email from Site Settings.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "style": ""
+                        },
+                        {
+                            "key": "field_7739e54d91f4d",
+                            "label": "Which details",
+                            "name": "contact_details_source",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "Numbers and emails come from Site Settings.",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_f1e00c59bb03f",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "recruitment": "Recruitment / joining",
+                                "general": "General enquiries"
+                            },
+                            "default_value": "recruitment",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0,
+                            "allow_custom": 0,
+                            "search_placeholder": ""
+                        },
+                        {
+                            "key": "field_8f2b6e7be27d9",
+                            "label": "Links",
+                            "name": "section_links",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "Text links below the details, e.g. \"View membership options\".",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "pagination": 0,
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Add Link",
+                            "rows_per_page": 20,
+                            "acfe_repeater_stylised_button": 0,
+                            "sub_fields": [
+                                {
+                                    "key": "field_de12846748314",
+                                    "label": "Link",
+                                    "name": "section_link",
+                                    "aria-label": "",
+                                    "type": "link",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "parent_repeater": "field_8f2b6e7be27d9"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_f8120e6215d6c",
+                            "label": "Form",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "top",
+                            "endpoint": 0,
+                            "selected": 0
+                        },
+                        {
+                            "key": "field_a93439f1ff2a7",
+                            "label": "Contact Form 7 shortcode",
+                            "name": "form_shortcode",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "e.g. [contact-form-7 id=\"abc1234\" title=\"Membership enquiry\"]",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_c3fe87e5d5c04",
+                            "label": "Settings",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "top",
+                            "endpoint": 0,
+                            "selected": 0
+                        },
+                        {
+                            "key": "field_dc992834912bc",
+                            "label": "Background image",
+                            "name": "background_image",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "Large landscape photo. Sits under the colour layer.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "id",
+                            "library": "all",
+                            "preview_size": "medium",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
+                            "uploader": "",
+                            "acfe_thumbnail": 0
+                        },
+                        {
+                            "key": "field_fd6a73096ec45",
+                            "label": "Colour layer",
+                            "name": "section_background",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "Sits over the image at 80%. Without an image this is the solid background colour.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "white": "White",
+                                "navy": "Dark blue"
+                            },
+                            "default_value": "white",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0,
+                            "allow_custom": 0,
+                            "search_placeholder": ""
+                        },
+                        {
+                            "key": "field_c7cba8c1b6d93",
+                            "label": "Section ID",
+                            "name": "section_id",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Optional anchor for in-page links (letters, numbers and hyphens only), e.g. \"apply\".",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": "",
+                    "acfe_flexible_category": [
+                        "Forms & CTAs"
+                    ],
+                    "acfe_flexible_thumbnail": "",
+                    "acfe_flexible_render_template": false,
+                    "acfe_flexible_render_style": false,
+                    "acfe_flexible_render_script": false,
+                    "acfe_flexible_settings": false,
+                    "acfe_flexible_settings_size": false,
+                    "acfe_flexible_modal_edit_size": false
+                },
                 "layout_843efa46ae81b": {
                     "key": "layout_843efa46ae81b",
                     "name": "contact_cards",
@@ -9778,5 +10110,5 @@
             "json"
         ]
     },
-    "modified": 1793895488
+    "modified": 1793895930
 }

@@ -1,0 +1,173 @@
+/**
+ * #.#   Become a Member Module
+ *
+ * Styles for template-parts/modules/become_member.php
+ * Image under a dark blue or white layer at 80%, text on the left, CF7 form in
+ * a white card on the right. General field styles are in additions.css.
+**/
+
+.module--become-member { overflow: hidden; }
+
+/* The image and layer differ from the section either side, so this section
+   always keeps its padding, and so does a white section following it */
+.section-bg--white + .module--become-member.section-bg--white,
+.module--become-member.section-bg--white + .section-bg--white { padding-top: var(--section-space); }
+
+/* =============================
+  # Background image + layer
+============================= */
+
+.become-member__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.module--become-member::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--white);
+  opacity: .8;
+  pointer-events: none;
+}
+
+.module--become-member.is-dark::after { background: var(--navy-dark); }
+
+.module--become-member > .container { position: relative; z-index: 1; }
+
+/* =============================
+  # Layout
+============================= */
+
+.become-member__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 470px) minmax(0, 1fr);
+  gap: 40px 70px;
+  align-items: start;
+}
+
+.become-member--no-form .become-member__layout { grid-template-columns: minmax(0, 720px); }
+
+/* =============================
+  # Text
+============================= */
+
+/* Plain text details here: the snippet's round icons aren't part of this design */
+.module--become-member .contact-details { margin-top: 28px; }
+.module--become-member .contact-details__icon { display: none; }
+.module--become-member .contact-details li + li { margin-top: 14px; }
+
+.module--become-member .contact-details a {
+  font-size: 1.25rem;
+  font-weight: var(--medium);
+  color: var(--navy);
+}
+
+.module--become-member.is-dark .contact-details a { color: var(--white); }
+
+.module--become-member .contact-details:hover > li:not(:hover) { opacity: 1; }
+
+.become-member__links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.become-member__links:hover > li:not(:hover) { opacity: 1; }
+
+.become-member__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1.0625rem;
+  font-weight: var(--fw-semi);
+  line-height: 1.3;
+  color: var(--blue-dark);
+}
+
+.is-dark .become-member__link { color: var(--blue); }
+
+.become-member__link .icon { flex-shrink: 0; transition: transform .2s ease; }
+
+.become-member__link:hover,
+.become-member__link:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+
+.become-member__link:hover .icon,
+.become-member__link:focus-visible .icon { transform: translate(2px, -2px); }
+
+.become-member__link:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+
+/* =============================
+  # Form card
+============================= */
+
+.become-member__form {
+  padding: 44px;
+  border-radius: 15px;
+  background: var(--white);
+  box-shadow: var(--shadow-card);
+  color: var(--text);  /* .is-dark would otherwise turn form messages white on white */
+}
+
+/* Row of two fields. Set in the CF7 form code with <div class="ttng-form-row"> */
+.become-member__form .ttng-form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 22px;
+}
+
+/* CF7 wraps fields in <p> and adds a <br> after each label's text */
+.become-member__form .wpcf7 p { margin: 0; color: var(--text); }
+.become-member__form .wpcf7 br { display: none; }
+
+.become-member__form .wpcf7-form-control-wrap { display: block; margin-top: 8px; }
+
+.become-member__form .wpcf7 label { margin-bottom: 0; }
+
+.become-member__form .wpcf7 input:not([type="submit"]),
+.become-member__form .wpcf7 select,
+.become-member__form .wpcf7 textarea { margin-bottom: 18px; }
+
+.become-member__form .wpcf7 textarea { min-height: 112px; }
+
+.become-member__form .wpcf7 ::placeholder { color: var(--grey-text); opacity: 1; }
+
+/* A select still on its "please choose" row reads like a placeholder */
+.become-member__form .wpcf7 select:has(option[value=""]:checked) { color: var(--grey-text); }
+
+/* Blue circle arrow on selects */
+.become-member__form .wpcf7 select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 21 21'%3E%3Ccircle cx='10.5' cy='10.5' r='10.5' fill='%233153CC'/%3E%3Cpath d='M10.5 5.5v9.5M6.5 11l4 4 4-4' fill='none' stroke='%23fff' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-position: right 16px center;
+  background-size: 21px 21px;
+}
+
+.become-member__form .wpcf7-not-valid-tip { display: block; margin: -12px 0 14px; }
+
+/* =============================
+  # Media Queries
+============================= */
+
+@media (max-width: 1280px) {
+  .become-member__layout { column-gap: 50px; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); }
+  .become-member__form { padding: 36px; }
+}
+
+@media (max-width: 992px) {
+  .become-member__layout,
+  .become-member--no-form .become-member__layout { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .become-member__form { padding: 24px; }
+  .become-member__form .ttng-form-row { grid-template-columns: minmax(0, 1fr); }
+  .module--become-member .contact-details a { font-size: 1.125rem; }
+  .become-member__form .wpcf7 input[type="submit"] { width: 100%; }
+}

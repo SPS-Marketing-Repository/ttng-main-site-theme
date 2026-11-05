@@ -390,6 +390,26 @@ def contact_form():
     return s
 
 
+def become_member():
+    s = Svg()
+    s.image(0, 0, W, H, r=0)
+    s.parts.append(f'<rect width="{W}" height="{H}" fill="{WHITE}" fill-opacity="0.8"/>')
+    s.heading(24, 44, 110, h=12)
+    s.lines(24, 66, 120, n=2)
+    for i in range(3):
+        s.rect(24, 92 + i * 13, 88, 5, NAVY, r=2.5)
+    s.rect(24, 138, 80, 4, BLUE_DARK, r=2)
+    s.rect(168, 28, 208, 194, WHITE, r=10)
+    for r in range(2):
+        for c in range(2):
+            s.rect(182 + c * 94, 42 + r * 26, 86, 18, WHITE, r=4, stroke=LINE)
+    s.rect(182, 94, 180, 18, WHITE, r=4, stroke=LINE)
+    s.rect(182, 120, 180, 38, WHITE, r=4, stroke=LINE)
+    s.rect(182, 166, 180, 18, WHITE, r=4, stroke=LINE)
+    s.button(182, 194, 92, 16)
+    return s
+
+
 def cta_band():
     s = Svg(NAVY_DARK)
     s.image(0, 0, W, H, r=0)
@@ -444,7 +464,7 @@ def global_section():
 MODULES = [
     home_banner, page_header, full_width_content, split_content, jump_nav, tabs, timeline, comparison_table, boxed_list, faq, faq_links,
     guide_nav, intro_cards, card_grid, icon_grid, icon_cards, testimonials, quote, people_slider, logo_strip, latest_news,
-    contact_form, cta_band, brochure_cards, download, global_section,
+    contact_form, become_member, cta_band, brochure_cards, download, global_section,
 ]
 
 if __name__ == '__main__':
