@@ -48,6 +48,9 @@
 .intro-cards__col:nth-child(3n+2) .intro-card { background: linear-gradient(0deg, #1B2D70 0%, #3354CC 100%); }
 .intro-cards__col:nth-child(3n+3) .intro-card { background: linear-gradient(165deg, #17265E 42%, #3153CC 100%); }
 
+/* Part of the Watermark switch */
+.no-watermark .intro-card::after { display: none; }
+
 /* Light-streak overlays from staging */
 .intro-card::after {
   content: "";

@@ -232,6 +232,10 @@ h4 { font-size: var(--fs-h4); font-weight: var(--fw-semi); }
   z-index: 1;
 }
 
+/* Watermark switch off (ttng_module_attrs). Modules with a watermark on a card
+   or panel hide that in their own CSS. */
+.module.no-watermark::before { display: none; }
+
 /* =============================
   # Contact details (snippets/contact-details.php)
 ============================= */

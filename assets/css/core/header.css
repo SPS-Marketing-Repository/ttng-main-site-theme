@@ -156,6 +156,12 @@
   background: none;
 }
 
+/* White home banner: the header's white text needs its navy back.
+   :where() keeps this below the sticky state's background. */
+.home:where(:has(.module--home-banner.section-bg--white)) .site-header {
+  background: var(--navy) url("../../images/staging/bg-underlay.png") center top / cover no-repeat;
+}
+
 .site-header .container-header { height: 100%; }
 
 .site-header__inner {

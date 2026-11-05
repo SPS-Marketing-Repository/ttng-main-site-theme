@@ -133,6 +133,12 @@ function ttng_module_attrs( $module, $default = 'white', $extra = '' ) {
 		$classes[] = $extra;
 	}
 
+	// Rows saved before a module had the Watermark switch read as its default (on); see additions.css.
+	$watermark = get_sub_field_object( 'show_watermark' );
+	if ( $watermark && ! $watermark['value'] ) {
+		$classes[] = 'no-watermark';
+	}
+
 	$attrs = ' class="' . esc_attr( implode( ' ', array_unique( $classes ) ) ) . '"';
 
 	$section_id = get_sub_field( 'section_id' );

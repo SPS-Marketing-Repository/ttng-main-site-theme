@@ -242,6 +242,103 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_a3926f8b03ee6",
+                            "label": "Settings",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "top",
+                            "endpoint": 0,
+                            "selected": 0
+                        },
+                        {
+                            "key": "field_740fb851b8bf3",
+                            "label": "Background",
+                            "name": "section_background",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "navy": "Dark navy (#0F193D)",
+                                "white": "White"
+                            },
+                            "default_value": "navy",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0,
+                            "allow_custom": 0,
+                            "search_placeholder": ""
+                        },
+                        {
+                            "key": "field_a1fee12989c0d",
+                            "label": "Section ID",
+                            "name": "section_id",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Optional anchor for in-page links (letters, numbers and hyphens only), e.g. \"apply\".",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_b903a3f4e950c",
+                            "label": "Watermark",
+                            "name": "show_watermark",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Brand pattern in the navy panel.",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_740fb851b8bf3",
+                                        "operator": "==",
+                                        "value": "navy"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "style": ""
                         }
                     ],
                     "min": "",
@@ -489,7 +586,7 @@
                             "name": "section_background",
                             "aria-label": "",
                             "type": "select",
-                            "instructions": "Navy = brand navy #1B2D70. Dark navy = #0F193D (staging dark sections).",
+                            "instructions": "For headers with no photo. A background or featured image always shows instead.",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -498,11 +595,9 @@
                                 "id": ""
                             },
                             "choices": {
+                                "gradient": "Brand navy (default)",
                                 "white": "White",
-                                "light": "Light grey",
-                                "navy-primary": "Navy (#1B2D70)",
-                                "navy": "Dark navy (#0F193D)",
-                                "gradient": "Blue gradient"
+                                "navy": "Dark navy (#0F193D)"
                             },
                             "default_value": "gradient",
                             "return_format": "value",
@@ -535,6 +630,35 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_68db1a6d3c737",
+                            "label": "Watermark",
+                            "name": "show_watermark",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Brand pattern behind the header. Photo headers do not show it.",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_ad1392adbcb16",
+                                        "operator": "==",
+                                        "value": "gradient"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "style": ""
                         },
                         {
                             "key": "field_8d3f6a1c47e02",
@@ -1187,6 +1311,35 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_ee838950744cc",
+                            "label": "Watermark",
+                            "name": "show_watermark",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Brand shape behind the section.",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_640f16ef196be",
+                                        "operator": "==",
+                                        "value": "gradient"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "style": ""
                         }
                     ],
                     "min": "",
@@ -1621,6 +1774,35 @@
                             "append": ""
                         },
                         {
+                            "key": "field_94c5a7e424147",
+                            "label": "Watermark",
+                            "name": "show_watermark",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Brand shape behind the section.",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_281cc20e26d6e",
+                                        "operator": "==",
+                                        "value": "gradient"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "style": ""
+                        },
+                        {
                             "key": "field_2f1a6c94e07b3",
                             "label": "Minimum height",
                             "name": "section_min_height",
@@ -1823,6 +2005,35 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_ba6068dd291dc",
+                            "label": "Watermark",
+                            "name": "show_watermark",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Brand shape behind the section.",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_9593124909998",
+                                        "operator": "==",
+                                        "value": "gradient"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "style": ""
                         }
                     ],
                     "min": "",
@@ -2652,6 +2863,35 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_25a7f939cee77",
+                            "label": "Watermark",
+                            "name": "show_watermark",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Brand shape behind the section.",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_ca0f5b7a2ff0c",
+                                        "operator": "==",
+                                        "value": "gradient"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "style": ""
                         }
                     ],
                     "min": "",
@@ -3179,6 +3419,35 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_b6225a2e52d18",
+                            "label": "Watermark",
+                            "name": "show_watermark",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Brand shape behind the section.",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_0b417ceeb4304",
+                                        "operator": "==",
+                                        "value": "gradient"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "style": ""
                         }
                     ],
                     "min": "",
@@ -3567,6 +3836,35 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_ded6e3aae269d",
+                            "label": "Watermark",
+                            "name": "show_watermark",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Brand shape behind the section.",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_2d8ea6c8fa6aa",
+                                        "operator": "==",
+                                        "value": "gradient"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "style": ""
                         }
                     ],
                     "min": "",
@@ -3945,7 +4243,8 @@
                             },
                             "choices": {
                                 "white": "White",
-                                "light": "Light grey"
+                                "light": "Light grey",
+                                "navy": "Dark navy (#0F193D)"
                             },
                             "default_value": "white",
                             "return_format": "value",
@@ -4136,6 +4435,35 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_f9b08ce0201e8",
+                            "label": "Watermark",
+                            "name": "show_watermark",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Brand shape behind the section.",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_77cf67737f5de",
+                                        "operator": "==",
+                                        "value": "gradient"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "style": ""
                         }
                     ],
                     "min": "",
@@ -4600,6 +4928,27 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_e86aaf79e230a",
+                            "label": "Watermark",
+                            "name": "show_watermark",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Brand shape behind the section and light streaks on the cards.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "style": ""
                         }
                     ],
                     "min": "",
@@ -5035,6 +5384,35 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_9c2ff1523059c",
+                            "label": "Watermark",
+                            "name": "show_watermark",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Brand shape behind the section.",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_630226ebe8850",
+                                        "operator": "==",
+                                        "value": "gradient"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "style": ""
                         }
                     ],
                     "min": "",
@@ -5469,6 +5847,35 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_c605f5bd45405",
+                            "label": "Watermark",
+                            "name": "show_watermark",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Brand shape behind the section.",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_29397156b3007",
+                                        "operator": "==",
+                                        "value": "gradient"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "style": ""
                         }
                     ],
                     "min": "",
@@ -6152,7 +6559,7 @@
                             "name": "section_background",
                             "aria-label": "",
                             "type": "select",
-                            "instructions": "Navy = brand navy #1B2D70. Dark navy = #0F193D (staging dark sections).",
+                            "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -6161,13 +6568,11 @@
                                 "id": ""
                             },
                             "choices": {
+                                "gradient": "Blue gradient (default)",
                                 "white": "White",
-                                "light": "Light grey",
-                                "navy-primary": "Navy (#1B2D70)",
-                                "navy": "Dark navy (#0F193D)",
-                                "gradient": "Blue gradient"
+                                "navy": "Dark navy (#0F193D)"
                             },
-                            "default_value": "light",
+                            "default_value": "gradient",
                             "return_format": "value",
                             "multiple": 0,
                             "allow_null": 0,
@@ -6198,6 +6603,27 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_7d155f8eb4747",
+                            "label": "Watermark",
+                            "name": "show_watermark",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Brand shape behind the section.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "style": ""
                         }
                     ],
                     "min": "",
@@ -6443,6 +6869,27 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_41b6b87ddf794",
+                            "label": "Watermark",
+                            "name": "show_watermark",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Brand shape in the panel.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "style": ""
                         }
                     ],
                     "min": "",
@@ -6748,6 +7195,35 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_cc5fb51e9df7c",
+                            "label": "Watermark",
+                            "name": "show_watermark",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Brand shape behind the section.",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_4a0cbe3cb652a",
+                                        "operator": "==",
+                                        "value": "gradient"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "style": ""
                         }
                     ],
                     "min": "",
@@ -6948,6 +7424,35 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_07d27b4567e8b",
+                            "label": "Watermark",
+                            "name": "show_watermark",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Brand shape behind the section.",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_3599fdf7dca5e",
+                                        "operator": "==",
+                                        "value": "gradient"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "style": ""
                         }
                     ],
                     "min": "",
@@ -7264,6 +7769,35 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_a7f88363051b1",
+                            "label": "Watermark",
+                            "name": "show_watermark",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Brand shape behind the section.",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_327144e581fc4",
+                                        "operator": "==",
+                                        "value": "gradient"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "style": ""
                         }
                     ],
                     "min": "",
@@ -7936,7 +8470,7 @@
                             "name": "section_background",
                             "aria-label": "",
                             "type": "select",
-                            "instructions": "Navy = brand navy #1B2D70. Dark navy = #0F193D (staging dark sections).",
+                            "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -7945,11 +8479,9 @@
                                 "id": ""
                             },
                             "choices": {
+                                "gradient": "Photo (default)",
                                 "white": "White",
-                                "light": "Light grey",
-                                "navy-primary": "Navy (#1B2D70)",
-                                "navy": "Dark navy (#0F193D)",
-                                "gradient": "Blue gradient"
+                                "navy": "Dark navy (#0F193D)"
                             },
                             "default_value": "gradient",
                             "return_format": "value",
@@ -8694,6 +9226,27 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_d00008162edc1",
+                            "label": "Watermark",
+                            "name": "show_watermark",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Brand shape in the navy cards.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "style": ""
                         }
                     ],
                     "min": "",
@@ -8995,6 +9548,35 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_4e564fdeb8d30",
+                            "label": "Watermark",
+                            "name": "show_watermark",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Brand shape behind the section.",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_0415fa4fae635",
+                                        "operator": "==",
+                                        "value": "gradient"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "style": ""
                         }
                     ],
                     "min": "",
@@ -9282,6 +9864,35 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_40573bb8198b4",
+                            "label": "Watermark",
+                            "name": "show_watermark",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Brand shape behind the section.",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_57236ef96af51",
+                                        "operator": "==",
+                                        "value": "gradient"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "style": ""
                         }
                     ],
                     "min": "",
@@ -9909,6 +10520,42 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_e62cdcac30937",
+                            "label": "Watermark",
+                            "name": "show_watermark",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Brand shape behind the section.",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_b7a2b0f328fa5",
+                                        "operator": "==",
+                                        "value": "navy"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "field": "field_b7a2b0f328fa5",
+                                        "operator": "==",
+                                        "value": "gradient"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "style": ""
                         }
                     ],
                     "min": "",
@@ -10319,6 +10966,35 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_e56bab1b80c9b",
+                            "label": "Watermark",
+                            "name": "show_watermark",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Brand shape behind the section.",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_4986beaf4743c",
+                                        "operator": "==",
+                                        "value": "gradient"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "style": ""
                         }
                     ],
                     "min": "",
@@ -10589,6 +11265,35 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_1f653d491a553",
+                            "label": "Watermark",
+                            "name": "show_watermark",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Brand shape behind the section.",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_97e0f2aaea590",
+                                        "operator": "==",
+                                        "value": "gradient"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "style": ""
                         }
                     ],
                     "min": "",
@@ -10682,5 +11387,5 @@
             "json"
         ]
     },
-    "modified": 1793897368
+    "modified": 1793897908
 }

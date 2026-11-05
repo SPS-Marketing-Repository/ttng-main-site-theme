@@ -37,6 +37,8 @@
 }
 
 /* Brand shape watermark at 5% opacity */
+.no-watermark .quote-panel__content::before { display: none; }
+
 .quote-panel__content::before {
   content: "";
   position: absolute;

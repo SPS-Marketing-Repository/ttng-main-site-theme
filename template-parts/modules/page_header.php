@@ -56,7 +56,11 @@ if ( $header_image ) {
 	);
 }
 ?>
-<section<?php echo ttng_module_attrs( 'page-header', 'gradient', trim( ( $header_image ? 'has-image' : '' ) . ( $header_zoom ? ' has-image-zoom' : '' ) . ( $logo ? ' has-media' : '' ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in helper. ?><?php echo $header_style; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped above. ?>>
+<?php
+// A photo always takes white text, whichever background is chosen for pages without one.
+$header_is_light = 'white' === get_sub_field( 'section_background' ) && ! $header_image;
+?>
+<section<?php echo ttng_module_attrs( 'page-header', 'gradient', trim( ( $header_image ? 'has-image' : '' ) . ( $header_zoom ? ' has-image-zoom' : '' ) . ( $logo ? ' has-media' : '' ) . ( $header_is_light ? '' : ' is-dark' ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in helper. ?><?php echo $header_style; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped above. ?>>
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="<?php echo $logo ? 'col-lg-6 page-header__text' : 'col-lg-10 col-xl-8'; ?>">

@@ -30,6 +30,18 @@
   pointer-events: none;
 }
 
+/* Watermark off: the panel without the brand underlay */
+.module--home-banner.no-watermark::before {
+  display: block;
+  background:
+    linear-gradient(180deg, rgba(15, 25, 61, .6) 0%, rgba(15, 25, 61, 0) 100%),
+    var(--navy);
+}
+
+/* White: no panel, and the header gets its navy back (header.css) */
+.module--home-banner.section-bg--white { background: var(--white); }
+.module--home-banner.section-bg--white::before { display: none; }
+
 .module--home-banner .container { position: relative; z-index: 1; }
 
 .home-banner__content { padding-left: 63px; padding-right: 40px; }
@@ -38,8 +50,10 @@
 .home-banner__title {
   margin: 0;
   font-weight: var(--fw-regular);
-  color: var(--white);
+  color: var(--navy);
 }
+
+.is-dark .home-banner__title { color: var(--white); }
 
 .home-banner__lead {
   display: block;

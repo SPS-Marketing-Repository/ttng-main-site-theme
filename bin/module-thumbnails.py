@@ -93,15 +93,17 @@ class Svg:
 # --- One function per module -------------------------------------------------
 
 def home_banner():
-    s = Svg(NAVY)
-    s.label(26, 70, 44, BLUE_LIGHT)
-    s.heading(26, 82, 150, WHITE, h=14)
-    s.heading(26, 102, 110, WHITE, h=14)
-    s.lines(26, 128, 150, n=3, fill=BLUE_LIGHT)
-    s.button(26, 164, 74, 18, BLUE)
-    s.image(210, 34, 166, 182, r=14)
+    s = Svg(NAVY_DARK)
+    s.path('M0 0 H400 V200 Q400 222 378 222 H22 Q0 222 0 200 Z', fill=NAVY)
+    s.label(24, 72, 96, WHITE)
+    s.heading(24, 84, 150, WHITE, h=14)
+    s.lines(24, 110, 150, n=3, fill=BLUE_LIGHT)
+    s.button(24, 146, 66, 16, BLUE)
+    s.button(96, 146, 66, 16, BLUE_DARK)
+    s.image(196, 42, 184, 146, r=12)
+    s.rect(262, 172, 52, 10, BLUE_DARK, r=5)
     for i in range(3):
-        s.circle(278 + i * 12, 202, 3, WHITE if i == 0 else BLUE_LIGHT)
+        s.rect(276 + i * 10, 176, 8, 2, WHITE if i == 0 else BLUE_LIGHT, r=1)
     return s
 
 
@@ -146,16 +148,18 @@ def jump_nav():
 
 
 def tabs():
-    s = Svg()
-    s.intro(18, 150)
-    for i in range(4):
-        x = 30 + i * 86
-        s.rect(x, 62, 82, 22, NAVY if i == 0 else GREY, r=11)
-        s.rect(x + 18, 71, 46, 4, WHITE if i == 0 else IMG_DARK, r=2)
-    s.rect(30, 96, 340, 130, WHITE, r=10, stroke=LINE)
-    s.heading(46, 112, 130, h=9)
-    s.lines(46, 132, 150, n=5)
-    s.image(226, 110, 128, 102)
+    s = Svg('#F2F8FE')
+    s.label(24, 20)
+    s.heading(24, 30, 170, h=11)
+    s.rect(316, 34, 60, 4, NAVY, r=2)
+    for i, colour in enumerate((NAVY, BLUE_DARK, '#007FBC', '#D6346C')):
+        y = 58 + i * 42
+        s.rect(24, y, 112, 38, colour, r=8)
+        s.rect(36, y + 17, 72, 4, WHITE, r=2)
+    s.rect(130, 58, 246, 164, WHITE, r=8)
+    s.heading(146, 76, 96, h=8)
+    s.lines(146, 96, 100, n=6, gap=9, h=3)
+    s.image(258, 76, 102, 128, r=6)
     return s
 
 
@@ -191,15 +195,31 @@ def comparison_table():
 
 def boxed_list():
     s = Svg(NAVY)
-    s.intro(14, 170, WHITE, BLUE_LIGHT, BLUE)
-    for c, (x, bg) in enumerate(((44, '#132257'), (200, NAVY_DARK))):
-        s.rect(x, 62, 156, 148, bg)
-        s.heading(x + 38, 74, 80, WHITE, h=6)
-        for r in range(3):
-            y = 92 + r * 38
-            s.rect(x + 12, y, 54, 4, WHITE, r=2)
-            s.circle(x + 16, y + 15, 4, BLUE)
-            s.lines(x + 26, y + 10, 118, n=2, gap=8, fill=BLUE_LIGHT)
+    s.intro(14, 170, WHITE, BLUE_LIGHT, WHITE)
+    s.rect(24, 60, 352, 170, NAVY_DARK, r=12)
+    for c in range(3):
+        x = 38 + c * 114
+        s.heading(x, 74, 84, WHITE, h=6)
+        for r in range(2):
+            y = 94 + r * 62
+            s.rect(x, y, 54, 4, WHITE, r=2)
+            for t in range(3):
+                s.circle(x + 3, y + 14 + t * 13, 3, BLUE)
+                s.rect(x + 11, y + 12 + t * 13, 76, 3, BLUE_LIGHT, r=1.5)
+    return s
+
+
+def feature_boxes():
+    s = Svg(NAVY)
+    s.path('M300 0 Q400 20 400 110 L400 250 L330 250 Q260 170 310 90 Q330 40 300 0 Z', fill='#22377E')
+    s.intro(14, 170, WHITE, BLUE_LIGHT, WHITE)
+    for r in range(2):
+        for c in range(2):
+            x, y = 30 + c * 174, 60 + r * 90
+            s.rect(x, y, 166, 82, '#22377E', r=10)
+            s.circle(x + 18, y + 18, 7, BLUE)
+            s.heading(x + 32, y + 15, 90, WHITE, h=6)
+            s.lines(x + 12, y + 36, 142, n=3, gap=8, h=3, fill=BLUE_LIGHT)
     return s
 
 
@@ -268,13 +288,13 @@ def intro_cards():
 def card_grid():
     s = Svg()
     s.intro(16, 170)
-    for i in range(4):
-        x = 20 + i * 92
-        s.rect(x, 62, 84, 164, WHITE, r=10, stroke=LINE)
-        s.image(x + 12, 72, 60, 34, r=4)
-        s.heading(x + 10, 118, 54, h=6)
-        s.lines(x + 10, 134, 64, n=3, gap=8, h=3)
-        s.button(x + 10, 196, 54, 14)
+    for i in range(3):
+        x = 30 + i * 117
+        s.rect(x, 62, 106, 166, NAVY, r=10)
+        s.image(x, 62, 106, 72, r=10)
+        s.heading(x + 10, 144, 66, WHITE, h=6)
+        s.lines(x + 10, 158, 84, n=3, gap=8, h=3, fill=BLUE_LIGHT)
+        s.button(x + 10, 198, 54, 14, BLUE)
     return s
 
 
@@ -309,17 +329,15 @@ def icon_cards():
 
 
 def testimonials():
-    s = Svg(GREY)
-    s.intro(16, 150)
-    for i in range(2):
-        x = 26 + i * 180
-        s.rect(x, 64, 168, 160, WHITE, r=14)
-        s.path(f'M{x + 18} {96} q0 -14 12 -16 l0 5 q-6 2 -6 7 l6 0 0 12 -12 0 z', fill=BLUE)
-        s.path(f'M{x + 38} {96} q0 -14 12 -16 l0 5 q-6 2 -6 7 l6 0 0 12 -12 0 z', fill=BLUE)
-        s.lines(x + 18, 120, 132, n=3)
-        s.avatar(x + 32, 192, 14)
-        s.heading(x + 54, 184, 70, h=6)
-        s.lines(x + 54, 196, 84, n=1, h=3)
+    s = Svg(NAVY)
+    s.path('M300 0 Q400 20 400 110 L400 250 L330 250 Q260 170 310 90 Q330 40 300 0 Z', fill='#22377E')
+    s.intro(14, 130, WHITE, BLUE_LIGHT, WHITE)
+    s.avatar(200, 96, 28)
+    s.lines(90, 136, 220, n=3, gap=9, fill=BLUE_LIGHT, last=.7, align='center')
+    s.heading(160, 172, 80, WHITE, h=6)
+    s.lines(170, 184, 60, n=1, h=3, fill=BLUE_LIGHT)
+    for i in range(3):
+        s.circle(188 + i * 12, 202, 3, BLUE if i == 0 else BLUE_LIGHT)
     return s
 
 
@@ -339,10 +357,11 @@ def people_slider():
     s.intro(16, 150)
     for i in range(4):
         x = 34 + i * 86
-        s.rect(x, 64, 78, 138, WHITE, r=10, stroke=LINE)
-        s.avatar(x + 39, 100, 26)
-        s.heading(x + 12, 138, 54, h=6)
-        s.lines(x + 12, 152, 54, n=2, gap=8, h=3)
+        s.rect(x, 64, 78, 138, NAVY, r=10)
+        s.image(x, 64, 78, 90, r=10)
+        s.heading(x + 10, 164, 54, WHITE, h=6)
+        s.lines(x + 10, 178, 44, n=1, h=3, fill=BLUE)
+        s.lines(x + 10, 188, 56, n=1, h=3, fill=BLUE_LIGHT)
     s.path('M20 133 L12 125 M20 117 L12 125', stroke=NAVY, width=2)
     s.path('M380 133 L388 125 M380 117 L388 125', stroke=NAVY, width=2)
     for i in range(3):
@@ -366,12 +385,11 @@ def latest_news():
     s.intro(16, 170)
     for i in range(3):
         x = 22 + i * 122
-        s.rect(x, 62, 112, 166, WHITE, r=12, stroke=LINE)
-        s.image(x, 62, 112, 66, r=12)
-        s.lines(x + 10, 140, 44, n=1, h=3, fill=IMG_DARK)
-        s.heading(x + 10, 152, 80, h=7)
-        s.lines(x + 10, 170, 92, n=2, gap=8, h=3)
-        s.lines(x + 10, 206, 50, n=1, h=4, fill=BLUE_DARK)
+        s.rect(x, 62, 112, 166, NAVY, r=12)
+        s.image(x, 62, 112, 80, r=12)
+        s.heading(x + 10, 152, 80, WHITE, h=7)
+        s.lines(x + 10, 168, 92, n=2, gap=8, h=3, fill=BLUE_LIGHT)
+        s.button(x + 10, 198, 50, 14, BLUE)
     return s
 
 
@@ -388,17 +406,23 @@ def featured_story():
 
 
 def contact_form():
-    s = Svg(BLUE_DARK)
-    s.label(26, 60, 40, BLUE_LIGHT)
-    s.heading(26, 72, 120, WHITE, h=12)
-    s.lines(26, 96, 130, n=3, fill=BLUE_LIGHT)
+    s = Svg(NAVY_DARK)
+    s.image(0, 0, W, H, r=0)
+    s.parts.append(f'<rect width="{W}" height="{H}" fill="{NAVY_DARK}" fill-opacity="0.85"/>')
+    s.label(70, 62, 40, WHITE)
+    s.heading(40, 74, 100, WHITE, h=11)
+    s.lines(26, 96, 128, n=3, fill=BLUE_LIGHT, gap=8, h=3, align='center')
     for i in range(2):
-        s.circle(32, 142 + i * 22, 6, BLUE)
-        s.rect(46, 140 + i * 22, 90, 4, WHITE, r=2)
-    s.rect(180, 28, 196, 194, WHITE, r=14)
+        s.circle(58, 138 + i * 20, 6, BLUE_DARK)
+        s.rect(70, 136 + i * 20, 56, 4, WHITE, r=2)
+    s.rect(190, 30, 186, 190, WHITE, r=14)
     for i in range(4):
-        s.rect(194, 44 + i * 30, 168, 22, GREY, r=6, stroke=LINE)
-    s.button(194, 174, 92, 22)
+        y = 30 + i * 38
+        if i:
+            s.rect(190, y, 186, 1, LINE)
+        s.rect(204, y + 17, 56, 4, IMG_DARK, r=2)
+    s.path('M190 182 H376 V206 Q376 220 362 220 H204 Q190 220 190 206 Z', fill=BLUE_DARK)
+    s.rect(260, 199, 46, 4, WHITE, r=2)
     return s
 
 
@@ -422,31 +446,45 @@ def become_member():
     return s
 
 
+def contact_cards():
+    s = Svg()
+    s.label(24, 18)
+    s.heading(24, 28, 150, h=10)
+    for i, (bg, title, text) in enumerate(((NAVY_DARK, WHITE, BLUE_LIGHT), (GREY, NAVY, IMG_DARK))):
+        y = 52 + i * 96
+        s.rect(24, y, 352, 88, bg, r=10)
+        s.heading(42, y + 16, 130, title, h=9)
+        s.lines(42, y + 34, 220, n=1, h=4, fill=text)
+        for r in range(2):
+            s.circle(46, y + 52 + r * 15, 4, BLUE)
+            s.rect(56, y + 50 + r * 15, 90, 4, title, r=2)
+    return s
+
+
 def cta_band():
     s = Svg(NAVY_DARK)
-    s.image(0, 0, W, H, r=0)
-    s.rect(0, 0, W, H, NAVY)
-    s.path('M300 0 L400 0 L400 250 L220 250 Z', fill=BLUE_DARK)
-    s.label(160, 76, 80, BLUE_LIGHT)
-    s.heading(90, 90, 220, WHITE, h=15)
+    s.label(170, 80, 60, WHITE)
+    s.heading(90, 92, 220, WHITE, h=14)
     s.lines(90, 118, 220, n=2, fill=BLUE_LIGHT, gap=10, align='center')
-    s.button(120, 150, 74, 20, BLUE)
-    s.rect(206, 150, 74, 20, 'none', r=10, stroke=WHITE)
+    s.button(122, 150, 74, 20, BLUE)
+    s.button(204, 150, 74, 20, BLUE)
     return s
 
 
 def brochure_cards():
     s = Svg()
     s.intro(10, 160)
-    for i in range(3):
-        y = 50 + i * 66
-        s.rect(24, y, 352, 58, WHITE, r=8, stroke=LINE)
-        s.image(32, y + 7, 34, 44, r=3)
-        s.heading(76, y + 14, 92, h=7)
-        s.lines(76, y + 30, 92, n=2, gap=7, h=3)
+    for i in range(2):
+        y = 52 + i * 92
+        s.rect(24, y, 352, 84, GREY, r=10)
+        s.image(36, y + 10, 96, 42, r=4)
+        s.heading(36, y + 60, 70, h=5)
+        s.lines(36, y + 71, 96, n=1, h=3, fill=IMG_DARK)
+        s.rect(148, y + 10, 216, 64, WHITE, r=6, stroke=LINE)
         for f in range(2):
-            s.rect(190 + f * 72, y + 10, 66, 14, GREY, r=4, stroke=LINE)
-        s.button(190, y + 32, 66, 14)
+            s.rect(158 + f * 102, y + 20, 94, 12, GREY, r=3)
+        s.rect(158, y + 38, 196, 12, GREY, r=3)
+        s.button(158, y + 56, 56, 12, BLUE_DARK)
     return s
 
 
@@ -474,9 +512,9 @@ def global_section():
 
 
 MODULES = [
-    home_banner, page_header, full_width_content, split_content, jump_nav, tabs, timeline, comparison_table, boxed_list, faq, faq_links,
+    home_banner, page_header, full_width_content, split_content, jump_nav, tabs, timeline, comparison_table, boxed_list, feature_boxes, faq, faq_links,
     guide_nav, intro_cards, card_grid, icon_grid, icon_cards, testimonials, quote, people_slider, logo_strip, latest_news, featured_story,
-    contact_form, become_member, cta_band, brochure_cards, download, global_section,
+    contact_form, become_member, contact_cards, cta_band, brochure_cards, download, global_section,
 ]
 
 if __name__ == '__main__':

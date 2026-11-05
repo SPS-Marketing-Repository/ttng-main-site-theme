@@ -20,11 +20,23 @@
   pointer-events: none;
 }
 
+/* The brand shape is white, so on white it's a mask filled with navy */
+.module--testimonials.section-bg--white { background: var(--white); }
+
+.module--testimonials.section-bg--white::before {
+  background: var(--navy);
+  -webkit-mask: url("../../images/brand-shape.svg") no-repeat right -110px top -50px / auto 1092px;
+  mask: url("../../images/brand-shape.svg") no-repeat right -110px top -50px / auto 1092px;
+  opacity: .03;
+}
+
+.module--testimonials.section-bg--navy { background: var(--navy-dark); }
+
 .module--testimonials .container { position: relative; z-index: 1; }
 
-.module--testimonials,
-.module--testimonials .section-title { color: var(--white); }
-.module--testimonials .section-label { color: var(--white); }
+.module--testimonials.is-dark,
+.module--testimonials.is-dark .section-title,
+.module--testimonials.is-dark .section-label { color: var(--white); }
 
 .testimonial-slider {
   max-width: 791px;
@@ -104,6 +116,13 @@
 
 .testimonial-slider__dot.is-active { background: var(--blue); }
 .testimonial-slider__dot:focus-visible { outline: 2px solid var(--white); outline-offset: 3px; }
+
+/* White background */
+.section-bg--white .testimonial-card .testimonial-card__quote p,
+.section-bg--white .testimonial-card__role { color: var(--grey-text); }
+.section-bg--white .testimonial-card__name { color: var(--navy); }
+.section-bg--white .testimonial-slider__dot:not(.is-active) { background: rgba(27, 45, 112, .55); }
+.section-bg--white .testimonial-slider__dot:focus-visible { outline-color: var(--navy); }
 
 /* Boxed tick list under the slider (optional) */
 .testimonials__benefits {

@@ -48,7 +48,7 @@ $benefits      = preg_split( '/\R/', trim( (string) get_sub_field( 'benefits_lis
 $benefits_text = get_sub_field( 'benefits_text' );
 ?>
 
-<section<?php echo ttng_module_attrs( 'testimonials', 'gradient', 'is-dark' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in helper. ?>>
+<section<?php echo ttng_module_attrs( 'testimonials', 'gradient', 'white' === get_sub_field( 'section_background' ) ? '' : 'is-dark' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in helper. ?>>
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-lg-9 col-xl-8 text-center">

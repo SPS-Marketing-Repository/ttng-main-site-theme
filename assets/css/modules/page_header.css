@@ -71,6 +71,10 @@
 .module--page-header.section-bg--gradient::before { background-image: none; }
 .module--page-header.has-image.section-bg--gradient::before { background: var(--navy); opacity: .25; }
 
+/* Watermark off: no brand underlay, but a photo keeps its navy wash */
+.module--page-header.no-watermark:not(.has-image) { background-image: none; }
+.module--page-header.has-image.no-watermark::before { display: block; }
+
 .module--page-header .container { position: relative; z-index: 2; width: 100%; }
 
 .module--page-header .section-title {
@@ -78,15 +82,16 @@
   font-size: clamp(1.875rem, 1.5rem + 1vw, 2.3125rem);  /* 30 → 37px */
   font-weight: var(--fw-regular);
   line-height: 1;
-  color: var(--white);
 }
+
+.module--page-header.is-dark .section-title,
+.module--page-header.is-dark .section-content { color: var(--white); }
 
 .module--page-header .section-content {
   max-width: 487px;
   margin-top: 10px;
   font-weight: var(--medium);
   line-height: 23px;
-  color: var(--white);
 }
 
 .module--page-header .section-label { margin-bottom: 14px; }
@@ -94,6 +99,10 @@
 /* Image panel (staging TTA page): white rounded box to the right of the text */
 .module--page-header.has-media { min-height: 496px; }
 .module--page-header.has-media:not(.has-image) { background: linear-gradient(43deg, #172761 0%, #0F193E 100%); }
+
+/* White and Dark navy: only without a photo */
+.module--page-header.section-bg--white:not(.has-image) { background: var(--white); }
+.module--page-header.section-bg--navy:not(.has-image) { background: var(--navy-dark); }
 
 /*.page-header__text { padding-left: 69px; }*/
 
@@ -111,6 +120,8 @@
   background: var(--white);
   transition: transform .3s ease, box-shadow .3s ease;
 }
+
+.section-bg--white:not(.has-image) .page-header__media { background: var(--grey-light); }
 
 .page-header__image {
   display: block;

@@ -28,7 +28,7 @@ $slides   = is_array( $slides ) ? array_values( array_filter( array_map( static 
 $count    = count( $slides );
 ?>
 
-<section class="module module--home-banner is-dark">
+<section<?php echo ttng_module_attrs( 'home-banner', 'navy' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in helper. ?>>
 	<div class="container">
 		<div class="row align-items-center">
 

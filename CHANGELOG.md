@@ -20,8 +20,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Tabs, Side layout: redesigned, with coloured tabs joined to a white card and a notch on the active tab. Adds an optional text link opposite the title. Up and down arrow keys now move between its tabs. Removes the uppercase text and arrows from the tabs.
 - Tabs, both layouts: adds a watermark toggle, on by default including for existing sections, and a Pale blue background option. Sync the field groups after updating.
+- Watermark switch on every module with a watermark, on by default including for existing sections. On modules where only the Blue gradient has one, it shows when that background is chosen. Intro Cards also turns off the light streaks on its cards, and Quote and Contact Cards the shape in their panels and cards. Sync the field groups after updating.
+- White and Dark navy backgrounds now work on every module. Home Banner gets a Settings tab with Background, Section ID and Watermark, and its header turns navy on White. FAQs with Quick Links adds Dark navy. Testimonials, Page Header and Contact Form had a Background setting that did nothing; each now offers its existing look (the default), White and Dark navy. Page Header's choice applies when it has no photo. Existing sections look the same.
+- Page builder thumbnails: redrawn for Home Banner, Tabs, Card Grid, Testimonials, People Slider, Latest News, Contact Form, CTA Band, Brochure Cards and Boxed List to match the current designs. Feature Boxes and Contact Cards are now drawn by `bin/module-thumbnails.py`.
 
 ### Fixed
+- Contact Form: form messages, such as validation errors, were white text on a white box.
 - Icon Grid: long title words such as "Documentation" no longer break mid-word, at any width.
 
 ## [2.6.1] - 2026-11-04

@@ -26,6 +26,8 @@
   background: var(--navy-dark);
 }
 
+.no-watermark .contact-card--navy::before { display: none; }
+
 .contact-card--navy::before {
   content: "";
   position: absolute;

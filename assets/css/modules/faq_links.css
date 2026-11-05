@@ -155,6 +155,23 @@
 
 .module--faq-links .faq-item__answer a:not(.btn) { color: var(--blue-dark); text-decoration: underline; }
 
+/* =============================
+  # Dark navy background
+============================= */
+
+.is-dark .faq-links__link,
+.module--faq-links.is-dark .faq-item__answer a:not(.btn) { color: var(--blue); }
+
+.is-dark .faq-links__text,
+.module--faq-links.is-dark .faq-item__answer,
+.module--faq-links.is-dark .faq-item__answer p,
+.module--faq-links.is-dark .faq-item__answer li { color: var(--blue-light); }
+
+.module--faq-links.is-dark .faq-item { border-bottom-color: rgba(255, 255, 255, .2); }
+.module--faq-links.is-dark .faq-item__question { color: var(--white); }
+.module--faq-links.is-dark .faq-item__question:hover { color: var(--blue-light); }
+.module--faq-links.is-dark .faq-item__question:focus-visible { outline-color: var(--white); }
+
 @media (prefers-reduced-motion: reduce) {
   .module--faq-links .faq-item__icon::before,
   .module--faq-links .faq-item__icon::after { transition: none; }

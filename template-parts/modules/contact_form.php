@@ -23,7 +23,7 @@ if ( 'shortcode' === $form_type && 0 !== strpos( $form_code, '[' ) ) {
 }
 ?>
 
-<section<?php echo ttng_module_attrs( 'contact-form', 'gradient' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in helper. ?>>
+<section<?php echo ttng_module_attrs( 'contact-form', 'gradient', 'white' === get_sub_field( 'section_background' ) ? '' : 'is-dark' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in helper. ?>>
 	<div class="container">
 		<div class="row">
 

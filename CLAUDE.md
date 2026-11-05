@@ -30,7 +30,7 @@ The dispatcher is `template-parts/modules/page-builder.php`, called through `ttn
 
 | Layout | Purpose |
 |---|---|
-| `home_banner` | Left: label / **H1** / content / buttons. Right: fading image slider (gallery). Once per page. |
+| `home_banner` | Left: label / **H1** / content / buttons. Right: fading image slider (gallery). Dark navy (default) or White, which gives the transparent header a navy background (`header.css`). Once per page. |
 | `page_header` | Inner page hero: optional logo, label, **H1** (falls back to page title), subheading, buttons, background image with size/position (falls back to featured image). Once per page. |
 | `jump_nav` | Links to `#section-id` anchors or other pages |
 | `tabs` | Intro + tabbed panels with optional image (`.ttng-tabs`, stacked without JS). `tabs_layout`: top (pills) or side (coloured tabs joined to a white card, plus `header_link`). Watermark toggle (`show_watermark`) on both |
@@ -65,6 +65,8 @@ The dispatcher is `template-parts/modules/page-builder.php`, called through `ttn
 
 **Shared sub fields** (same names in every layout, so the shared snippets can read them):
 `section_label`, `section_title`, `section_content`, `section_ctas` (repeater: `cta_link`, `cta_style`), `section_background` (white / light / navy-primary / navy / gradient; `navy-primary` is flat `#1B2D70`, labelled "Navy"; `navy` is `#0F193D`, labelled "Dark navy"), `section_id`.
+
+**Backgrounds and watermarks:** every module offers White and Dark navy (`navy`). `testimonials`, `page_header` and `contact_form` have their own default look stored as `gradient`, and add `is-dark` themselves unless the background is White (`page_header` also when it has a photo). A `show_watermark` sub field, default on, makes `ttng_module_attrs()` add `.no-watermark` when off. `.module.no-watermark::before` in additions.css hides section-level watermarks; modules with one on a card or panel, or whose `::before` does something else (`page_header`, `home_banner`), handle it in their own CSS. `contact_form`, `become_member` and `faq_links` have no watermark, and `global_section` has no background.
 
 **Repeaters:** if a template reads layout-level sub fields *after* checking a repeater, read the repeater as an array (`get_sub_field( 'faqs' )`) instead of `have_rows()` — an early `have_rows()` check starts the repeater loop and later `get_sub_field()` calls read the repeater row (see `faq.php`).
 
