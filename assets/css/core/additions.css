@@ -30,6 +30,7 @@
   --blue:        #009ADF;  /* accent — large text, icons, highlights only (3:1 on white) */
   --blue-dark:   #3153CC;  /* accessible blue for small text/links on white (6.2:1) */
   --blue-light:  #B1BCE7;  /* small accent text on navy backgrounds */
+  --pink:        #D6346C;  /* Featured Story ribbon (4.6:1 with white text) */
   --grey-light:  #F3F5F8;  /* light section background */
   --blue-tint:   #F2F8FE;  /* pale blue section background (Icon Cards "White") */
   --grey:        #E7E8EB;  /* borders / dividers */

@@ -56,6 +56,7 @@ The dispatcher is `template-parts/modules/page-builder.php`, called through `ttn
 | `testimonials` | Relationship to `testimonial` CPT; empty selection shows the latest five. Optional boxed tick list and line of text below |
 | `quote` | Single quote in a navy panel (big faded quote mark, brand-shape watermark) beside a photo, left or right |
 | `latest_news` | Latest posts, optional category filter + count |
+| `featured_story` | One story in a card with image, ribbon, date, title, text and button. `story_source`: pick a post (`story_post`, hidden if unpublished) or enter manually. Background, watermark and ribbon options |
 | `contact_form` | Text + general or recruitment phone/email (from Site Settings) + CF7 shortcode or iframe embed |
 | `become_member` | Labelled "Become a Member / Contact Form". Left: text, Site Settings phone/email, text links. Right: CF7 shortcode in a card with optional `form_title`. With an image: white or dark blue layer at 80% (`section_background`) and a white card. Without: solid background and a grey card. Two-column rows in the CF7 form code use `<div class="ttng-form-row">` |
 | `contact_cards` | Full-width navy or light panels with title, text, phone and email |
@@ -131,7 +132,7 @@ There is **no Slick or Bootstrap JS** in this theme.
 | File | Contents |
 |------|---------|
 | `group_64525a8b8885f.json` | Theme Settings (tabs: Logos, Contact, Header, Footer, Guide, Social) |
-| `group_677bab909515c.json` | Page Builder (29 layouts — pages + reusable sections) |
+| `group_677bab909515c.json` | Page Builder (30 layouts — pages + reusable sections) |
 | `group_6881f94ae87b3.json` | Humans.txt |
 | `group_ttng_testimonial_details.json` | Testimonial: `testimonial_quote`, `testimonial_role` |
 | `group_ttng_team_member.json` | Team member: `team_role`, `team_link`, `team_text` |

@@ -375,6 +375,18 @@ def latest_news():
     return s
 
 
+def featured_story():
+    s = Svg(NAVY_DARK)
+    s.rect(24, 45, 352, 160, WHITE, r=10)
+    s.image(24, 45, 148, 160, r=10)
+    s.path('M24 72 L51 45 L84 45 L24 105 Z', fill='#D6346C')
+    s.lines(192, 76, 50, n=1, h=3)
+    s.heading(192, 90, 150, h=10)
+    s.lines(192, 112, 164, n=3, gap=8, h=3)
+    s.button(192, 148, 56, 15, BLUE)
+    return s
+
+
 def contact_form():
     s = Svg(BLUE_DARK)
     s.label(26, 60, 40, BLUE_LIGHT)
@@ -463,7 +475,7 @@ def global_section():
 
 MODULES = [
     home_banner, page_header, full_width_content, split_content, jump_nav, tabs, timeline, comparison_table, boxed_list, faq, faq_links,
-    guide_nav, intro_cards, card_grid, icon_grid, icon_cards, testimonials, quote, people_slider, logo_strip, latest_news,
+    guide_nav, intro_cards, card_grid, icon_grid, icon_cards, testimonials, quote, people_slider, logo_strip, latest_news, featured_story,
     contact_form, become_member, cta_band, brochure_cards, download, global_section,
 ]
 
