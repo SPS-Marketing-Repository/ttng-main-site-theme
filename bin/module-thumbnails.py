@@ -214,6 +214,26 @@ def faq():
     return s
 
 
+def faq_links():
+    s = Svg()
+    s.label(24, 34, 44, NAVY)
+    for i in range(3):
+        s.rect(24, 50 + i * 16, 70 if i != 1 else 84, 4, BLUE_DARK, r=2)
+    s.lines(24, 106, 96, n=2, gap=8, h=3)
+    s.rect(24, 128, 52, 4, BLUE_DARK, r=2)
+    s.heading(136, 30, 170, h=11)
+    s.lines(136, 52, 240, n=2, gap=9)
+    for i in range(4):
+        y = 84 + i * 36
+        s.rect(136, y + 8, 180 - i * 18, 5, NAVY, r=2.5)
+        s.path(f'M362 {y + 10} L372 {y + 10}' + ('' if i == 0 else f' M367 {y + 5} L367 {y + 15}'), stroke=BLUE, width=2)
+        if i == 0:
+            continue
+        s.rect(136, y - 6, 240, 1, LINE)
+    s.rect(136, 220, 240, 1, LINE)
+    return s
+
+
 def guide_nav():
     s = Svg(GREY)
     s.heading(30, 26, 120, h=10)
@@ -422,7 +442,7 @@ def global_section():
 
 
 MODULES = [
-    home_banner, page_header, full_width_content, split_content, jump_nav, tabs, timeline, comparison_table, boxed_list, faq,
+    home_banner, page_header, full_width_content, split_content, jump_nav, tabs, timeline, comparison_table, boxed_list, faq, faq_links,
     guide_nav, intro_cards, card_grid, icon_grid, icon_cards, testimonials, quote, people_slider, logo_strip, latest_news,
     contact_form, cta_band, brochure_cards, download, global_section,
 ]

@@ -174,7 +174,7 @@
       ttng_reveal('.intro-card, .grid-card, .news-card, .icon-item, .icon-card, .brochure-card, .person-card, .faq-item, .logo-strip__item, .feature-box, .boxed-list__column, .contact-card, .testimonials__benefit, .timeline__item', '', true);
 
       // Headings, text blocks and whole panels: a single fade up
-      ttng_reveal('.section-header, .icon-cards__header-link, .logo-strip__title, .section-ctas--below, .fw-block:not(.fw-block--image), .fw-block--image-panel, .full-width-content__inner > .section-label, .full-width-content__inner > .section-ctas, .quote-panel, .testimonial-slider, .testimonials__note, .feature-boxes__footer, .download__intro .section-ctas, .module--cta-band .contact-details', '', false);
+      ttng_reveal('.section-header, .icon-cards__header-link, .faq-links__sidebar, .logo-strip__title, .section-ctas--below, .fw-block:not(.fw-block--image), .fw-block--image-panel, .full-width-content__inner > .section-label, .full-width-content__inner > .section-ctas, .quote-panel, .testimonial-slider, .testimonials__note, .feature-boxes__footer, .download__intro .section-ctas, .module--cta-band .contact-details', '', false);
 
       // Split Content: text and media come in from their own side
       ttng_reveal('.split-content--media-right .split-content__text, .split-content--media-left .split-content__media', 'from-left', true);

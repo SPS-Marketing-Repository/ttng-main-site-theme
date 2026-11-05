@@ -52,6 +52,7 @@ The dispatcher is `template-parts/modules/page-builder.php`, called through `ttn
 | `split_content` | Text one side, image or video (oEmbed) the other; optional desktop minimum height (`section_min_height`) |
 | `full_width_content` | Nested flexible: heading / content / image / video / buttons |
 | `faq` | Intro + accordion (native `<details>`), first-open / one-at-a-time toggles, optional FAQPage JSON-LD |
+| `faq_links` | Sidebar (label, quick links, text, link; below the questions at 992px and under) + title, intro and ruled accordion. Same `faq_*` options and `.faq-item` animation as `faq`; both use the `faq-list` snippet |
 | `testimonials` | Relationship to `testimonial` CPT; empty selection shows the latest five. Optional boxed tick list and line of text below |
 | `quote` | Single quote in a navy panel (big faded quote mark, brand-shape watermark) beside a photo, left or right |
 | `latest_news` | Latest posts, optional category filter + count |
@@ -65,7 +66,7 @@ The dispatcher is `template-parts/modules/page-builder.php`, called through `ttn
 
 **Repeaters:** if a template reads layout-level sub fields *after* checking a repeater, read the repeater as an array (`get_sub_field( 'faqs' )`) instead of `have_rows()` — an early `have_rows()` check starts the repeater loop and later `get_sub_field()` calls read the repeater row (see `faq.php`).
 
-**Shared snippets** (`template-parts/snippets/`): `section-header.php`, `ctas.php`, `contact-details.php`, `news-card.php`, `category-links.php`, `share-links.php`, `social-links.php`.
+**Shared snippets** (`template-parts/snippets/`): `section-header.php`, `ctas.php`, `faq-list.php`, `contact-details.php`, `news-card.php`, `category-links.php`, `share-links.php`, `social-links.php`.
 
 **Helpers** (`inc/helpers.php`): `ttng_module_attrs()` (section class/id from Settings tab), `ttng_render_page_builder()`, `ttng_get_contact_details()`, `ttng_the_button()`, `ttng_tel_href()`, `ttng_icon()`, `ttng_kses_iframe()`, trimmed excerpt/content.
 
@@ -129,7 +130,7 @@ There is **no Slick or Bootstrap JS** in this theme.
 | File | Contents |
 |------|---------|
 | `group_64525a8b8885f.json` | Theme Settings (tabs: Logos, Contact, Header, Footer, Guide, Social) |
-| `group_677bab909515c.json` | Page Builder (27 layouts — pages + reusable sections) |
+| `group_677bab909515c.json` | Page Builder (28 layouts — pages + reusable sections) |
 | `group_6881f94ae87b3.json` | Humans.txt |
 | `group_ttng_testimonial_details.json` | Testimonial: `testimonial_quote`, `testimonial_role` |
 | `group_ttng_team_member.json` | Team member: `team_role`, `team_link`, `team_text` |
