@@ -2,16 +2,17 @@
  * #.#   Become a Member Module
  *
  * Styles for template-parts/modules/become_member.php
- * Image under a dark blue or white layer at 80%, text on the left, CF7 form in
- * a white card on the right. General field styles are in additions.css.
+ * Text on the left, CF7 form in a card on the right. With an image: dark blue
+ * or white layer at 80% and a white card. Without: solid background and a light
+ * grey card. General field styles are in additions.css.
 **/
 
 .module--become-member { overflow: hidden; }
 
-/* The image and layer differ from the section either side, so this section
-   always keeps its padding, and so does a white section following it */
-.section-bg--white + .module--become-member.section-bg--white,
-.module--become-member.section-bg--white + .section-bg--white { padding-top: var(--section-space); }
+/* An image differs from the section either side, so that section keeps its
+   padding, and so does a white section following it */
+.section-bg--white + .become-member--has-image.section-bg--white,
+.become-member--has-image.section-bg--white + .section-bg--white { padding-top: var(--section-space); }
 
 /* =============================
   # Background image + layer
@@ -25,7 +26,7 @@
   object-fit: cover;
 }
 
-.module--become-member::after {
+.become-member--has-image::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -34,7 +35,7 @@
   pointer-events: none;
 }
 
-.module--become-member.is-dark::after { background: var(--navy-dark); }
+.become-member--has-image.is-dark::after { background: var(--navy-dark); }
 
 .module--become-member > .container { position: relative; z-index: 1; }
 
@@ -114,6 +115,22 @@
   background: var(--white);
   box-shadow: var(--shadow-card);
   color: var(--text);  /* .is-dark would otherwise turn form messages white on white */
+}
+
+/* No image behind it: a grey card, so it still stands out on a white section */
+.module--become-member:not(.become-member--has-image) .become-member__form {
+  border: 1px solid var(--grey);
+  background: var(--grey-light);
+  box-shadow: none;
+}
+
+/* Parent class: .is-dark would otherwise turn this white on the light card */
+.become-member__form .become-member__form-title {
+  margin: 0 0 24px;
+  font-size: clamp(1.5rem, 1.25rem + .8vw, 1.875rem);  /* 24 → 30px */
+  font-weight: var(--fw-regular);
+  line-height: 1.2;
+  color: var(--navy);
 }
 
 /* Row of two fields. Set in the CF7 form code with <div class="ttng-form-row"> */

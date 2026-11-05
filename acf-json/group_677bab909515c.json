@@ -7524,7 +7524,7 @@
                 "layout_b817b72f3d6f7": {
                     "key": "layout_b817b72f3d6f7",
                     "name": "become_member",
-                    "label": "Become a Member",
+                    "label": "Become a Member / Contact Form",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -7725,6 +7725,26 @@
                             "selected": 0
                         },
                         {
+                            "key": "field_0cc87147effd6",
+                            "label": "Form heading",
+                            "name": "form_title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Optional heading inside the form card, e.g. \"How can we help?\".",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
                             "key": "field_a93439f1ff2a7",
                             "label": "Contact Form 7 shortcode",
                             "name": "form_shortcode",
@@ -7768,7 +7788,7 @@
                             "name": "background_image",
                             "aria-label": "",
                             "type": "image",
-                            "instructions": "Large landscape photo. Sits under the colour layer.",
+                            "instructions": "Optional large landscape photo, under the colour layer. Without an image the background is solid and the form card turns light grey.",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -7791,7 +7811,7 @@
                         },
                         {
                             "key": "field_fd6a73096ec45",
-                            "label": "Colour layer",
+                            "label": "Background colour",
                             "name": "section_background",
                             "aria-label": "",
                             "type": "select",
@@ -10156,5 +10176,5 @@
             "json"
         ]
     },
-    "modified": 1793896294
+    "modified": 1793896496
 }

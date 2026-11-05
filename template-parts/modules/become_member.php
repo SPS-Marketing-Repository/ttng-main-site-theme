@@ -2,10 +2,12 @@
 /**
  * Become a Member Module
  *
- * Background image under a dark blue or white layer at 80%. Left: label, title,
- * content, phone + email from Site Settings and text links. Right: a Contact
- * Form 7 form in a white card. The form's code is built in CF7, using the
- * .ttng-form-row wrapper for its two-column rows.
+ * Left: label, title, content, phone + email from Site Settings and text links.
+ * Right: a Contact Form 7 form in a card, with an optional heading.
+ * With an image: the image sits under a dark blue or white layer at 80%, and
+ * the card is white. Without one: a solid background and a light grey card.
+ * The form's code is built in CF7, using the .ttng-form-row wrapper for its
+ * two-column rows.
  *
  * The section_background field is the layer colour, so ttng_module_attrs() adds
  * the dark text handling and there is still a solid colour with no image.
@@ -20,15 +22,18 @@ $image        = get_sub_field( 'background_image' );
 $show_details = get_sub_field( 'show_contact_details' );
 $links        = get_sub_field( 'section_links' );
 $links        = is_array( $links ) ? $links : [];
+$form_title   = get_sub_field( 'form_title' );
 $form_code    = trim( (string) get_sub_field( 'form_shortcode' ) );
 
 // A shortcode field must actually contain a shortcode — never echo raw text.
 if ( 0 !== strpos( $form_code, '[' ) ) {
 	$form_code = '';
 }
+
+$classes = trim( ( $image ? 'become-member--has-image' : '' ) . ( $form_code ? '' : ' become-member--no-form' ) );
 ?>
 
-<section<?php echo ttng_module_attrs( 'become-member', 'white', $form_code ? '' : 'become-member--no-form' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in helper. ?>>
+<section<?php echo ttng_module_attrs( 'become-member', 'white', $classes ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in helper. ?>>
 	<?php if ( $image ) : ?>
 		<?php
 		echo wp_get_attachment_image(
@@ -67,6 +72,10 @@ if ( 0 !== strpos( $form_code, '[' ) ) {
 
 			<?php if ( $form_code ) : ?>
 				<div class="become-member__form">
+					<?php if ( $form_title ) : ?>
+						<h3 class="become-member__form-title"><?php echo esc_html( $form_title ); ?></h3>
+					<?php endif; ?>
+
 					<?php
 					// Form plugin output (inputs, selects, nonces) — escaping it would strip the form.
 					echo do_shortcode( $form_code ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
