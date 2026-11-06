@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.7.0] - 2026-11-06
+
 ### Added
 - Icon picker on Icon Cards, Icon Grid, Feature Boxes and Intro Cards: choose from a set of 48 icons, with previews in the dropdown, or upload your own. Picked icons change colour to suit their background. Existing uploaded icons are unchanged. Sync the field groups after updating.
 - New Featured Story module (`featured_story`): one story in a card with an image, corner ribbon, date, title, text and button. Pick an Insights post, which fills everything in, or enter it all manually. Options for the background colour, watermark and ribbon text. Sync the field groups after updating.
