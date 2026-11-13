@@ -100,6 +100,23 @@
 .news-card__more .icon { width: 14px; height: 14px; transition: transform .3s ease; }
 .news-card__more:hover .icon { transform: translateX(3px); }
 
+/* Dark backgrounds (Navy, Dark navy, Blue gradient): white cards with navy
+   text, so they stand out from the section. Scoped to the module so Insights
+   listings keep their navy cards. Blue links switch to the accessible blue. */
+.module--latest-news.is-dark .news-card,
+.module--latest-news.is-dark .news-card__body { background: var(--white); }
+
+.module--latest-news.is-dark .news-card .news-card__title { color: var(--navy); }
+.module--latest-news.is-dark .news-card__title a:hover,
+.module--latest-news.is-dark .news-card__title a:focus-visible { color: var(--blue-dark); }
+
+.module--latest-news.is-dark .news-card .news-card__date,
+.module--latest-news.is-dark .news-card .news-card__excerpt { color: var(--navy-dark); }
+
+.module--latest-news.is-dark .news-carousel .news-card__more { color: var(--blue-dark); }
+.module--latest-news.is-dark .news-carousel .news-card__more:hover,
+.module--latest-news.is-dark .news-carousel .news-card__more:focus-visible { color: var(--navy); }
+
 @media (max-width: 992px) {
   .latest-news__row { padding: 0; }
 }
