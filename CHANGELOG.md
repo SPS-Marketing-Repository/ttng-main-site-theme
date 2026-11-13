@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Home Banner: the Label field's instructions now say it is the first line of the H1 and explain how to highlight words with the brand gradient using *asterisks*. Sync the field groups after updating.
+
 ## [2.7.0] - 2026-11-06
 
 ### Added

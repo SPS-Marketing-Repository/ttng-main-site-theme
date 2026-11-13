@@ -47,7 +47,7 @@
                             "name": "section_label",
                             "aria-label": "",
                             "type": "text",
-                            "instructions": "Small text above the title. Optional.",
+                            "instructions": "First line of the H1, shown above the title (e.g. \"The UK's biggest independent\"). Optional. Wrap words in *asterisks* to show them in the brand gradient, e.g. \"The *UK's biggest* independent\". With no asterisks, \"UK's biggest\" is highlighted automatically.",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -11387,5 +11387,5 @@
             "json"
         ]
     },
-    "modified": 1793897908
+    "modified": 1794574532
 }
