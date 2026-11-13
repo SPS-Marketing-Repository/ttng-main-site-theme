@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Fixed
+- Timeline (Steps style): on White and Light grey backgrounds, the light cards blended into the section. They are now white with a soft shadow that follows the pointed card shape.
 - Timeline (vertical) style: an item's Image / logo now shows as a photo across the top of its card. Before, only the Story style output it. The field's help text, which wrongly said it showed on Steps, now lists where it appears. Sync the field groups after updating.
 
 ### Changed

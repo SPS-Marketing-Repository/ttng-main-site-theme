@@ -189,9 +189,15 @@
 .timeline--steps .timeline__item:nth-child(even) .timeline__title { color: var(--white); }
 .timeline--steps .timeline__item:nth-child(even) .timeline__text { color: var(--blue-light); }
 
-/* White sections: navy / blue cards instead of white on white */
+/* White and light grey sections: keep the white cards and lift them with a
+   shadow. drop-shadow() on the item, not box-shadow on the card, because the
+   card's clip-path would cut a box-shadow off; drop-shadow follows the
+   pointed shape and takes in the STAGE tab. Navy (even) cards keep theirs. */
 .section-bg--white .timeline--steps .timeline__body,
-.section-bg--light .timeline--steps .timeline__body { background: var(--grey-light); }
+.section-bg--light .timeline--steps .timeline__body { background: var(--white); }
+
+.section-bg--white .timeline--steps .timeline__item,
+.section-bg--light .timeline--steps .timeline__item { filter: drop-shadow(0 8px 18px rgba(15, 25, 61, .14)); }
 
 /* --- Story: staging "From Humble Beginnings" --- */
 /* Blue year tab, white logo strip, navy card (alternating navy / blue-navy)
