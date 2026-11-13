@@ -349,10 +349,11 @@ h4 { font-size: var(--fs-h4); font-weight: var(--fw-semi); }
   color: var(--white);
   background-color: var(--navy-button);
 }
+/* Hover to the accessible brand blue, so the change is as clear as on primary */
 .btn--outline:hover,
 .btn--outline:focus-visible {
   color: var(--white);
-  background-color: var(--navy);
+  background-color: var(--blue-dark);
 }
 
 .btn--outline-light,

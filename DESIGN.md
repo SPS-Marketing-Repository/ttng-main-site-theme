@@ -88,7 +88,7 @@ text-transform: uppercase;
 
 /* .btn--primary */        background: var(--blue); color: #fff;          hover → --blue-dark
 /* .btn--gradient */       127deg, #3153CC → #009ADF → #3153CC at 200% width; slides on hover (hero, forms)
-/* .btn--outline */        background: var(--navy-button); color: #fff;   hover → --navy
+/* .btn--outline */        background: var(--navy-button); color: #fff;   hover → --blue-dark
 /* .btn--outline-light */  border: 2px solid #fff; color: #fff;           hover → white fill
 ```
 

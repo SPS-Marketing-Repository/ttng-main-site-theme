@@ -119,13 +119,21 @@
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   scrollbar-width: none;
-  padding-bottom: 4px;
+  /* The track's overflow clips at its edges, so pad it out to give the
+     hover lift and shadow room, and pull it back with negative margins so
+     the cards stay where they were. scroll-padding keeps snapping aligned. */
+  margin: -12px -20px -36px;
+  padding: 12px 20px 36px;
+  scroll-padding-inline: 20px;
 }
 
 .news-carousel__track::-webkit-scrollbar { display: none; }
 .news-carousel__track:focus-visible { outline: 2px solid var(--blue-dark); outline-offset: 4px; }
 
 .news-carousel__slide { scroll-snap-align: start; }
+
+/* Softer, tighter hover shadow so it fits inside the track's padding */
+.news-carousel .news-card:hover { box-shadow: 0 10px 20px rgba(15, 25, 61, .2); }
 
 .news-carousel .news-card__image { aspect-ratio: 605 / 336; }
 .news-carousel .news-card__date,
@@ -164,6 +172,10 @@
 
 .news-carousel__dot.is-active { background: var(--navy); }
 
+/* Dark backgrounds: the navy active dot would vanish, so white on faded white */
+.is-dark .news-carousel__dot { background: rgba(255, 255, 255, .35); }
+.is-dark .news-carousel__dot.is-active { background: var(--white); }
+
 .news-carousel__arrow {
   display: flex;
   align-items: center;
@@ -185,5 +197,13 @@
 
 @media (max-width: 768px) {
   .news-carousel { padding: 0; }
-  .news-carousel__track { grid-auto-columns: 85%; }
+  /* No side bleed on phones, so the track can't push past the page gutter */
+  .news-carousel__track {
+    grid-auto-columns: 85%;
+    margin-right: 0;
+    margin-left: 0;
+    padding-right: 0;
+    padding-left: 0;
+    scroll-padding-inline: 0;
+  }
 }
