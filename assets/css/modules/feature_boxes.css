@@ -160,6 +160,18 @@
 .feature-box--blue .feature-box__content li { color: var(--white); font-weight: var(--fw-semi); }
 .feature-box--blue .feature-box__content ul li::before { filter: brightness(0) invert(1); }
 
+/* Blue boxes: the standard blue button would match the box, so it turns
+   white with navy text, and navy with white text on hover */
+.feature-box--blue .feature-box__cta .btn--primary {
+  color: var(--navy);
+  background-color: var(--white);
+}
+.feature-box--blue .feature-box__cta .btn--primary:hover,
+.feature-box--blue .feature-box__cta .btn--primary:focus-visible {
+  color: var(--white);
+  background-color: var(--navy);
+}
+
 .feature-box--light .feature-box__title { color: var(--navy); }
 .feature-box--light .feature-box__content,
 .feature-box--light .feature-box__content p,
