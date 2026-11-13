@@ -9,7 +9,8 @@
  * The sidebar comes first in the markup to match the reading order on desktop,
  * and moves below the questions on smaller screens (see the CSS).
  *
- * Related CSS: assets/css/modules/faq_links.css
+ * Related CSS: assets/css/modules/faq_links.css (layout and sidebar) and
+ * assets/css/modules/faq.css (the accordion, shared with the FAQs module)
  * Related snippet: template-parts/snippets/faq-list.php
 **/
 
@@ -20,6 +21,13 @@ $faqs = get_sub_field( 'faqs' );
 
 if ( empty( $faqs ) || ! is_array( $faqs ) ) {
 	return;
+}
+
+// The accordion uses the FAQs module's styles. Same handle as the page builder
+// gives faq.css, so it loads once when both modules are on a page.
+if ( ! wp_style_is( 'faq-css', 'enqueued' ) ) {
+	$faq_css = 'assets/css/modules/faq.css';
+	wp_enqueue_style( 'faq-css', get_theme_file_uri( $faq_css ), [], (string) filemtime( get_theme_file_path( $faq_css ) ) );
 }
 
 $sidebar_label = get_sub_field( 'sidebar_label' );

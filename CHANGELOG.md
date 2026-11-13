@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Fixed
+- FAQs with Quick Links: the questions now use the same navy bars, white answers and plus/minus icon as the FAQs module. Before, it had its own ruled style, which clashed with the FAQs styles when both modules were on a page. The sidebar is unchanged.
 - Feature Boxes: the button on a Blue box was the same blue as the box. It is now white with navy text, turning navy with white text on hover.
 - Timeline (Steps style): on White and Light grey backgrounds, the light cards blended into the section. They are now white with a soft shadow that follows the pointed card shape.
 - Timeline (vertical) style: an item's Image / logo now shows as a photo across the top of its card. Before, only the Story style output it. The field's help text, which wrongly said it showed on Steps, now lists where it appears. Sync the field groups after updating.

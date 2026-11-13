@@ -126,8 +126,7 @@ The watermark is the brand shape (`brand-shape.svg`) at 3–5% opacity, or the b
 | Contact form panel | White stacked rows: label inside each row, gradient submit bar along the bottom | 25px | a drop shadow on White only | — |
 | Member form card | White over an image, `--grey-light` without one | 15px | `--shadow-card` over an image, otherwise none | — |
 | Quote panel | `--navy` + brand-shape watermark (5%) | 25px | none | — |
-| FAQ bar | `--navy` (`--navy-hover` when hovered/open), answers on white | 15px | none | background darkens, plus → minus |
-| FAQ with Quick Links row | No fill, ruled with `--grey` (translucent white on dark) | — | none | question colour changes, plus → minus |
+| FAQ bar (FAQs and FAQs with Quick Links) | `--navy` (`--navy-hover` when hovered/open), answers on white | 15px | none | background darkens, plus → minus |
 
 On light-grey sections the card shadows are dropped.
 

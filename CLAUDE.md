@@ -52,7 +52,7 @@ The dispatcher is `template-parts/modules/page-builder.php`, called through `ttn
 | `split_content` | Text one side, image or video (oEmbed) the other; optional desktop minimum height (`section_min_height`) |
 | `full_width_content` | Nested flexible: heading / content / image / video / buttons |
 | `faq` | Intro + accordion (native `<details>`), first-open / one-at-a-time toggles, optional FAQPage JSON-LD |
-| `faq_links` | Sidebar (label, quick links, text, link; below the questions at 992px and under) + title, intro and ruled accordion. Same `faq_*` options and `.faq-item` animation as `faq`; both use the `faq-list` snippet |
+| `faq_links` | Sidebar (label, quick links, text, link; below the questions at 992px and under) + title, intro and accordion. Same `faq_*` options, look and `.faq-item` animation as `faq`: both use the `faq-list` snippet, and `faq_links.php` enqueues `faq.css` for the accordion styles |
 | `testimonials` | Relationship to `testimonial` CPT; empty selection shows the latest five. Optional boxed tick list and line of text below |
 | `quote` | Single quote in a navy panel (big faded quote mark, brand-shape watermark) beside a photo, left or right |
 | `latest_news` | Latest posts, optional category filter + count |

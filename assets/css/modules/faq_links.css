@@ -2,9 +2,10 @@
  * #.#   FAQs with Quick Links Module
  *
  * Styles for template-parts/modules/faq_links.php
- * Sidebar of text links beside ruled, plus/minus questions. faq.css only loads
- * for the FAQs module, so the accordion's own styles are all here. Open/close
- * is native <details>; assets/js/main.js animates .faq-item__panel.
+ * Sidebar of text links beside the questions. The accordion itself (navy
+ * question bars, white answers, plus/minus icon, dark variant) comes from
+ * faq.css, which faq_links.php enqueues, so both FAQ modules match.
+ * Open/close is native <details>; assets/js/main.js animates .faq-item__panel.
 **/
 
 /* =============================
@@ -73,109 +74,15 @@
   # Questions
 ============================= */
 
+/* Tighter gap under the intro than the FAQs module, as the column is narrower */
 .module--faq-links .section-header + .faq-list { margin-top: 20px; }
 
-/* Part of the space under the question is on the item, so a closed row looks
-   even while an open answer still sits close to its question */
-.module--faq-links .faq-item {
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--grey);
-}
-
-.module--faq-links .faq-item__question {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 24px 0 14px;
-  list-style: none;
-  cursor: pointer;
-  font-size: clamp(1.0625rem, 1rem + .3vw, 1.25rem);  /* 17 → 20px */
-  font-weight: var(--fw-semi);
-  line-height: 1.35;
-  color: var(--navy);
-  transition: color .2s ease;
-}
-
-.module--faq-links .faq-item__question:hover { color: var(--blue-dark); }
-
-/* Hide the native disclosure triangle */
-.module--faq-links .faq-item__question::-webkit-details-marker { display: none; }
-.module--faq-links .faq-item__question::marker { content: ""; }
-
-.module--faq-links .faq-item__question:focus-visible {
-  outline: 2px solid var(--blue-dark);
-  outline-offset: 2px;
-}
-
-/* Plus icon → minus when open (vertical bar collapses) */
-.module--faq-links .faq-item__icon {
-  position: relative;
-  flex-shrink: 0;
-  width: 16px;
-  height: 16px;
-  margin-right: 2px;
-}
-
-.module--faq-links .faq-item__icon::before,
-.module--faq-links .faq-item__icon::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  margin-top: -1px;
-  border-radius: 2px;
-  background: var(--blue);
-  transition: transform .45s cubic-bezier(.4, 0, .2, 1);
-}
-
-.module--faq-links .faq-item__icon::after { transform: rotate(90deg); }
-
-/* .is-closing: still [open] while the panel animates shut */
-.module--faq-links .faq-item[open]:not(.is-closing) .faq-item__icon::after { transform: rotate(0deg); }
-
 /* =============================
-  # Answer
+  # Dark navy background (sidebar only; faq.css handles the questions)
 ============================= */
 
-/* main.js animates this wrapper's height; padding lives on the answer so it can't jump */
-.module--faq-links .faq-item__panel { overflow: hidden; }
-
-.module--faq-links .faq-item__answer { padding: 0 40px 16px 0; }
-
-.module--faq-links .faq-item__answer,
-.module--faq-links .faq-item__answer p,
-.module--faq-links .faq-item__answer li {
-  font-weight: var(--fw-regular);
-  line-height: 25px;
-  color: var(--grey-text);
-}
-
-.module--faq-links .faq-item__answer a:not(.btn) { color: var(--blue-dark); text-decoration: underline; }
-
-/* =============================
-  # Dark navy background
-============================= */
-
-.is-dark .faq-links__link,
-.module--faq-links.is-dark .faq-item__answer a:not(.btn) { color: var(--blue); }
-
-.is-dark .faq-links__text,
-.module--faq-links.is-dark .faq-item__answer,
-.module--faq-links.is-dark .faq-item__answer p,
-.module--faq-links.is-dark .faq-item__answer li { color: var(--blue-light); }
-
-.module--faq-links.is-dark .faq-item { border-bottom-color: rgba(255, 255, 255, .2); }
-.module--faq-links.is-dark .faq-item__question { color: var(--white); }
-.module--faq-links.is-dark .faq-item__question:hover { color: var(--blue-light); }
-.module--faq-links.is-dark .faq-item__question:focus-visible { outline-color: var(--white); }
-
-@media (prefers-reduced-motion: reduce) {
-  .module--faq-links .faq-item__icon::before,
-  .module--faq-links .faq-item__icon::after { transition: none; }
-}
+.is-dark .faq-links__link { color: var(--blue); }
+.is-dark .faq-links__text { color: var(--blue-light); }
 
 /* =============================
   # Media Queries
@@ -190,10 +97,4 @@
 
   /* Title and questions first, with the links as the next step below them */
   .faq-links__sidebar { order: 2; }
-}
-
-@media (max-width: 600px) {
-  .module--faq-links .faq-item { padding-bottom: 8px; }
-  .module--faq-links .faq-item__question { padding: 20px 0 12px; }
-  .module--faq-links .faq-item__answer { padding-right: 0; }
 }

@@ -83,7 +83,7 @@ See the full release history in [CHANGELOG.md](CHANGELOG.md) and the design syst
 | Split Content | Text alongside an image, video or Google map, either side, with an optional minimum height |
 | Full Width Content | Free-form stack of headings, text, images, video and buttons |
 | FAQs | Question/answer accordion, with optional FAQ structured data |
-| FAQs with Quick Links | Sidebar of quick links beside a title, intro and ruled questions that slide open and shut |
+| FAQs with Quick Links | Sidebar of quick links beside a title, intro and questions that slide open and shut, styled like the FAQs module |
 | Testimonials | Slider of chosen testimonials, or the latest five, with an optional tick list and line of text below |
 | Quote | A single highlighted quote (e.g. from the CEO) beside a photo |
 | Latest News | Latest posts, optionally filtered by category |
