@@ -3,7 +3,8 @@
  * Timeline / Steps Module
  *
  * An ordered list, shown two ways:
- * - timeline: vertical line with items either side (company history)
+ * - timeline: vertical line with items either side (company history);
+ *             an item's Image / logo shows as a photo across the card top
  * - steps:    numbered cards in a row (joining process)
  * - story:    year tab + logo cards in a scroll-snap carousel (About
  *             "From Humble Beginnings"); main.js wires up the arrows
@@ -55,6 +56,11 @@ if ( empty( $items ) ) {
 								<?php if ( ! empty( $item['item_image'] ) ) : ?>
 									<?php echo wp_get_attachment_image( $item['item_image'], 'medium', false, [ 'alt' => '' ] ); ?>
 								<?php endif; ?>
+							</div>
+						<?php elseif ( 'timeline' === $style && ! empty( $item['item_image'] ) ) : ?>
+							<?php // Photo across the top of the card; alt text comes from the Media Library. ?>
+							<div class="timeline__media">
+								<?php echo wp_get_attachment_image( $item['item_image'], 'medium_large', false, [ 'sizes' => '(max-width: 768px) 100vw, 600px' ] ); ?>
 							</div>
 						<?php endif; ?>
 						<?php if ( $item['item_title'] ) : ?>

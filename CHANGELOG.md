@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Timeline (vertical) style: an item's Image / logo now shows as a photo across the top of its card. Before, only the Story style output it. The field's help text, which wrongly said it showed on Steps, now lists where it appears. Sync the field groups after updating.
+
 ### Changed
 - Jump links and other in-page anchor links start scrolling straight away. They use the browser's smooth scroll, which sets its speed by distance, in place of a fixed 1-second animation that lagged before moving. Reduced-motion users jump straight to the section. The link updates the address bar, and focus moves to the section for keyboard and screen reader users.
 - Home Banner: the Label field's instructions now say it is the first line of the H1 and explain how to highlight words with the brand gradient using *asterisks*. Sync the field groups after updating.

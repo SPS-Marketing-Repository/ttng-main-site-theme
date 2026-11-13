@@ -80,7 +80,12 @@
   transform: translateX(-50%);
 }
 
-.timeline--timeline .timeline__body { padding-top: 34px; }
+.timeline--timeline .timeline__body { padding-top: 34px; overflow: hidden; }
+
+/* Optional photo across the top of the card: negative margins cancel the
+   card padding, and the card's overflow clips it to the rounded corners */
+.timeline--timeline .timeline__media { margin: -34px -26px 22px; }
+.timeline--timeline .timeline__media img { display: block; width: 100%; height: auto; }
 
 /* --- Steps: staging "Process Timeline" --- */
 /* Row of cards (alternating white / navy) with a blue "STAGE N" tab, a tick,
@@ -362,4 +367,5 @@
   }
 
   .timeline--timeline .timeline__body { padding-top: 22px; }
+  .timeline--timeline .timeline__media { margin-top: -22px; }
 }

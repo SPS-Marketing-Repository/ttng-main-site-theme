@@ -2771,7 +2771,7 @@
                                     "name": "item_image",
                                     "aria-label": "",
                                     "type": "image",
-                                    "instructions": "Optional. Shown at the top of the card (steps style), e.g. a brand logo.",
+                                    "instructions": "Optional. Timeline: a photo across the top of the card. Story: a logo in the white strip at the top of the card, e.g. a brand logo. Not shown on Steps.",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -11387,5 +11387,5 @@
             "json"
         ]
     },
-    "modified": 1794574532
+    "modified": 1794575475
 }
