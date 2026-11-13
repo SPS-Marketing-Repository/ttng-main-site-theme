@@ -122,6 +122,9 @@ a:hover { text-decoration: none; }
 /* Do NOT remove focus outlines; improve them */
 :focus { outline: none; }
 :focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
+/* Sections given tabindex="-1" by the jump-link script take focus for
+   screen readers and keyboard users without outlining the whole section */
+[tabindex="-1"]:focus-visible { outline: none; }
 
 button { cursor: pointer; transition: var(--transition); }
 button:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }

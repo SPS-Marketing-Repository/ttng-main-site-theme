@@ -39,15 +39,37 @@
     }, 150)).trigger('resize');
 
     // Smooth scrolling for in-page anchor links — offset by the fixed
-    // header (top bar + header) so the target isn't hidden underneath it
-    $('a[href*="#"]:not([href="#"])').click(function(e) {
+    // header (top bar + header) so the target isn't hidden underneath it.
+    // Uses the browser's native smooth scroll: it starts immediately and
+    // scales its speed to the distance (a jQuery animate() fought the
+    // `scroll-behavior: smooth` in base.css and lagged before moving).
+    $('a[href*="#"]:not([href="#"])').on('click', function(e) {
       if (location.pathname === this.pathname && location.hostname === this.hostname) {
-        const target = $(this.hash);
-        if (target.length) {
-          e.preventDefault();
-          const headerOffset = ($('#site-header-wrap').outerHeight() || 0) + 20;
-          $('html, body').animate({ scrollTop: target.offset().top - headerOffset }, 1000);
+        let target;
+        try {
+          target = $(decodeURIComponent(this.hash));
+        } catch (err) {
+          return;
         }
+        if (!target.length) {
+          return;
+        }
+        e.preventDefault();
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const headerOffset = ($('#site-header-wrap').outerHeight() || 0) + 20;
+        window.scrollTo({
+          top: Math.max(0, target.offset().top - headerOffset),
+          behavior: reduceMotion ? 'auto' : 'smooth'
+        });
+
+        // Keep the URL shareable and move keyboard/screen reader focus to the section
+        if (history.pushState) {
+          history.pushState(null, '', this.hash);
+        }
+        if (!target.is('a, button, input, select, textarea, [tabindex]')) {
+          target.attr('tabindex', '-1');
+        }
+        target[0].focus({ preventScroll: true });
       }
     });
 
