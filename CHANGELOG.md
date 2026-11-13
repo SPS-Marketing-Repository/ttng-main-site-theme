@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.8.0] - 2026-11-13
+
 ### Removed
 - Contact Form module (`contact_form`): no longer used, and Become a Member covers the same need. Its template, styles, thumbnail and background photo are removed. Sync the field groups after updating.
 
