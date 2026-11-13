@@ -12,7 +12,7 @@ Bespoke WordPress theme for **The Travel Network Group (TTNG)** — the UK's big
 
 It replaces the previous Elementor build with:
 
-- An ACF Flexible Content page builder (30 modules) with ACF Extended's visual picker and copy/paste
+- An ACF Flexible Content page builder (29 modules) with ACF Extended's visual picker and copy/paste
 - Testimonial, Team Member and Reusable Section custom post types
 - A top bar and header with a compact sticky state, a plugin-free mega menu and a fully options-driven footer
 - A single source of truth for brand tokens (`assets/css/core/additions.css`)
@@ -88,11 +88,10 @@ See the full release history in [CHANGELOG.md](CHANGELOG.md) and the design syst
 | Quote | A single highlighted quote (e.g. from the CEO) beside a photo |
 | Latest News | Latest posts, optionally filtered by category |
 | Featured Story | One story in a card with image, ribbon, date, text and button: pick a post or enter it manually |
-| Contact Form | Intro, general or recruitment phone/email, and a Contact Form 7 shortcode or iframe embed |
 | Become a Member / Contact Form | Text, phone/email and links beside a Contact Form 7 form, with an optional background image under a white or dark blue layer |
 | Contact Cards | Full-width navy or light panels with a title, text, phone and email |
 
-Every module except Reusable Section has a **Settings** tab with an optional anchor ID and a background. All of them offer White and Dark navy (Icon Cards labels these White and Blue, and its White is pale blue). Most also offer Light grey, Navy and Blue gradient, and Testimonials, Page Header and Contact Form keep their own default look.
+Every module except Reusable Section has a **Settings** tab with an optional anchor ID and a background. All of them offer White and Dark navy (Icon Cards labels these White and Blue, and its White is pale blue). Most also offer Light grey, Navy and Blue gradient, and Testimonials and Page Header keep their own default look.
 
 Modules with a brand shape watermark have a **Watermark** switch, on by default.
 

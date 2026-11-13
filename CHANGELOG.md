@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Removed
+- Contact Form module (`contact_form`): no longer used, and Become a Member covers the same need. Its template, styles, thumbnail and background photo are removed. Sync the field groups after updating.
+
 ### Fixed
 - Latest News carousel: the hover shadow was cut off at the edges of the carousel. The cards now have room to lift, with a softer shadow. On dark backgrounds the dots are white, so the current one shows.
 - Outline buttons (solid navy) now turn blue on hover, like primary buttons. The old hover was a navy only slightly lighter than the button, which was hard to see.
@@ -16,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Timeline (vertical) style: an item's Image / logo now shows as a photo across the top of its card. Before, only the Story style output it. The field's help text, which wrongly said it showed on Steps, now lists where it appears. Sync the field groups after updating.
 
 ### Changed
+- Become a Member: new `ttng-form-row--1-2` class for a CF7 row where the first field takes a third and the second two thirds. The message box now starts at 120px tall.
 - Latest News: on Navy, Dark navy and Blue gradient backgrounds, the cards are white with navy text, so they stand out from the section. Insights listings keep their navy cards.
 - Jump links and other in-page anchor links start scrolling straight away. They use the browser's smooth scroll, which sets its speed by distance, in place of a fixed 1-second animation that lagged before moving. Reduced-motion users jump straight to the section. The link updates the address bar, and focus moves to the section for keyboard and screen reader users.
 - Home Banner: the Label field's instructions now say it is the first line of the H1 and explain how to highlight words with the brand gradient using *asterisks*. Sync the field groups after updating.

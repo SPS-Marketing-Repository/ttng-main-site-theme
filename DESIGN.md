@@ -105,10 +105,9 @@ Every module offers White and Dark navy, set with `section_background` in its Se
 | Home Banner | Dark navy with a rounded navy panel | On White the panel goes and the header turns navy, so the menu stays readable |
 | Page Header | Navy with the brand underlay | White and Dark navy apply only without a photo. A photo always has a 25% navy wash and white text |
 | Testimonials | `--gradient-testimonials` | |
-| Contact Form | Dark photo | |
 | Icon Cards | Pale blue, labelled White | The other option, labelled Blue, is Dark navy |
 
-The watermark is the brand shape (`brand-shape.svg`) at 3–5% opacity, or the brand underlay on the Home Banner and Page Header. It is white, so on light backgrounds it's used as a CSS `mask` filled with a colour. The Watermark switch adds `.no-watermark` when off. Contact Form, Become a Member and FAQs with Quick Links have no watermark.
+The watermark is the brand shape (`brand-shape.svg`) at 3–5% opacity, or the brand underlay on the Home Banner and Page Header. It is white, so on light backgrounds it's used as a CSS `mask` filled with a colour. The Watermark switch adds `.no-watermark` when off. Become a Member and FAQs with Quick Links have no watermark.
 
 ### Cards
 
@@ -123,7 +122,6 @@ The watermark is the brand shape (`brand-shape.svg`) at 3–5% opacity, or the b
 | People | Navy body, 302px photo | 25px (photo top, body bottom) | none | — |
 | Feature box | Navy, blue, dark navy or light grey per box | 15px | none | — |
 | Contact card | Navy with brand-shape watermark, or light | 20px | none | — |
-| Contact form panel | White stacked rows: label inside each row, gradient submit bar along the bottom | 25px | a drop shadow on White only | — |
 | Member form card | White over an image, `--grey-light` without one | 15px | `--shadow-card` over an image, otherwise none | — |
 | Quote panel | `--navy` + brand-shape watermark (5%) | 25px | none | — |
 | FAQ bar (FAQs and FAQs with Quick Links) | `--navy` (`--navy-hover` when hovered/open), answers on white | 15px | none | background darkens, plus → minus |
@@ -137,8 +135,7 @@ On light-grey sections the card shadows are dropped.
 - Labels above fields, 14px / 600, navy
 - Submit uses the button gradient
 - Errors: inline red message below the field
-- The Contact Form module has its own stacked style, listed under Cards. Form messages sit in a white box with dark text
-- Become a Member: two fields side by side use `<div class="ttng-form-row">` in the CF7 form code
+- Become a Member: two fields side by side use `<div class="ttng-form-row">` in the CF7 form code; add `ttng-form-row--1-2` for a third / two thirds split
 
 ### Navigation
 

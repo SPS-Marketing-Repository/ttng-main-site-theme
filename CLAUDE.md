@@ -57,8 +57,7 @@ The dispatcher is `template-parts/modules/page-builder.php`, called through `ttn
 | `quote` | Single quote in a navy panel (big faded quote mark, brand-shape watermark) beside a photo, left or right |
 | `latest_news` | Latest posts, optional category filter + count |
 | `featured_story` | One story in a card with image, ribbon, date, title, text and button. `story_source`: pick a post (`story_post`, hidden if unpublished) or enter manually. Background, watermark and ribbon options |
-| `contact_form` | Text + general or recruitment phone/email (from Site Settings) + CF7 shortcode or iframe embed |
-| `become_member` | Labelled "Become a Member / Contact Form". Left: text, Site Settings phone/email, text links. Right: CF7 shortcode in a card with optional `form_title`. With an image: white or dark blue layer at 80% (`section_background`) and a white card. Without: solid background and a grey card. Two-column rows in the CF7 form code use `<div class="ttng-form-row">` |
+| `become_member` | Labelled "Become a Member / Contact Form". Left: text, Site Settings phone/email, text links. Right: CF7 shortcode in a card with optional `form_title`. With an image: white or dark blue layer at 80% (`section_background`) and a white card. Without: solid background and a grey card. Two-column rows in the CF7 form code use `<div class="ttng-form-row">` (add `ttng-form-row--1-2` for a third / two thirds split) |
 | `contact_cards` | Full-width navy or light panels with title, text, phone and email |
 
 **ACF Extended** is configured on the `page_builder` field: pop-up picker (`acfe_flexible_modal`, 4 columns, categories from each layout's `acfe_flexible_category`), `acfe_flexible_layouts_thumbnails`, and copy/paste via `acfe_flexible_add_actions: ["copy"]`. Thumbnails are served by `ttng_acfe_module_thumbnail()` in `inc/acf.php`, not stored in the field group, because media IDs differ between sites.
@@ -66,7 +65,7 @@ The dispatcher is `template-parts/modules/page-builder.php`, called through `ttn
 **Shared sub fields** (same names in every layout, so the shared snippets can read them):
 `section_label`, `section_title`, `section_content`, `section_ctas` (repeater: `cta_link`, `cta_style`), `section_background` (white / light / navy-primary / navy / gradient; `navy-primary` is flat `#1B2D70`, labelled "Navy"; `navy` is `#0F193D`, labelled "Dark navy"), `section_id`, and `show_watermark` on modules with a watermark. A few modules also offer `pale` (`--blue-tint`).
 
-**Backgrounds and watermarks:** every module offers White and Dark navy (`navy`). `testimonials`, `page_header` and `contact_form` have their own default look stored as `gradient`, and add `is-dark` themselves unless the background is White (`page_header` also when it has a photo). A `show_watermark` sub field, default on, makes `ttng_module_attrs()` add `.no-watermark` when off. `.module.no-watermark::before` in additions.css hides section-level watermarks; modules with one on a card or panel, or whose `::before` does something else (`page_header`, `home_banner`), handle it in their own CSS. `contact_form`, `become_member` and `faq_links` have no watermark, and `global_section` has no background.
+**Backgrounds and watermarks:** every module offers White and Dark navy (`navy`). `testimonials` and `page_header` have their own default look stored as `gradient`, and add `is-dark` themselves unless the background is White (`page_header` also when it has a photo). A `show_watermark` sub field, default on, makes `ttng_module_attrs()` add `.no-watermark` when off. `.module.no-watermark::before` in additions.css hides section-level watermarks; modules with one on a card or panel, or whose `::before` does something else (`page_header`, `home_banner`), handle it in their own CSS. `become_member` and `faq_links` have no watermark, and `global_section` has no background.
 
 **Repeaters:** if a template reads layout-level sub fields *after* checking a repeater, read the repeater as an array (`get_sub_field( 'faqs' )`) instead of `have_rows()` — an early `have_rows()` check starts the repeater loop and later `get_sub_field()` calls read the repeater row (see `faq.php`).
 
@@ -137,7 +136,7 @@ There is **no Slick or Bootstrap JS** in this theme.
 | File | Contents |
 |------|---------|
 | `group_64525a8b8885f.json` | Theme Settings (tabs: Logos, Contact, Header, Footer, Guide, Social) |
-| `group_677bab909515c.json` | Page Builder (30 layouts — pages + reusable sections) |
+| `group_677bab909515c.json` | Page Builder (29 layouts — pages + reusable sections) |
 | `group_6881f94ae87b3.json` | Humans.txt |
 | `group_ttng_testimonial_details.json` | Testimonial: `testimonial_quote`, `testimonial_role` |
 | `group_ttng_team_member.json` | Team member: `team_role`, `team_link`, `team_text` |

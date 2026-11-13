@@ -140,6 +140,10 @@
   column-gap: 22px;
 }
 
+/* Uneven row: first field a third, second two thirds.
+   <div class="ttng-form-row ttng-form-row--1-2"> */
+.become-member__form .ttng-form-row--1-2 { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); }
+
 /* CF7 wraps fields in <p> and adds a <br> after each label's text */
 .become-member__form .wpcf7 p { margin: 0; color: var(--text); }
 .become-member__form .wpcf7 br { display: none; }
@@ -152,7 +156,7 @@
 .become-member__form .wpcf7 select,
 .become-member__form .wpcf7 textarea { margin-bottom: 18px; }
 
-.become-member__form .wpcf7 textarea { min-height: 112px; }
+.become-member__form .wpcf7 textarea { height: 120px; min-height: 120px; }
 
 .become-member__form .wpcf7 ::placeholder { color: var(--grey-text); opacity: 1; }
 

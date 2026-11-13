@@ -405,27 +405,6 @@ def featured_story():
     return s
 
 
-def contact_form():
-    s = Svg(NAVY_DARK)
-    s.image(0, 0, W, H, r=0)
-    s.parts.append(f'<rect width="{W}" height="{H}" fill="{NAVY_DARK}" fill-opacity="0.85"/>')
-    s.label(70, 62, 40, WHITE)
-    s.heading(40, 74, 100, WHITE, h=11)
-    s.lines(26, 96, 128, n=3, fill=BLUE_LIGHT, gap=8, h=3, align='center')
-    for i in range(2):
-        s.circle(58, 138 + i * 20, 6, BLUE_DARK)
-        s.rect(70, 136 + i * 20, 56, 4, WHITE, r=2)
-    s.rect(190, 30, 186, 190, WHITE, r=14)
-    for i in range(4):
-        y = 30 + i * 38
-        if i:
-            s.rect(190, y, 186, 1, LINE)
-        s.rect(204, y + 17, 56, 4, IMG_DARK, r=2)
-    s.path('M190 182 H376 V206 Q376 220 362 220 H204 Q190 220 190 206 Z', fill=BLUE_DARK)
-    s.rect(260, 199, 46, 4, WHITE, r=2)
-    return s
-
-
 def become_member():
     s = Svg()
     s.image(0, 0, W, H, r=0)
@@ -514,7 +493,7 @@ def global_section():
 MODULES = [
     home_banner, page_header, full_width_content, split_content, jump_nav, tabs, timeline, comparison_table, boxed_list, feature_boxes, faq, faq_links,
     guide_nav, intro_cards, card_grid, icon_grid, icon_cards, testimonials, quote, people_slider, logo_strip, latest_news, featured_story,
-    contact_form, become_member, contact_cards, cta_band, brochure_cards, download, global_section,
+    become_member, contact_cards, cta_band, brochure_cards, download, global_section,
 ]
 
 if __name__ == '__main__':
