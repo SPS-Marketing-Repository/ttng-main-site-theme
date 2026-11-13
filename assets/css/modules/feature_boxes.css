@@ -165,6 +165,9 @@
 .feature-box--blue .feature-box__cta .btn--primary {
   color: var(--navy);
   background-color: var(--white);
+  /* White → navy is a big contrast change, so a slower, even fade than the
+     standard .2s button transition, which reads as a jump here */
+  transition: background-color .4s ease, color .4s ease, transform .2s var(--ease-3);
 }
 .feature-box--blue .feature-box__cta .btn--primary:hover,
 .feature-box--blue .feature-box__cta .btn--primary:focus-visible {

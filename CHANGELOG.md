@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Feature Boxes: the white button on Blue boxes now fades smoothly to navy on hover, rather than appearing to jump.
+
 ## [2.8.0] - 2026-11-13
 
 ### Removed
