@@ -3066,6 +3066,49 @@
                             ]
                         },
                         {
+                            "key": "field_06ed05171a2ad",
+                            "label": "Table type",
+                            "name": "table_type",
+                            "aria-label": "",
+                            "type": "button_group",
+                            "instructions": "Ticks: Included / Extra cost / Not included in each cell. Text: type your own content in each cell (links allowed).",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "ticks": "Ticks",
+                                "text": "Text"
+                            },
+                            "default_value": "ticks",
+                            "return_format": "value",
+                            "allow_null": 0,
+                            "layout": "horizontal"
+                        },
+                        {
+                            "key": "field_1d245dc903e4c",
+                            "label": "First column heading",
+                            "name": "first_column_title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Optional. Heading above the row headings, e.g. Type of booking.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
                             "key": "field_ecf3ae4e96535",
                             "label": "Columns",
                             "name": "table_columns",
@@ -3200,7 +3243,7 @@
                             "sub_fields": [
                                 {
                                     "key": "field_da4f2012456ef",
-                                    "label": "Feature",
+                                    "label": "Row heading",
                                     "name": "row_label",
                                     "aria-label": "",
                                     "type": "text",
@@ -3227,7 +3270,7 @@
                                     "type": "select",
                                     "instructions": "",
                                     "required": 0,
-                                    "conditional_logic": 0,
+                                    "conditional_logic": [[{"field": "field_06ed05171a2ad", "operator": "!=", "value": "text"}]],
                                     "wrapper": {
                                         "width": "15",
                                         "class": "",
@@ -3259,7 +3302,7 @@
                                     "type": "select",
                                     "instructions": "",
                                     "required": 0,
-                                    "conditional_logic": 0,
+                                    "conditional_logic": [[{"field": "field_06ed05171a2ad", "operator": "!=", "value": "text"}]],
                                     "wrapper": {
                                         "width": "15",
                                         "class": "",
@@ -3291,7 +3334,7 @@
                                     "type": "select",
                                     "instructions": "",
                                     "required": 0,
-                                    "conditional_logic": 0,
+                                    "conditional_logic": [[{"field": "field_06ed05171a2ad", "operator": "!=", "value": "text"}]],
                                     "wrapper": {
                                         "width": "15",
                                         "class": "",
@@ -3323,7 +3366,7 @@
                                     "type": "select",
                                     "instructions": "",
                                     "required": 0,
-                                    "conditional_logic": 0,
+                                    "conditional_logic": [[{"field": "field_06ed05171a2ad", "operator": "!=", "value": "text"}]],
                                     "wrapper": {
                                         "width": "15",
                                         "class": "",
@@ -3346,6 +3389,90 @@
                                     "save_options": 0,
                                     "allow_custom": 0,
                                     "search_placeholder": ""
+                                },
+                                {
+                                    "key": "field_a7db29bfcae50",
+                                    "label": "Column 1",
+                                    "name": "text_1",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [[{"field": "field_06ed05171a2ad", "operator": "==", "value": "text"}]],
+                                    "wrapper": {
+                                        "width": "15",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "rows": 2,
+                                    "placeholder": "",
+                                    "new_lines": "",
+                                    "parent_repeater": "field_b40555cfae1ed"
+                                },
+                                {
+                                    "key": "field_913a471dac040",
+                                    "label": "Column 2",
+                                    "name": "text_2",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [[{"field": "field_06ed05171a2ad", "operator": "==", "value": "text"}]],
+                                    "wrapper": {
+                                        "width": "15",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "rows": 2,
+                                    "placeholder": "",
+                                    "new_lines": "",
+                                    "parent_repeater": "field_b40555cfae1ed"
+                                },
+                                {
+                                    "key": "field_071c1793afde9",
+                                    "label": "Column 3",
+                                    "name": "text_3",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [[{"field": "field_06ed05171a2ad", "operator": "==", "value": "text"}]],
+                                    "wrapper": {
+                                        "width": "15",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "rows": 2,
+                                    "placeholder": "",
+                                    "new_lines": "",
+                                    "parent_repeater": "field_b40555cfae1ed"
+                                },
+                                {
+                                    "key": "field_e84fc973b8142",
+                                    "label": "Column 4",
+                                    "name": "text_4",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [[{"field": "field_06ed05171a2ad", "operator": "==", "value": "text"}]],
+                                    "wrapper": {
+                                        "width": "15",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "rows": 2,
+                                    "placeholder": "",
+                                    "new_lines": "",
+                                    "parent_repeater": "field_b40555cfae1ed"
                                 }
                             ]
                         },
@@ -11057,5 +11184,5 @@
             "json"
         ]
     },
-    "modified": 1794576756
+    "modified": 1795582673
 }

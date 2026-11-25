@@ -2,9 +2,12 @@
 /**
  * Comparison Table Module
  *
- * Features down the side, up to 4 columns across (e.g. membership types).
- * Each cell is Included, Extra cost or Not included. A real <table> so screen
- * readers announce row and column. Scrolls sideways on small screens.
+ * Rows down the side, up to 4 columns across (e.g. membership types).
+ * Table type "Ticks": each cell is Included, Extra cost or Not included.
+ * Table type "Text": each cell holds its own text (links, bold, italics and
+ * line breaks allowed), e.g. worked examples or a cost worksheet.
+ * A real <table> so screen readers announce row and column. Scrolls sideways
+ * on small screens.
  *
  * Related CSS: assets/css/modules/comparison_table.css
 **/
@@ -20,15 +23,30 @@ if ( empty( $columns ) || empty( $rows ) ) {
 	return;
 }
 
-$columns = array_slice( $columns, 0, 4 );
-$labels  = [
+$columns      = array_slice( $columns, 0, 4 );
+$is_text      = 'text' === get_sub_field( 'table_type' );
+$first_title  = get_sub_field( 'first_column_title' );
+$title        = get_sub_field( 'section_title' );
+$labels       = [
 	'included' => __( 'Included', 'ttng-main-site-theme' ),
 	'extra'    => __( 'Extra cost', 'ttng-main-site-theme' ),
 ];
-$title   = get_sub_field( 'section_title' );
+$allowed_html = [
+	'a'      => [
+		'href'   => true,
+		'target' => true,
+		'rel'    => true,
+		'title'  => true,
+	],
+	'strong' => [],
+	'b'      => [],
+	'em'     => [],
+	'i'      => [],
+	'br'     => [],
+];
 ?>
 
-<section<?php echo ttng_module_attrs( 'comparison-table' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in helper. ?>>
+<section<?php echo ttng_module_attrs( 'comparison-table', 'white', $is_text ? 'comparison-table--text' : '' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in helper. ?>>
 	<div class="container">
 
 		<div class="row justify-content-center">
@@ -37,10 +55,12 @@ $title   = get_sub_field( 'section_title' );
 			</div>
 		</div>
 
-		<ul class="comparison-table__legend">
-			<li><span class="comparison-table__status comparison-table__status--included"><?php echo ttng_icon( 'check' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- fixed theme SVG. ?></span> <?php echo esc_html( $labels['included'] ); ?></li>
-			<li><span class="comparison-table__status comparison-table__status--extra"><?php echo ttng_icon( 'check' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- fixed theme SVG. ?></span> <?php echo esc_html( $labels['extra'] ); ?></li>
-		</ul>
+		<?php if ( ! $is_text ) : ?>
+			<ul class="comparison-table__legend">
+				<li><span class="comparison-table__status comparison-table__status--included"><?php echo ttng_icon( 'check' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- fixed theme SVG. ?></span> <?php echo esc_html( $labels['included'] ); ?></li>
+				<li><span class="comparison-table__status comparison-table__status--extra"><?php echo ttng_icon( 'check' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- fixed theme SVG. ?></span> <?php echo esc_html( $labels['extra'] ); ?></li>
+			</ul>
+		<?php endif; ?>
 
 		<?php // tabindex lets keyboard users scroll the table sideways on small screens. ?>
 		<div class="comparison-table__scroll" role="region" tabindex="0" aria-label="<?php echo esc_attr( $title ? $title : __( 'Comparison table', 'ttng-main-site-theme' ) ); ?>">
@@ -67,7 +87,11 @@ $title   = get_sub_field( 'section_title' );
 						</tr>
 					<?php endif; ?>
 					<tr class="comparison-table__headings">
-						<td></td>
+						<?php if ( $first_title ) : ?>
+							<th scope="col" class="comparison-table__first"><?php echo esc_html( $first_title ); ?></th>
+						<?php else : ?>
+							<td></td>
+						<?php endif; ?>
 						<?php foreach ( $columns as $column ) : ?>
 							<?php $colour = sanitize_hex_color( $column['column_colour'] ?? '' ); ?>
 							<th scope="col"<?php echo $colour ? ' style="--column-colour: ' . esc_attr( $colour ) . '"' : ''; ?>><?php echo esc_html( $column['column_title'] ); ?></th>
@@ -79,6 +103,10 @@ $title   = get_sub_field( 'section_title' );
 						<tr>
 							<th scope="row"><?php echo esc_html( $row['row_label'] ); ?></th>
 							<?php foreach ( array_keys( $columns ) as $index ) : ?>
+								<?php if ( $is_text ) : ?>
+									<td><?php echo wp_kses( nl2br( trim( (string) ( $row[ 'text_' . ( $index + 1 ) ] ?? '' ) ), false ), $allowed_html ); ?></td>
+									<?php continue; ?>
+								<?php endif; ?>
 								<?php $status = $row[ 'value_' . ( $index + 1 ) ] ?? ''; ?>
 								<td>
 									<?php if ( isset( $labels[ $status ] ) ) : ?>

@@ -35,7 +35,7 @@ The dispatcher is `template-parts/modules/page-builder.php`, called through `ttn
 | `jump_nav` | Links to `#section-id` anchors or other pages |
 | `tabs` | Intro + tabbed panels with optional image (`.ttng-tabs`, stacked without JS). `tabs_layout`: top (pills) or side (coloured tabs joined to a white card, plus `header_link`). Watermark toggle (`show_watermark`) on both |
 | `timeline` | Intro + timeline or numbered steps (`timeline_style`) |
-| `comparison_table` | Up to 4 columns, rows of Included / Extra cost / not included |
+| `comparison_table` | Up to 4 columns plus optional `first_column_title`. `table_type`: ticks (rows of Included / Extra cost / not included, `value_1`–`4`) or text (`text_1`–`4`, links / bold / italics / line breaks allowed, left-aligned, `.comparison-table--text`) |
 | `guide_nav` | Series list + prev/next from the `guide_pages` option |
 | `people_slider` | `team-member` posts as slider or grid; empty selection shows everyone |
 | `logo_strip` | Title + logos with optional links |

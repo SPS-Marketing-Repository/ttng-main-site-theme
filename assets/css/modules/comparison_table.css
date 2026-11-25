@@ -5,6 +5,8 @@
  * Logos above coloured column bars, flat white table with alternating
  * #F7F8FA / #F1F3F7 rows, slate tick = included, blue tick = extra cost,
  * grey dash = not included. Legend top right.
+ * .comparison-table--text (Table type: Text): same bars and rows, left-aligned
+ * text in each cell, no legend.
 **/
 
 .comparison-table__legend {
@@ -141,7 +143,57 @@
 .is-dark .comparison-table__table tbody th { color: var(--text); }
 .is-dark .comparison-table__legend { color: var(--white); }
 
+/* First column heading (optional) — same bar as the column headings */
+.comparison-table__headings .comparison-table__first { background: var(--navy); }
+
+/* ==========================================================================
+   Text table (Table type: Text) — same bars and row colours, text in cells
+   ========================================================================== */
+
+.comparison-table--text .comparison-table__scroll { margin-top: 30px; }
+
+.comparison-table--text .comparison-table__table {
+  min-width: 600px;
+  table-layout: auto;
+}
+
+.comparison-table--text .comparison-table__table thead td:first-child,
+.comparison-table--text .comparison-table__table tbody th { width: auto; }
+
+.comparison-table--text .comparison-table__headings th {
+  padding: 13px 20px;
+  text-align: left;
+}
+
+.comparison-table--text .comparison-table__table tbody td {
+  padding: 15px 20px;
+  font-size: .875rem;
+  line-height: 1.5;
+  text-align: left;
+  vertical-align: top;
+  color: var(--text);
+}
+
+.comparison-table--text .comparison-table__table tbody th { vertical-align: top; }
+
+.comparison-table--text .comparison-table__table tbody td a {
+  font-weight: var(--fw-semi);
+  color: var(--blue-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.comparison-table--text .comparison-table__table tbody td a:hover { color: var(--navy); }
+
+.comparison-table--text .comparison-table__table tbody td a:focus-visible {
+  outline: 2px solid var(--blue-dark);
+  outline-offset: 2px;
+}
+
 @media (max-width: 768px) {
   .comparison-table__table tbody th { min-width: 180px; padding: 12px 14px; }
   .comparison-table__legend { justify-content: center; }
+
+  .comparison-table--text .comparison-table__table tbody td,
+  .comparison-table--text .comparison-table__headings th { padding: 12px 14px; }
 }
