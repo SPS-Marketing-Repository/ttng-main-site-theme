@@ -124,7 +124,8 @@ h4 { font-size: var(--fs-h4); font-weight: var(--fw-semi); }
 ============================= */
 
 .content-block > * + *,
-.section-content > * + * { margin-top: 1em; }
+.section-content > * + *,
+.fw-block--content > * + * { margin-top: 1em; }
 
 .content-block ul,
 .content-block ol,

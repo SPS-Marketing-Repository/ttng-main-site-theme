@@ -15,6 +15,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Comparison Table: the row field "Feature" is now labelled "Row heading". Existing content is unchanged.
 
+### Fixed
+- Full Width Content: paragraphs in a Content block now have a gap between them, the same as other text areas.
+- Text areas on mobile (768px and under): paragraphs no longer get an extra 20px below them on top of the normal gap, so spacing stays even and the last paragraph in a card or FAQ answer leaves no empty space.
+
 Sync the Page Builder field group after updating.
 
 ## [2.8.1] - 2026-11-13
