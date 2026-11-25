@@ -3109,6 +3109,35 @@
                             "append": ""
                         },
                         {
+                            "key": "field_c046d3dfeb8d9",
+                            "label": "Key",
+                            "name": "show_legend",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Shows the Included / Extra cost key above the table.",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_06ed05171a2ad",
+                                        "operator": "==",
+                                        "value": "ticks"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "style": ""
+                        },
+                        {
                             "key": "field_ecf3ae4e96535",
                             "label": "Columns",
                             "name": "table_columns",
@@ -11184,5 +11213,5 @@
             "json"
         ]
     },
-    "modified": 1795582673
+    "modified": 1795604837
 }

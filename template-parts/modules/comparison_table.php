@@ -26,6 +26,8 @@ if ( empty( $columns ) || empty( $rows ) ) {
 $columns      = array_slice( $columns, 0, 4 );
 $is_text      = 'text' === get_sub_field( 'table_type' );
 $first_title  = get_sub_field( 'first_column_title' );
+// Tables saved before the toggle existed return null: keep the key showing.
+$show_legend  = ! $is_text && false !== get_sub_field( 'show_legend' );
 $title        = get_sub_field( 'section_title' );
 $labels       = [
 	'included' => __( 'Included', 'ttng-main-site-theme' ),
@@ -55,7 +57,7 @@ $allowed_html = [
 			</div>
 		</div>
 
-		<?php if ( ! $is_text ) : ?>
+		<?php if ( $show_legend ) : ?>
 			<ul class="comparison-table__legend">
 				<li><span class="comparison-table__status comparison-table__status--included"><?php echo ttng_icon( 'check' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- fixed theme SVG. ?></span> <?php echo esc_html( $labels['included'] ); ?></li>
 				<li><span class="comparison-table__status comparison-table__status--extra"><?php echo ttng_icon( 'check' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- fixed theme SVG. ?></span> <?php echo esc_html( $labels['extra'] ); ?></li>

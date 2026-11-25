@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Comparison Table: new **Table type** option. *Ticks* works as before; *Text* lets each cell hold its own text (links, bold, italics and line breaks allowed), for tables such as worked examples or cost worksheets. Text tables keep the same heading bars and row colours, align left and hide the tick legend. Empty cells stay blank.
 - Comparison Table: optional **First column heading** above the row headings (e.g. "Type of booking").
+- Comparison Table: **Key** toggle to show or hide the Included / Extra cost legend on Ticks tables. On by default, so existing tables keep it.
 
 ### Changed
 - Comparison Table: the row field "Feature" is now labelled "Row heading". Existing content is unchanged.
