@@ -296,7 +296,7 @@
 
 .timeline--story .timeline__title { margin: 0 0 10px; font-size: 1.125rem; color: var(--white); }
 .timeline--story .timeline__text { margin: 0; font-size: 1rem; line-height: 23px; color: var(--blue-light); }
-.timeline--story .timeline__item:nth-child(even) .timeline__text { font-weight: var(--fw-bold); color: var(--white); }
+.timeline--story .timeline__item:nth-child(even) .timeline__text { font-weight: var(--fw-regular); color: var(--white); }
 
 .timeline-carousel__arrow {
   position: absolute;

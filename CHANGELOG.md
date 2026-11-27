@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Feature Boxes: text in blue boxes is now normal weight instead of semi-bold.
 - Feature Boxes: logos under a box's text are larger: each is 100px tall (80px at 768px and under), and small logos now scale up instead of keeping their uploaded size.
 - Feature Boxes: the footer image beside the closing text is now 200px wide (was 90px).
+- Timeline (story style): text on every second item is now normal weight instead of bold. It stays white.
 
 ### Fixed
 - Full Width Content: paragraphs in a Content block now have a gap between them, the same as other text areas.
