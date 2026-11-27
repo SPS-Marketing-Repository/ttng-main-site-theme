@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Comparison Table: the row field "Feature" is now labelled "Row heading". Existing content is unchanged.
+- Feature Boxes: text in blue boxes is now normal weight instead of semi-bold.
 
 ### Fixed
 - Full Width Content: paragraphs in a Content block now have a gap between them, the same as other text areas.

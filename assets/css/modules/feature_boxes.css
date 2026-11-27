@@ -157,7 +157,7 @@
 /* Blue boxes: white text and white ticks (staging "white bullet" lists) */
 .feature-box--blue .feature-box__content,
 .feature-box--blue .feature-box__content p,
-.feature-box--blue .feature-box__content li { color: var(--white); font-weight: var(--fw-semi); }
+.feature-box--blue .feature-box__content li { color: var(--white); font-weight: var(--fw-regular); }
 .feature-box--blue .feature-box__content ul li::before { filter: brightness(0) invert(1); }
 
 /* Blue boxes: the standard blue button would match the box, so it turns
