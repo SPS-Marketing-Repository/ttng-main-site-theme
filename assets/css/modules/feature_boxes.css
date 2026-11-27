@@ -191,7 +191,13 @@
   padding-top: 30px;
 }
 
-.feature-box__images img { width: auto; max-width: 260px; max-height: 70px; object-fit: contain; }
+/* Explicit height (not max-height) so small logos scale up from their
+   width/height attributes too; object-fit keeps wide logos in proportion */
+.feature-box__images img { width: auto; height: 100px; max-width: min(320px, 100%); object-fit: contain; }
+
+@media (max-width: 768px) {
+  .feature-box__images img { height: 80px; }
+}
 
 .feature-box__cta { margin-top: auto; padding-top: 20px; }
 
