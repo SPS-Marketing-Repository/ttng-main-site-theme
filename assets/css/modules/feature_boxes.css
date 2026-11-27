@@ -211,7 +211,7 @@
 }
 
 .feature-boxes__footer-text p { margin: 0; }
-.feature-boxes__footer-image img { display: block; width: 90px; height: auto; }
+.feature-boxes__footer-image img { display: block; width: 200px; height: auto; }
 
 @media (max-width: 768px) {
   .feature-boxes__footer { flex-direction: column; text-align: center; }
